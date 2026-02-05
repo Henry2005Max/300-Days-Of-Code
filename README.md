@@ -48,6 +48,299 @@ I'm building **300 projects in 300 days** to master full-stack development!
 ### 📫 Connect With Me
 - **GitHub:** [@Henry2005Max](https://github.com/Henry2005Max)
 
+
+
+
+
+# 🚀 300 Days of Code Challenge
+
+Building 300 projects in 300 days to become a full-stack developer!
+
+## 📅 Challenge Timeline
+**Start Date:** [Your Start Date]  
+**End Date:** [Your End Date]  
+**Current Day:** 1/300
+
+---
+
+## 🎯 The Plan
+
+### Sprint 1: Foundations (Days 1-30)
+JavaScript/TypeScript Basics & CLI Apps
+- ✅ Day 1: TypeScript CLI Calculator
+- ⬜ Day 2: Password Generator
+- ⬜ Day 3: File Renamer
+- [See full list below]
+
+### Sprint 2: Web Basics (Days 31-60)
+React/TypeScript Web UIs
+
+### Sprint 3: Back-End & APIs (Days 61-90)
+Node/TypeScript Servers
+
+### Sprint 4: Data & Automation (Days 91-120)
+JS/TS Scripts & Bots
+
+### Sprint 5: Mobile Apps (Days 121-150)
+React Native/TypeScript
+
+### Sprint 6: Games & Algorithms (Days 151-180)
+C++ Core with JS Integrations
+
+### Sprint 7: Advanced Integrations (Days 181-210)
+Hybrid Stack Projects
+
+### Sprint 8: Performance & Tools (Days 211-240)
+C++ Optimization
+
+### Sprint 9: Contributions (Days 241-270)
+Open-Source Contributions
+
+### Sprint 10: Capstones (Days 271-300)
+Full-Stack Projects
+
+---
+
+## 📂 Repository Structure
+
+```
+300-days-of-code/
+├── sprint-01-foundations/
+│   ├── day-001-calculator/
+│   ├── day-002-password-generator/
+│   └── ...
+├── sprint-02-web-basics/
+├── sprint-03-backend-apis/
+├── sprint-04-data-automation/
+├── sprint-05-mobile-apps/
+├── sprint-06-games-algorithms/
+├── sprint-07-advanced-integrations/
+├── sprint-08-performance-tools/
+├── sprint-09-contributions/
+├── sprint-10-capstones/
+└── daily-logs/
+    ├── week-01.md
+    ├── week-02.md
+    └── ...
+```
+
+---
+
+## 📝 Daily Log
+
+I document my progress, challenges, and learnings in the `daily-logs/` folder.
+
+---
+
+## 🛠️ Tech Stack
+
+**Languages:** JavaScript, TypeScript, C++  
+**Frontend:** React, React Native  
+**Backend:** Node.js, Express, Fastify  
+**Tools:** Git, Docker, CI/CD  
+**Testing:** Jest, Catch2
+
+---
+
+## 📊 Stats
+
+- **Total Days:** 1/300
+- **Projects Completed:** 0
+- **Lines of Code:** 0+
+- **Current Streak:** 1 day 🔥
+
+---
+
+## 🎓 Key Learnings
+
+[To be updated as I progress]
+
+---
+
+## 🤝 Contributing
+
+This is a personal challenge, but I welcome:
+- Suggestions for improvements
+- Bug reports
+- Learning resources
+
+---
+
+## 📜 License
+
+MIT License - Feel free to learn from my code!
+
+---
+
+## 💡 Inspiration
+
+This challenge is inspired by the #100DaysOfCode movement, but tripled! I'm committed to building real projects every single day for 300 days.
+
+---
+
+**Let's build something amazing! 🚀**
+
+
+
+# Week 1 - Days 1-7
+
+## Day 1 - [Date]
+**Project:** TypeScript CLI Calculator with BigInt  
+**Time Spent:** [X hours]
+
+### What I Built
+- [Brief description]
+
+### What I Learned
+- [Key learning 1]
+- [Key learning 2]
+
+### Challenges
+- [Any problems faced]
+
+### Resources Used
+- [Links to tutorials, docs, etc.]
+
+### Tomorrow's Plan
+- Day 2: Password Generator
+
+---
+
+## Day 2 - [Date]
+**Project:** Password Generator  
+**Time Spent:** [X hours]
+
+### What I Built
+- [Brief description]
+
+### What I Learned
+- [Key learning 1]
+- [Key learning 2]
+
+### Challenges
+- [Any problems faced]
+
+### Resources Used
+- [Links to tutorials, docs, etc.]
+
+### Tomorrow's Plan
+- Day 3: File Renamer
+
+---
+
+## Day 3 - [Date]
+**Project:** [Project name]  
+**Time Spent:** [X hours]
+
+### What I Built
+- [Brief description]
+
+### What I Learned
+- 
+
+### Challenges
+- 
+
+### Resources Used
+- 
+
+### Tomorrow's Plan
+- 
+
+---
+
+## Day 4 - [Date]
+**Project:** [Project name]  
+**Time Spent:** [X hours]
+
+### What I Built
+- 
+
+### What I Learned
+- 
+
+### Challenges
+- 
+
+### Resources Used
+- 
+
+### Tomorrow's Plan
+- 
+
+---
+
+## Day 5 - [Date]
+**Project:** [Project name]  
+**Time Spent:** [X hours]
+
+### What I Built
+- 
+
+### What I Learned
+- 
+
+### Challenges
+- 
+
+### Resources Used
+- 
+
+### Tomorrow's Plan
+- 
+
+---
+
+## Day 6 - [Date]
+**Project:** [Project name]  
+**Time Spent:** [X hours]
+
+### What I Built
+- 
+
+### What I Learned
+- 
+
+### Challenges
+- 
+
+### Resources Used
+- 
+
+### Tomorrow's Plan
+- 
+
+---
+
+## Day 7 - [Date]
+**Project:** [Project name]  
+**Time Spent:** [X hours]
+
+### What I Built
+- 
+
+### What I Learned
+- 
+
+### Challenges
+- 
+
+### Resources Used
+- 
+
+### Tomorrow's Plan
+- 
+
+---
+
+## Week 1 Summary
+**Total Projects:** 7  
+**Total Hours:** [X hours]  
+**Biggest Win:** [What you're most proud of]  
+**Biggest Challenge:** [What was hardest]  
+**Next Week's Focus:** [What you want to improve]
+
+
 ---
 
 > "The journey of a thousand miles begins with a single step." 
