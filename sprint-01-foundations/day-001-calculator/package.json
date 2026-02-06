@@ -1,0 +1,23 @@
+{
+  "name": "day-001-calculator",
+  "version": "1.0.0",
+  "description": "TypeScript CLI Calculator with BigInt support - Day 1 of 300",
+  "main": "calculator.js",
+  "scripts": {
+    "build": "tsc calculator.ts",
+    "start": "node calculator.js",
+    "dev": "ts-node calculator.ts"
+  },
+  "keywords": [
+    "calculator",
+    "typescript",
+    "cli",
+    "bigint"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
