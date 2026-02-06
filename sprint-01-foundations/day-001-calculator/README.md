@@ -71,7 +71,7 @@ Enter second number: 888888888888888888
 ## 📅 Challenge Info
 **Day:** 1/300  
 **Sprint:** 1 - Foundations  
-**Date:** [Add your date]
+**Date:** Feb 6, 2026
 
 ---
 
