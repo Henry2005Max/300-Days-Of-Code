@@ -1,24 +1,29 @@
 # Week 1 - Days 1-7
 
-## Day 1 - [Date]
+Day 1 - February 5, 2026
 **Project:** TypeScript CLI Calculator with BigInt  
-**Time Spent:** [X hours]
+**Time Spent:** 45Mins
 
 ### What I Built
-- [Brief description]
+- A command-line calculator that works with very large numbers
+- Supports addition, subtraction, multiplication, division, modulo, and power operations
+- Has error handling for division by zero
 
 ### What I Learned
-- [Key learning 1]
-- [Key learning 2]
+- How to set up a TypeScript project from scratch
+- Using BigInt for handling very large numbers
+- Working with readline for user input in Node.js
+- Async/await patterns in TypeScript
 
 ### Challenges
-- [Any problems faced]
+- None
 
 ### Resources Used
-- [Links to tutorials, docs, etc.]
+- TypeScript documentation
+- Node.js readline docs
 
 ### Tomorrow's Plan
-- Day 2: Password Generator
+- Day 2: Password Generator with crypto module
 
 ---
 
