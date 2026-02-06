@@ -1,6 +1,6 @@
 # Week 1 - Days 1-7
 
-Day 1 - February 5, 2026
+Day 1 - February 6, 2026
 **Project:** TypeScript CLI Calculator with BigInt  
 **Time Spent:** 45Mins
 
