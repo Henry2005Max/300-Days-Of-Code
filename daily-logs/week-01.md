@@ -27,25 +27,33 @@ Day 1 - February 6, 2026
 
 ---
 
-## Day 2 - [Date]
-**Project:** Password Generator  
-**Time Spent:** [X hours]
+## Day 2 - February 7, 2026
+**Project:** Secure Password Generator with Crypto Module  
+**Time Spent:** 2.5 hours
 
 ### What I Built
-- [Brief description]
+- Cryptographically secure password generator
+- Customizable length and character types
+- Password strength analyzer
+- Fisher-Yates shuffle for randomness
 
 ### What I Learned
-- [Key learning 1]
-- [Key learning 2]
+- Crypto module vs Math.random()
+- Fisher-Yates shuffle algorithm
+- Password strength calculation
+- Character set management
 
 ### Challenges
-- [Any problems faced]
+- Understanding cryptographic randomness
+- Implementing the shuffle algorithm
 
 ### Resources Used
-- [Links to tutorials, docs, etc.]
+- Node.js crypto documentation
+- Fisher-Yates algorithm explanation
 
 ### Tomorrow's Plan
-- Day 3: File Renamer
+- Day 3: File Renamer using fs/promises
+
 
 ---
 
