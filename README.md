@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 2/300 🔥  
+**Current Progress:** Day 3/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ### 📊 Challenge Stats
-- **Days Completed:** 1/300
-- **Projects Built:** 1
-- **Current Streak:** 1 days 🔥
+- **Days Completed:** 2/300
+- **Projects Built:** 2
+- **Current Streak:** 2 days 🔥
 
 ---
 
@@ -144,10 +144,9 @@ I document my progress, challenges, and learnings in the `daily-logs/` folder.
 
 ## 📊 Stats
 
-- **Total Days:** 1/300
-- **Projects Completed:** 0
-- **Lines of Code:** 0+
-- **Current Streak:** 1 day 🔥
+- **Total Days:** 2/300
+- **Projects Completed:** 2
+- **Current Streak:** 2 days 🔥
 
 ---
 
