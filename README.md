@@ -68,8 +68,8 @@ Building 300 projects in 300 days to become a full-stack developer!
 ### Sprint 1: Foundations (Days 1-30)
 JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 1: TypeScript CLI Calculator
-- ⬜ Day 2: Password Generator
-- ⬜ Day 3: File Renamer
+- ✅ Day 2: Password Generator
+- ✅ Day 3: File Renamer
 - [See full list below]
 
 ### Sprint 2: Web Basics (Days 31-60)
