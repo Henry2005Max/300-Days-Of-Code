@@ -128,7 +128,7 @@ The generator analyzes password strength based on:
 ## 📅 Challenge Info
 **Day:** 2/300  
 **Sprint:** 1 - Foundations  
-**Date:** [Add your date]  
+**Date:** Feb 7, 2026  
 **Previous Day:** [Day 1 - CLI Calculator](../day-001-calculator)  
 **Next Day:** [Day 3 - File Renamer](../day-003-file-renamer)  
 
