@@ -1,0 +1,25 @@
+{
+  "name": "day-002-password-generator",
+  "version": "1.0.0",
+  "description": "Secure password generator using Node.js crypto module - Day 2 of 300",
+  "main": "password-generator.js",
+  "scripts": {
+    "build": "tsc password-generator.ts",
+    "start": "node password-generator.js",
+    "dev": "ts-node password-generator.ts"
+  },
+  "keywords": [
+    "password",
+    "generator",
+    "security",
+    "crypto",
+    "typescript",
+    "cli"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
