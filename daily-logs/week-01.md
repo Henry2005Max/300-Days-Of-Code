@@ -57,26 +57,36 @@ Day 1 - February 6, 2026
 
 ---
 
-## Day 3 - [Date]
-**Project:** [Project name]  
-**Time Spent:** [X hours]
+## Day 3 - February 8, 2026
+**Project:** File Renamer using fs/promises  
+**Time Spent:** 3 hours
 
 ### What I Built
-- [Brief description]
+- Command-line file renaming utility
+- 5 different rename operations (single, batch, spaces, extensions, lowercase)
+- Test file creator for safe testing
+- Interactive menu system with safety confirmations
 
 ### What I Learned
-- 
+- Using fs/promises for async file operations
+- Path module for cross-platform file paths
+- Reading and filtering directories
+- Safety checks before file operations
+- Building practical CLI tools that actually work on real files
 
 ### Challenges
-- 
+- Understanding async file operations
+- Making sure not to overwrite existing files
+- Testing safely without messing up real files
+- Implementing batch rename logic with sequential numbers
 
 ### Resources Used
-- 
+- Node.js fs/promises documentation
+- Path module docs
+- TypeScript async/await patterns
 
 ### Tomorrow's Plan
-- 
-
----
+- Day 4: Weather API Fetcher (fetch data from internet!)
 
 ## Day 4 - [Date]
 **Project:** [Project name]  
