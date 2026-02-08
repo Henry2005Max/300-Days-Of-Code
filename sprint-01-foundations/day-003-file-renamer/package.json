@@ -1,0 +1,25 @@
+{
+  "name": "day-003-file-renamer",
+  "version": "1.0.0",
+  "description": "File renaming utility using fs/promises - Day 3 of 300",
+  "main": "file-renamer.js",
+  "scripts": {
+    "build": "tsc file-renamer.ts",
+    "start": "node file-renamer.js",
+    "dev": "ts-node file-renamer.ts"
+  },
+  "keywords": [
+    "file-renamer",
+    "file-manager",
+    "batch-rename",
+    "typescript",
+    "cli",
+    "fs-promises"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
