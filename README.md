@@ -10,9 +10,9 @@ I'm building **300 projects in 300 days** to master full-stack development!
 ---
 
 ### 📊 Challenge Stats
-- **Days Completed:** 2/300
-- **Projects Built:** 2
-- **Current Streak:** 2 days 🔥
+- **Days Completed:** 4/300
+- **Projects Built:** 3
+- **Current Streak:** 3 days 🔥
 
 ---
 
@@ -144,9 +144,9 @@ I document my progress, challenges, and learnings in the `daily-logs/` folder.
 
 ## 📊 Stats
 
-- **Total Days:** 2/300
-- **Projects Completed:** 2
-- **Current Streak:** 2 days 🔥
+- **Total Days:** 3/300
+- **Projects Completed:** 3
+- **Current Streak:** 3 days 🔥
 
 ---
 
