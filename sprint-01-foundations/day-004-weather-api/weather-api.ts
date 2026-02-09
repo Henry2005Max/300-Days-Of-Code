@@ -12,7 +12,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// OpenWeatherMap API key (free tier)
+// OpenWeatherMap API key 
 // Get your own key at: https://openweathermap.org/api
 const API_KEY = '2365fa9d8d14640c6b9bde128d7ef986'; // Replace with your actual API key
 
