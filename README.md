@@ -70,6 +70,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 1: TypeScript CLI Calculator
 - ✅ Day 2: Password Generator
 - ✅ Day 3: File Renamer
+- ✅ Day 4: Weather API Fetcher
 - [See full list below]
 
 ### Sprint 2: Web Basics (Days 31-60)
