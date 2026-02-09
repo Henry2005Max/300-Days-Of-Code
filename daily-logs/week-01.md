@@ -88,24 +88,44 @@ Day 1 - February 6, 2026
 ### Tomorrow's Plan
 - Day 4: Weather API Fetcher (fetch data from internet!)
 
-## Day 4 - [Date]
-**Project:** [Project name]  
-**Time Spent:** [X hours]
+## Day 4 - February 9, 2026
+**Project:** Weather API Fetcher with Axios  
+**Time Spent:** 3 hours
 
 ### What I Built
-- 
+- Real-time weather application using OpenWeatherMap API
+- Weather search by city name or GPS coordinates
+- City comparison feature
+- Popular cities quick view
+- Support for Celsius, Fahrenheit, and Kelvin
+- Detailed weather info with emojis
 
 ### What I Learned
-- 
+- Making HTTP requests with Axios
+- Working with REST APIs
+- Getting and using API keys
+- Handling JSON responses
+- Error handling for network requests (404, 401, etc.)
+- TypeScript interfaces for API data
+- Async/await for API calls
+- Temperature conversion formulas
+- Promise.all for concurrent requests
 
 ### Challenges
-- 
+- Understanding API authentication with keys
+- Parsing complex JSON responses
+- Handling different error types (city not found, invalid key, network errors)
+- Waiting for API key activation
+- Formatting weather data nicely
 
 ### Resources Used
-- 
+- OpenWeatherMap API documentation
+- Axios documentation
+- TypeScript interfaces guide
+- HTTP status codes reference
 
 ### Tomorrow's Plan
-- 
+- Day 5: Todo List CLI with Commander library
 
 ---
 
