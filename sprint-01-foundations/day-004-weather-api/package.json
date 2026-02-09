@@ -1,0 +1,28 @@
+{
+  "name": "day-004-weather-api",
+  "version": "1.0.0",
+  "description": "Weather API fetcher using Axios - Day 4 of 300",
+  "main": "weather-api.js",
+  "scripts": {
+    "build": "tsc weather-api.ts",
+    "start": "node weather-api.js",
+    "dev": "ts-node weather-api.ts"
+  },
+  "keywords": [
+    "weather",
+    "api",
+    "axios",
+    "typescript",
+    "cli",
+    "openweathermap"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
