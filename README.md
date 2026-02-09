@@ -71,6 +71,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 2: Password Generator
 - ✅ Day 3: File Renamer
 - ✅ Day 4: Weather API Fetcher
+- ⬜ Day 5: Todo List CLI
 - [See full list below]
 
 ### Sprint 2: Web Basics (Days 31-60)
