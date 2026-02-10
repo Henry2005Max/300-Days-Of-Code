@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 5/300 🔥  
+**Current Progress:** Day 6/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ### 📊 Challenge Stats
-- **Days Completed:** 4/300
-- **Projects Built:** 4
-- **Current Streak:** 4 days 🔥
+- **Days Completed:** 5/300
+- **Projects Built:** 5
+- **Current Streak:** 5 days 🔥
 
 ---
 
@@ -71,7 +71,8 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 2: Password Generator
 - ✅ Day 3: File Renamer
 - ✅ Day 4: Weather API Fetcher
-- ⬜ Day 5: Todo List CLI
+- ✅ Day 5: Todo List CLI
+- ⬜ Day 6: Random Quote Fetcher
 - [See full list below]
 
 ### Sprint 2: Web Basics (Days 31-60)
