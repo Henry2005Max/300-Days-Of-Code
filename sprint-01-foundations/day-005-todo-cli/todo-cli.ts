@@ -277,7 +277,7 @@ program
   .option('-f, --force', 'Force clear without confirmation')
   .action((options) => {
     clearTodos(options.force);
-  });
+  }):
 
 // Stats command
 program
@@ -293,4 +293,5 @@ if (process.argv.length === 2) {
 } else {
   program.parse(process.argv);
 }
+
 
