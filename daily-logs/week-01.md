@@ -129,24 +129,46 @@ Day 1 - February 6, 2026
 
 ---
 
-## Day 5 - [Date]
-**Project:** [Project name]  
-**Time Spent:** [X hours]
+## Day 5 - February 10, 2026
+**Project:** Todo List CLI with Commander  
+**Time Spent:** 3 hours
 
 ### What I Built
-- 
+- Professional CLI todo list manager
+- Add, complete, delete, and update tasks
+- Color-coded priorities (high/medium/low)
+- Beautiful terminal output with Chalk
+- Statistics and progress tracking
+- Filter by status (completed/pending)
+- Data persistence with JSON file storage
 
 ### What I Learned
-- 
+- Using Commander.js framework for CLI apps
+- Command arguments, options, and flags
+- Terminal colors and styling with Chalk
+- Building professional command-line interfaces
+- CRUD operations (Create, Read, Update, Delete)
+- File-based data persistence
+- Progress bars and visual feedback
+- CLI best practices and UX
+- Command aliases and shortcuts
 
 ### Challenges
-- 
+- Understanding Commander's command structure
+- Managing todo IDs correctly
+- Implementing color-coded priorities
+- Creating visual progress bars
+- Ensuring data persists correctly
+- Handling edge cases (invalid IDs, empty lists)
 
 ### Resources Used
-- 
+- Commander.js documentation
+- Chalk documentation
+- CLI design best practices
+- TypeScript interfaces for data structures
 
 ### Tomorrow's Plan
-- 
+- Day 6: Random Quote Fetcher (API calls)
 
 ---
 
