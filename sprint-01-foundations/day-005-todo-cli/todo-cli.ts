@@ -9,6 +9,15 @@ import * as path from 'path';
 import chalk from 'chalk';
 
 
+// Interface for Todo item
+interface Todo {
+  id: number;
+  task: string;
+  completed: boolean;
+  createdAt: string;
+  priority: 'low' | 'medium' | 'high';
+}
+
 // Path to todos file
 const TODOS_FILE = path.join(process.cwd(), 'todos.json');
 
@@ -284,3 +293,4 @@ if (process.argv.length === 2) {
 } else {
   program.parse(process.argv);
 }
+
