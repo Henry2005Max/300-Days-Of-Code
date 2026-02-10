@@ -3,17 +3,17 @@
 ## 📝 Description
 A beautiful, feature-rich command-line todo list manager built with TypeScript, Commander.js, and Chalk. Manage your tasks efficiently with colors, priorities, and comprehensive statistics!
 
-## ✨ Features
+##  Features
 - ✅ **Add Todos** - Create tasks with priorities (low/medium/high)
-- 📋 **List Todos** - View all tasks with status indicators
-- ✓  **Complete Todos** - Mark tasks as done
-- 🗑️ **Delete Todos** - Remove tasks
-- ✏️ **Update Todos** - Edit existing tasks
-- 🎨 **Color-Coded** - Visual priority levels and status
-- 📊 **Statistics** - Completion rates and priority breakdown
-- 🔍 **Filtering** - View completed or pending tasks
-- 💾 **Persistent Storage** - Saves to JSON file
-- 🚀 **Professional CLI** - Built with Commander framework
+-  **List Todos** - View all tasks with status indicators
+-   **Complete Todos** - Mark tasks as done
+-  **Delete Todos** - Remove tasks
+-  **Update Todos** - Edit existing tasks
+-  **Color-Coded** - Visual priority levels and status
+-  **Statistics** - Completion rates and priority breakdown
+-  **Filtering** - View completed or pending tasks
+-  **Persistent Storage** - Saves to JSON file
+-  **Professional CLI** - Built with Commander framework
 
 ## 🛠️ Technologies Used
 - TypeScript
