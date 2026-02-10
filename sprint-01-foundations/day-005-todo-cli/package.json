@@ -1,0 +1,32 @@
+{
+  "name": "day-005-todo-cli",
+  "version": "1.0.0",
+  "description": "Beautiful CLI todo list manager with Commander - Day 5 of 300",
+  "main": "todo-cli.js",
+  "bin": {
+    "todo": "./todo-cli.js"
+  },
+  "scripts": {
+    "build": "tsc todo-cli.ts",
+    "start": "node todo-cli.js",
+    "dev": "ts-node todo-cli.ts"
+  },
+  "keywords": [
+    "todo",
+    "cli",
+    "task-manager",
+    "commander",
+    "chalk",
+    "typescript"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
