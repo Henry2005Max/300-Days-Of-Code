@@ -1,22 +1,22 @@
 # Hi, I'm Henry! 👋
 
-## 🚀 300 Days of Code Challenge
+##  300 Days of Code Challenge
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 6/300 🔥  
+**Current Progress:** Day 7/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
-### 📊 Challenge Stats
-- **Days Completed:** 5/300
-- **Projects Built:** 5
-- **Current Streak:** 5 days 🔥
+###  Challenge Stats
+- **Days Completed:** 6/300
+- **Projects Built:** 6
+- **Current Streak:** 6 days 🔥
 
 ---
 
-### 🎯 What I'm Learning
+###  What I'm Learning
 
 **Sprint 1 (Days 1-30):** JavaScript/TypeScript Basics & CLI Apps  
 **Sprint 2 (Days 31-60):** React/TypeScript Web UIs  
@@ -72,7 +72,8 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 3: File Renamer
 - ✅ Day 4: Weather API Fetcher
 - ✅ Day 5: Todo List CLI
-- ⬜ Day 6: Random Quote Fetcher
+- ✅ Day 6: Random Quote Fetcher
+- ⬜ Day 7: BMI Calculator
 - [See full list below]
 
 ### Sprint 2: Web Basics (Days 31-60)
@@ -145,21 +146,15 @@ I document my progress, challenges, and learnings in the `daily-logs/` folder.
 
 ---
 
-## 📊 Stats
+---
 
-- **Total Days:** 4/300
-- **Projects Completed:** 4
-- **Current Streak:** 4 days 🔥
+##  Key Learnings
+
+CHeck Daily Logs
 
 ---
 
-## 🎓 Key Learnings
-
-[To be updated as I progress]
-
----
-
-## 🤝 Contributing
+##  Contributing
 
 This is a personal challenge, but I welcome:
 - Suggestions for improvements
@@ -168,19 +163,14 @@ This is a personal challenge, but I welcome:
 
 ---
 
-## 📜 License
 
-MIT License - Feel free to learn from my code!
-
----
-
-## 💡 Inspiration
+##  Inspiration
 
 This challenge is inspired by the #100DaysOfCode movement, but tripled! I'm committed to building real projects every single day for 300 days.
 
 ---
 
-**Let's build something amazing! 🚀**
+**Let's build something amazing! **
 
 
 
