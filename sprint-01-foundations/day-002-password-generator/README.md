@@ -1,20 +1,20 @@
 # Day 2: Secure Password Generator with Crypto Module
 
-## 📝 Description
+##  Description
 A command-line password generator that creates cryptographically secure passwords using Node.js's built-in crypto module. Includes customizable options and password strength analysis.
 
-## ✨ Features
+##  Features
 - 🔐 Cryptographically secure random generation (uses `crypto.randomBytes`)
-- 📏 Customizable password length (8-128 characters)
-- 🔤 Option to include/exclude:
+-  Customizable password length (8-128 characters)
+-  Option to include/exclude:
   - Uppercase letters (A-Z)
   - Lowercase letters (a-z)
   - Numbers (0-9)
   - Symbols (!@#$%^&*...)
-- 💪 Real-time password strength analyzer
-- 🎲 Fisher-Yates shuffle algorithm for randomness
-- ✅ Ensures at least one character from each selected type
-- 💡 Security tips included
+-  Real-time password strength analyzer
+-  Fisher-Yates shuffle algorithm for randomness
+-  Ensures at least one character from each selected type
+-  Security tips included
 
 ## 🛠️ Technologies Used
 - TypeScript
@@ -28,7 +28,7 @@ A command-line password generator that creates cryptographically secure password
 - Fisher-Yates shuffle prevents predictable patterns
 - Guarantees character type diversity
 
-## 📦 Installation
+##  Installation
 
 1. Make sure you have Node.js installed
 2. Install dependencies:
@@ -36,7 +36,7 @@ A command-line password generator that creates cryptographically secure password
    npm install
    ```
 
-## 🚀 How to Run
+##  How to Run
 
 ### Quick Run (with ts-node):
 ```bash
@@ -54,7 +54,7 @@ npm start
 npm run dev
 ```
 
-## 💡 Example Usage
+##  Example Usage
 
 ```
 Password length (8-128): 16
@@ -63,14 +63,14 @@ Include lowercase letters? (yes/no): yes
 Include numbers (0-9)? (yes/no): yes
 Include symbols (!@#$...)? (yes/no): yes
 
-🎉 YOUR GENERATED PASSWORD:
+ YOUR GENERATED PASSWORD:
 Xp9#mK2@bN7$qL4!
 
 Length: 16 characters
 Strength: 🟢🟢 VERY STRONG (Score: 7/7)
 ```
 
-## 🎯 Password Strength Scoring
+##  Password Strength Scoring
 
 The generator analyzes password strength based on:
 - **Length**: Longer = Stronger
@@ -98,7 +98,7 @@ The generator analyzes password strength based on:
 - User input validation
 - Building interactive CLI applications
 
-## 🔍 How It Works
+##  How It Works
 
 1. **User Configuration**: Asks for length and character type preferences
 2. **Character Pool**: Builds a pool from selected character types
@@ -108,7 +108,7 @@ The generator analyzes password strength based on:
 6. **Strength Analysis**: Calculates and displays password strength
 7. **Security Tips**: Provides best practices for password management
 
-## 🚀 Future Improvements
+##  Future Improvements
 - Add password complexity rules (no repeating characters, etc.)
 - Save generated passwords to encrypted file
 - Add pronounceable password option
@@ -118,14 +118,14 @@ The generator analyzes password strength based on:
 - Add entropy calculation
 - Integrate with password managers
 
-## 💡 Security Best Practices Implemented
+##  Security Best Practices Implemented
 ✅ Cryptographically secure random generation  
 ✅ No predictable patterns  
 ✅ Character type diversity enforcement  
 ✅ Strength validation  
 ✅ User education (security tips)  
 
-## 📅 Challenge Info
+##  Challenge Info
 **Day:** 2/300  
 **Sprint:** 1 - Foundations  
 **Date:** Feb 7, 2026  
