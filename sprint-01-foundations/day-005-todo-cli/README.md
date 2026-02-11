@@ -1,10 +1,10 @@
 # Day 5: Todo List CLI with Commander
 
-## 📝 Description
+##  Description
 A beautiful, feature-rich command-line todo list manager built with TypeScript, Commander.js, and Chalk. Manage your tasks efficiently with colors, priorities, and comprehensive statistics!
 
 ##  Features
-- ✅ **Add Todos** - Create tasks with priorities (low/medium/high)
+-  **Add Todos** - Create tasks with priorities (low/medium/high)
 -  **List Todos** - View all tasks with status indicators
 -   **Complete Todos** - Mark tasks as done
 -  **Delete Todos** - Remove tasks
@@ -15,14 +15,14 @@ A beautiful, feature-rich command-line todo list manager built with TypeScript, 
 -  **Persistent Storage** - Saves to JSON file
 -  **Professional CLI** - Built with Commander framework
 
-## 🛠️ Technologies Used
+##  Technologies Used
 - TypeScript
 - Node.js
 - Commander.js (CLI framework)
 - Chalk (terminal colors)
 - fs/promises (file storage)
 
-## 📦 Installation
+##  Installation
 
 1. Make sure you have Node.js installed
 2. Install dependencies:
@@ -30,7 +30,7 @@ A beautiful, feature-rich command-line todo list manager built with TypeScript, 
    npm install
    ```
 
-## 🚀 How to Run
+##  How to Run
 
 ### Quick Run (with ts-node):
 ```bash
@@ -48,7 +48,7 @@ node todo-cli.js <command>
 npm run dev -- <command>
 ```
 
-## 💡 Commands
+##  Commands
 
 ### Add a Todo
 ```bash
@@ -97,11 +97,11 @@ ts-node todo-cli.ts --help
 ts-node todo-cli.ts add --help
 ```
 
-## 🎨 Example Output
+##  Example Output
 
 ### Adding a Todo:
 ```
-✅ Todo added successfully!
+ Todo added successfully!
    ID: 1
    Task: Buy groceries
    Priority: medium
@@ -109,7 +109,7 @@ ts-node todo-cli.ts add --help
 
 ### Listing Todos:
 ```
-📋 YOUR TODO LIST
+ YOUR TODO LIST
 
 ✓ #1 [MEDIUM] Buy groceries
 ○ #2 [HIGH] Finish project
@@ -122,31 +122,31 @@ ts-node todo-cli.ts add --help
 
 ### Statistics:
 ```
-📊 TODO STATISTICS
+ TODO STATISTICS
 
 Total Todos: 5
 ✓ Completed: 2
 ○ Pending: 3
 Completion Rate: 40%
 
-🎯 By Priority:
+ By Priority:
 
    High: 1
    Medium: 3
    Low: 1
 
-📈 Progress:
+ Progress:
 
 ████████████░░░░░░░░░░░░░░░░░░ 40%
 ```
 
-## 🎯 Priority Levels
+##  Priority Levels
 
 - 🔴 **HIGH** - Urgent tasks (red)
 - 🟡 **MEDIUM** - Normal tasks (yellow)
 - 🔵 **LOW** - Low priority (blue)
 
-## 🎓 What I Learned
+##  What I Learned
 - Using Commander.js for building CLI applications
 - Command arguments and options/flags
 - Terminal colors with Chalk
@@ -157,7 +157,7 @@ Completion Rate: 40%
 - Progress bars and visual feedback
 - Command aliases and shortcuts
 
-## 🔍 How It Works
+##  How It Works
 
 ### Data Storage:
 ```typescript
@@ -191,7 +191,7 @@ const taskText = todo.completed
   : chalk.white(todo.task);
 ```
 
-## 📊 Data Flow
+##  Data Flow
 
 ```
 User Command
@@ -207,7 +207,7 @@ Save todos back to JSON
 Display result with colors
 ```
 
-## 🚀 Future Improvements
+## Future Improvements
 - Due dates and reminders
 - Categories/tags for todos
 - Search functionality
@@ -231,7 +231,7 @@ Display result with colors
 | `clear` | - | Clear all todos | `clear --force` |
 | `stats` | - | Show statistics | `stats` |
 
-## 🎨 Color Legend
+##  Color Legend
 
 - 🟢 **Green** - Completed/Success
 - 🔴 **Red** - Pending/High Priority
@@ -240,11 +240,11 @@ Display result with colors
 - ⚪ **Gray** - Completed tasks (strikethrough)
 - 🔵 **Cyan** - IDs and accents
 
-## 💾 File Location
+##  File Location
 
 Todos are saved in `todos.json` in the current directory.
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **Problem:** "Cannot find module 'commander'"
 - **Solution:** Run `npm install`
@@ -258,7 +258,7 @@ Todos are saved in `todos.json` in the current directory.
 **Problem:** Changes not persisting
 - **Solution:** Make sure you have write permissions in the directory
 
-## 📅 Challenge Info
+## Challenge Info
 **Day:** 5/300  
 **Sprint:** 1 - Foundations  
 **Date:** Tue Feb 10 
