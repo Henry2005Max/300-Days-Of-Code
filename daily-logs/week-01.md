@@ -29,7 +29,7 @@ Day 1 - February 6, 2026
 
 ## Day 2 - February 7, 2026
 **Project:** Secure Password Generator with Crypto Module  
-**Time Spent:** 2.5 hours
+**Time Spent:** 2 hours
 
 ### What I Built
 - Cryptographically secure password generator
@@ -90,7 +90,7 @@ Day 1 - February 6, 2026
 
 ## Day 4 - February 9, 2026
 **Project:** Weather API Fetcher with Axios  
-**Time Spent:** 3 hours
+**Time Spent:** 2 hours
 
 ### What I Built
 - Real-time weather application using OpenWeatherMap API
@@ -172,23 +172,45 @@ Day 1 - February 6, 2026
 
 ---
 
-## Day 6 - [Date]
-**Project:** [Project name]  
-**Time Spent:** [X hours]
+## Day 6 - February 11, 2026
+**Project:** Random Quote Fetcher (API Call)  
+**Time Spent:** 2.5 hours
 
 ### What I Built
-- 
+- Quote fetcher using Quotable API (free, no key needed)
+- Random quotes from thousands of sources
+- Search by category (wisdom, success, inspiration, etc.)
+- Search by author (Einstein, Jobs, Churchill, etc.)
+- Quote of the day feature
+- Motivational quotes
+- Save favorite quotes to JSON file
+- Beautiful colored terminal output
 
 ### What I Learned
-- 
+- Using free public APIs without authentication
+- Multiple API endpoints with query parameters
+- Different ways to use same API (random, by tag, by author, seeded)
+- Managing favorites with JSON storage
+- Preventing duplicate entries
+- Beautiful CLI formatting with Chalk
+- Interactive menu systems
+- Error handling for API calls
 
 ### Challenges
-- 
+- Understanding API query parameters
+- Implementing favorites system
+- Preventing duplicate saves
+- Formatting quotes beautifully in terminal
+- Managing user interaction flow
 
 ### Resources Used
-- 
+- Quotable API documentation (api.quotable.io)
+- Axios documentation
+- Chalk documentation for colors
+- TypeScript interfaces
 
 ### Tomorrow's Plan
+- Day 7: BMI Calculator in TypeScript
 - 
 
 ---
