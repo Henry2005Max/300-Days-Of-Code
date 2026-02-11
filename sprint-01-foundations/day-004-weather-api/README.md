@@ -1,27 +1,27 @@
 # Day 4: Weather API Fetcher with Axios
 
-## 📝 Description
+##  Description
 A real-time weather application that fetches live weather data from OpenWeatherMap API. Get current conditions, compare cities, and view weather for popular locations around the world!
 
-## ✨ Features
-- 🌍 **Weather by City** - Get weather for any city worldwide
-- 📍 **Weather by Coordinates** - Use latitude/longitude for precise locations
-- ⚖️ **City Comparison** - Compare weather between two cities
-- 🌆 **Popular Cities** - Quick view of Lagos, London, New York, Tokyo
-- 🌡️ **Temperature Units** - Support for Celsius, Fahrenheit, and Kelvin
-- 🌬️ **Detailed Info** - Wind speed/direction, humidity, pressure, visibility
-- 🌅 **Sun Times** - Sunrise and sunset times
-- 🎨 **Weather Emojis** - Visual weather indicators
-- ⚡ **Fast** - Uses Axios for efficient HTTP requests
+##  Features
+-  **Weather by City** - Get weather for any city worldwide
+-  **Weather by Coordinates** - Use latitude/longitude for precise locations
+-  **City Comparison** - Compare weather between two cities
+-  **Popular Cities** - Quick view of Lagos, London, New York, Tokyo
+-  **Temperature Units** - Support for Celsius, Fahrenheit, and Kelvin
+-  **Detailed Info** - Wind speed/direction, humidity, pressure, visibility
+-  **Sun Times** - Sunrise and sunset times
+-  **Weather Emojis** - Visual weather indicators
+-  **Fast** - Uses Axios for efficient HTTP requests
 
-## 🛠️ Technologies Used
+##  Technologies Used
 - TypeScript
 - Node.js
 - Axios (HTTP client)
 - OpenWeatherMap API
 - Async/await for API calls
 
-## 🔑 API Key Setup
+##  API Key Setup
 
 This project uses the OpenWeatherMap API (free tier).
 
@@ -45,7 +45,7 @@ const API_KEY = 'your-actual-api-key-here';
 
 **Note:** The demo key has limited functionality. Get your own for full features!
 
-## 📦 Installation
+##  Installation
 
 1. Make sure you have Node.js installed
 2. Install dependencies:
@@ -53,7 +53,7 @@ const API_KEY = 'your-actual-api-key-here';
    npm install
    ```
 
-## 🚀 How to Run
+##  How to Run
 
 ### Quick Run (with ts-node):
 ```bash
@@ -71,7 +71,7 @@ npm start
 npm run dev
 ```
 
-## 💡 Example Usage
+##  Example Usage
 
 ### Example 1: Get Weather for Lagos
 ```
@@ -95,7 +95,7 @@ Temperature unit (C/F/K): C
    Visibility: 10.0 km
    Cloudiness: 20%
 
-🌅 SUN TIMES
+ SUN TIMES
    Sunrise: 06:45 AM
    Sunset: 06:52 PM
 ```
@@ -124,7 +124,7 @@ Wind Speed:        3.5 m/s                5.2 m/s
 ```
 Choose an option: 4
 
-🌍 POPULAR CITIES
+ POPULAR CITIES
 
 ☀️  Lagos        | 28.5°C | clear sky
 🌧️  London       | 12.3°C | light rain
@@ -141,7 +141,7 @@ Enter longitude: 3.3792
 (Shows weather for Lagos using coordinates)
 ```
 
-## 🎯 Menu Options
+##  Menu Options
 
 1. **Get weather by city name** - Search any city worldwide
 2. **Get weather by coordinates** - Use GPS coordinates
@@ -149,7 +149,7 @@ Enter longitude: 3.3792
 4. **Popular cities** - Quick overview of major cities
 5. **Exit** - Close the application
 
-## 🎓 What I Learned
+## What I Learned
 - Making HTTP requests with Axios
 - Working with REST APIs
 - Handling API responses and errors
@@ -161,7 +161,7 @@ Enter longitude: 3.3792
 - Parsing and formatting JSON data
 - Promise.all for concurrent API calls
 
-## 🔍 How It Works
+##  How It Works
 
 ### API Call Flow:
 ```typescript
@@ -184,7 +184,7 @@ Celsius to Fahrenheit: (C × 9/5) + 32
 Celsius to Kelvin: C + 273.15
 ```
 
-## 🌦️ Weather Emojis
+##  Weather Emojis
 
 - ☀️ Clear
 - ☁️ Clouds
@@ -196,7 +196,7 @@ Celsius to Kelvin: C + 273.15
 - 💨 Squall
 - 🌪️ Tornado
 
-## ⚠️ Error Handling
+##  Error Handling
 
 The app handles:
 - **404** - City not found
@@ -205,7 +205,7 @@ The app handles:
 - **Invalid coordinates** - Non-numeric lat/lon
 - **Malformed responses** - Unexpected data format
 
-## 🚀 Future Improvements
+##  Future Improvements
 - 5-day weather forecast
 - Weather alerts and warnings
 - Historical weather data
@@ -217,7 +217,7 @@ The app handles:
 - Hourly forecast
 - Weather-based recommendations
 
-## 📊 Use Cases
+##  Use Cases
 
 ✅ **Travel Planning** - Check weather before trips  
 ✅ **Daily Updates** - Morning weather check  
@@ -225,7 +225,7 @@ The app handles:
 ✅ **Event Planning** - Check conditions for outdoor events  
 ✅ **Learning** - Understand API integration  
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **Problem:** "Invalid API key"
 - **Solution:** Get your free key from OpenWeatherMap and add it to the code
@@ -239,7 +239,7 @@ The app handles:
 **Problem:** "Cannot find module 'axios'"
 - **Solution:** Run `npm install` to install dependencies
 
-## 🌐 API Endpoints Used
+##  API Endpoints Used
 
 ```
 Current Weather by City:
@@ -249,7 +249,7 @@ Current Weather by Coordinates:
 https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={key}&units=metric
 ```
 
-## 📅 Challenge Info
+##  Challenge Info
 **Day:** 4/300  
 **Sprint:** 1 - Foundations  
 **Date:** Mon Feb 9
