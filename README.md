@@ -170,7 +170,7 @@ This challenge is inspired by the #100DaysOfCode movement, but tripled! I'm comm
 
 ---
 
-**Let's build something amazing! **
+**Let's build something amazing!**
 
 
 
