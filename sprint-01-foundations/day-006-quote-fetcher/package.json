@@ -1,0 +1,30 @@
+ { "name": "day-006-quote-fetcher",
+  "version": "1.0.0",
+  "description": "Random quote fetcher with favorites - Day 6 of 300",
+  "main": "quote-fetcher.js",
+  "scripts": {
+    "build": "tsc quote-fetcher.ts",
+    "start": "node quote-fetcher.js",
+    "dev": "ts-node quote-fetcher.ts"
+  },
+  "keywords": [
+    "quotes",
+    "api",
+    "inspiration",
+    "motivation",
+    "axios",
+    "chalk",
+    "typescript"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
+
