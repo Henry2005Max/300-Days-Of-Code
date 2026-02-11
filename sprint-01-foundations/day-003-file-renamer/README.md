@@ -1,32 +1,32 @@
 # Day 3: File Renamer using fs/promises
 
-## 📝 Description
+## Description
 A powerful command-line file renaming utility built with TypeScript and Node.js fs/promises API. Rename single files, batch rename multiple files, remove spaces, change extensions, and more!
 
-## ✨ Features
-- 📄 **Single File Rename** - Rename individual files
-- 🔢 **Batch Rename** - Rename multiple files with prefix, suffix, and sequential numbers
-- 🚫 **Remove Spaces** - Replace spaces with underscores in filenames
-- 🔄 **Change Extensions** - Convert file extensions (e.g., .txt to .md)
-- 🔡 **Convert to Lowercase** - Make all filenames lowercase
-- 📁 **Directory Browsing** - Work with any directory on your system
-- ✅ **Safety Checks** - Prevents overwriting existing files
-- 🎯 **Interactive Menu** - Easy-to-use command-line interface
+##  Features
+-  **Single File Rename** - Rename individual files
+-  **Batch Rename** - Rename multiple files with prefix, suffix, and sequential numbers
+-  **Remove Spaces** - Replace spaces with underscores in filenames
+-  **Change Extensions** - Convert file extensions (e.g., .txt to .md)
+-  **Convert to Lowercase** - Make all filenames lowercase
+-  **Directory Browsing** - Work with any directory on your system
+-  **Safety Checks** - Prevents overwriting existing files
+-  **Interactive Menu** - Easy-to-use command-line interface
 
-## 🛠️ Technologies Used
+##  Technologies Used
 - TypeScript
 - Node.js
 - fs/promises (async file operations)
 - path module
 - readline (user input)
 
-## 🔒 Safety Features
+##  Safety Features
 - Checks if target file already exists before renaming
 - Confirmation prompts for batch operations
 - Error handling for invalid paths
 - Filters hidden files automatically
 
-## 📦 Installation
+##  Installation
 
 1. Make sure you have Node.js installed
 2. Install dependencies:
@@ -34,7 +34,7 @@ A powerful command-line file renaming utility built with TypeScript and Node.js 
    npm install
    ```
 
-## 🚀 How to Run
+##  How to Run
 
 ### Quick Run (with ts-node):
 ```bash
@@ -52,7 +52,7 @@ npm start
 npm run dev
 ```
 
-## 💡 Example Usage
+## Example Usage
 
 ### Example 1: Batch Rename Photos
 ```
@@ -102,7 +102,7 @@ MyFile.TXT → myfile.txt
 REPORT.PDF → report.pdf
 ```
 
-## 🎯 Menu Options
+##  Menu Options
 
 1. **Rename a single file** - Choose a file from the list and give it a new name
 2. **Batch rename files** - Add prefix/suffix with sequential numbers to multiple files
@@ -111,7 +111,7 @@ REPORT.PDF → report.pdf
 5. **Convert to lowercase** - Make all filenames lowercase
 6. **Exit** - Close the program
 
-## 🎓 What I Learned
+##  What I Learned
 - Using Node.js `fs/promises` for async file operations
 - Working with the `path` module for cross-platform file paths
 - Reading directories and filtering files
@@ -121,7 +121,7 @@ REPORT.PDF → report.pdf
 - Building interactive CLI menus
 - Async/await patterns for file system operations
 
-## 🔍 How It Works
+##  How It Works
 
 ### File Operations Flow:
 1. **Read Directory** - Uses `fs.readdir()` to list files
@@ -142,7 +142,7 @@ vacation_002_2024.jpg
 vacation_003_2024.jpg
 ```
 
-## ⚠️ Important Notes
+##  Important Notes
 
 - **Backup First!** Always backup important files before batch operations
 - **Test in Safe Directory** Try it on test files first
@@ -150,7 +150,7 @@ vacation_003_2024.jpg
 - **Case Sensitive** Some operations depend on your operating system
 - **Hidden Files** Automatically skipped (files starting with .)
 
-## 🚀 Future Improvements
+##  Future Improvements
 - Add undo functionality
 - Support for regex patterns
 - Preview mode before renaming
@@ -161,7 +161,7 @@ vacation_003_2024.jpg
 - File size and type filtering
 - Dry-run mode to test operations
 
-## 📊 Use Cases
+##  Use Cases
 
 ✅ **Organizing Photos** - Rename vacation photos with dates and locations  
 ✅ **Cleaning Downloads** - Remove spaces and standardize names  
@@ -170,7 +170,7 @@ vacation_003_2024.jpg
 ✅ **Music Library** - Organize song files  
 ✅ **Document Management** - Make filenames consistent  
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **Problem:** "Cannot read directory"
 - **Solution:** Make sure the path exists and you have read permissions
@@ -184,7 +184,7 @@ vacation_003_2024.jpg
 **Problem:** No files showing
 - **Solution:** Check if directory has files (hidden files are filtered out)
 
-## 📅 Challenge Info
+##  Challenge Info
 **Day:** 3/300  
 **Sprint:** 1 - Foundations  
 **Date:** Sun Feb 8, 2026 
@@ -193,4 +193,4 @@ vacation_003_2024.jpg
 
 ---
 
-Part of my 300 Days of Code Challenge! 🚀
+Part of my 300 Days of Code Challenge! 
