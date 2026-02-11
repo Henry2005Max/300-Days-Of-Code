@@ -104,7 +104,7 @@ Enter category: success
 ```
 Choose an option: 7
 
-⭐ YOUR FAVORITE QUOTES ⭐
+ YOUR FAVORITE QUOTES 
 
 1. "The only way to do great work is to love what you do."
    — Steve Jobs
@@ -195,15 +195,15 @@ GET https://api.quotable.io/random?seed=2024-02-11
 ]
 ```
 
-## 🎨 Color Scheme
+##  Color Scheme
 
-- 🟣 **Magenta** - Headers and branding
-- 🔵 **Cyan** - Menu options and prompts
-- ⚪ **White** - Quote text
-- 🟡 **Yellow** - Author names and important info
-- 🟢 **Green** - Success messages
-- 🔴 **Red** - Errors
-- ⚫ **Gray** - Borders and decorative elements
+-  **Magenta** - Headers and branding
+-  **Cyan** - Menu options and prompts
+-  **White** - Quote text
+-  **Yellow** - Author names and important info
+-  **Green** - Success messages
+-  **Red** - Errors
+-  **Gray** - Borders and decorative elements
 
 ##  Future Improvements
 - Export favorites to PDF or text file
@@ -281,7 +281,7 @@ day-006-quote-fetcher/
 ✅ **Motivation** - Get pumped for your 300-day challenge!  
 ✅ **Collection** - Build your personal quote library  
 
-## 📅 Challenge Info
+##  Challenge Info
 **Day:** 6/300  
 **Sprint:** 1 - Foundations  
 **Date:** WED FEB 11
@@ -290,4 +290,4 @@ day-006-quote-fetcher/
 
 ---
 
-Part of my 300 Days of Code Challenge! 🚀
+Part of my 300 Days of Code Challenge! 
