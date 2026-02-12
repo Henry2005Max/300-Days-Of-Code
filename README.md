@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 7/300 🔥  
+**Current Progress:** Day 8/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 6/300
-- **Projects Built:** 6
-- **Current Streak:** 6 days 🔥
+- **Days Completed:** 7/300
+- **Projects Built:** 7
+- **Current Streak:** 7 days 🔥
 
 ---
 
@@ -73,7 +73,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 4: Weather API Fetcher
 - ✅ Day 5: Todo List CLI
 - ✅ Day 6: Random Quote Fetcher
-- ⬜ Day 7: BMI Calculator
+- ✅ Day 7: BMI Calculator
 - [See full list below]
 
 ### Sprint 2: Web Basics (Days 31-60)
