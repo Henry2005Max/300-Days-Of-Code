@@ -215,30 +215,47 @@ Day 1 - February 6, 2026
 
 ---
 
-## Day 7 - [Date]
-**Project:** [Project name]  
-**Time Spent:** [X hours]
+## Day 7 - February 12, 2026
+**Project:** BMI Calculator in TypeScript  
+**Time Spent:** 3 hours
 
 ### What I Built
-- 
+- BMI calculator supporting both metric and imperial units
+- Visual BMI scale showing where you fall
+- Color-coded health categories
+- Healthy weight range calculator
+- Personalized health advice
+- Input validation that rejects bad values
 
 ### What I Learned
-- 
+- Input validation with while loops
+- Unit conversion formulas (feet to meters, lbs to kg)
+- TypeScript interfaces for structured data
+- Building visual scales in terminal
+- Color-coded output based on calculated values
+- Fixed tsconfig.json issues for ALL projects
 
 ### Challenges
-- 
+- tsconfig.json errors (fixed for all projects now!)
+- Understanding verbatimModuleSyntax setting
+- Getting colors to work correctly based on BMI value
 
 ### Resources Used
-- 
+- TypeScript tsconfig documentation
+- BMI formula reference
+- Chalk documentation
+- Node.js readline docs
 
 ### Tomorrow's Plan
-- 
+- Day 8: Currency Converter (NGN focus, API)
 
----
+
 
 ## Week 1 Summary
 **Total Projects:** 7  
-**Total Hours:** [X hours]  
-**Biggest Win:** [What you're most proud of]  
-**Biggest Challenge:** [What was hardest]  
-**Next Week's Focus:** [What you want to improve]
+**Total Hours:** 16 hours  
+**Biggest Win:** Fixed the tsconfig.json issue and went back to make ALL 7 projects work correctly. Shows real problem-solving skill, not just building forward but going back to fix what's broken!
+
+**Biggest Challenge:** The tsconfig.json and ts-node permission errors. Took time to understand TypeScript configuration, module systems, and Mac permissions, but now it's solved for ALL future days!
+
+**Next Week's Focus (Days 8-14):** Continue Sprint 1 CLI projects - Currency Converter, Encryption, Tests with Jest, Unit Converter, Dice Roller, and Markdown Parser. Focus on getting projects running smoothly from Day 1 using the correct tsconfig.json every time
