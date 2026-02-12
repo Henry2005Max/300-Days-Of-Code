@@ -1,0 +1,28 @@
+{
+  "name": "day-007-bmi-calculator",
+  "version": "1.0.0",
+  "description": "BMI Calculator with metric and imperial support - Day 7 of 300",
+  "main": "bmi-calculator.js",
+  "scripts": {
+    "build": "tsc bmi-calculator.ts",
+    "start": "node bmi-calculator.js",
+    "dev": "ts-node bmi-calculator.ts"
+  },
+  "keywords": [
+    "bmi",
+    "health",
+    "calculator",
+    "typescript",
+    "cli",
+    "chalk"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.33",
+    "typescript": "^5.0.0"
+  }
+}
