@@ -74,7 +74,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 5: Todo List CLI
 - ✅ Day 6: Random Quote Fetcher
 - ✅ Day 7: BMI Calculator
-- [See full list below]
+  
 
 ### Sprint 2: Web Basics (Days 31-60)
 React/TypeScript Web UIs
