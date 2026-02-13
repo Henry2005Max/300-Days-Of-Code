@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 8/300 🔥  
+**Current Progress:** Day 9/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 7/300
-- **Projects Built:** 7
-- **Current Streak:** 7 days 🔥
+- **Days Completed:** 8/300
+- **Projects Built:** 8
+- **Current Streak:** 8 days 🔥
 
 ---
 
@@ -45,14 +45,14 @@ I'm building **300 projects in 300 days** to master full-stack development!
 
 ---
 
-### 📫 Connect With Me
+### Connect With Me
 - **GitHub:** [@Henry2005Max](https://github.com/Henry2005Max)
 
 
 
 
 
-# 🚀 300 Days of Code Challenge
+#  300 Days of Code Challenge
 
 Building 300 projects in 300 days to become a full-stack developer!
 
@@ -63,7 +63,7 @@ Building 300 projects in 300 days to become a full-stack developer!
 
 ---
 
-## 🎯 The Plan
+## The Plan
 
 ### Sprint 1: Foundations (Days 1-30)
 JavaScript/TypeScript Basics & CLI Apps
