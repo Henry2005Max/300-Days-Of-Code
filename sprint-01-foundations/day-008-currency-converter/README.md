@@ -37,7 +37,7 @@ A Nigerian Naira focused currency converter that fetches live exchange rates! Co
 | ZAR | 🇿🇦 South African Rand |
 | EGP | 🇪🇬 Egyptian Pound |
 
-## 📦 Installation
+##  Installation
 
 ```bash
 npm install
@@ -49,7 +49,7 @@ npm install
 npx ts-node currency-converter.ts
 ```
 
-## 💡 Example Output
+##  Example Output
 
 ### Convert NGN to USD:
 ```
@@ -72,7 +72,7 @@ Amount: 50000
 
 ### NGN Quick Reference:
 ```
-  ⚡ QUICK NGN CONVERTER
+   QUICK NGN CONVERTER
 
   NGN → USD Quick Reference:
 
@@ -85,7 +85,7 @@ Amount: 50000
   ₦1,000,000    $632.91
 ```
 
-## 🎓 What I Learned
+##  What I Learned
 - Fetching live financial data from APIs
 - Fallback data for offline/error scenarios
 - Currency conversion mathematics
@@ -95,7 +95,7 @@ Amount: 50000
 - Building reference tables in terminal
 - African currency codes
 
-## 📅 Challenge Info
+## Challenge Info
 **Day:** 8/300  
 **Sprint:** 1 - Foundations  
 **Date:** FRI, FEB 13
@@ -104,4 +104,4 @@ Amount: 50000
 
 ---
 
-Part of my 300 Days of Code Challenge! 🚀
+Part of my 300 Days of Code Challenge! 
