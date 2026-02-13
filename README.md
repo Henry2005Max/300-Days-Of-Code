@@ -74,7 +74,8 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 5: Todo List CLI
 - ✅ Day 6: Random Quote Fetcher
 - ✅ Day 7: BMI Calculator
-- ⬜ Day 8: Currency Converter (NGN focus)
+- ✅ Day 8: Currency Converter (NGN focus)
+- ⬜ Day 9: TypeScript Encryption
   
 
 ### Sprint 2: Web Basics (Days 31-60)
