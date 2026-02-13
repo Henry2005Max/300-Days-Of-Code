@@ -1,20 +1,36 @@
 # Week 2 - Days 8-14
 
-## Day 8 - [Date]
-**Project:** Currency Converter (NGN focus, API)  
-**Time Spent:** 
+## Day 8 - February 13, 2026
+**Project:** Currency Converter (NGN Focus + API)
+**Time Spent:** 3 Hours
 
 ### What I Built
-- 
+- NGN focused currency converter with live rates
+- Supports 12 currencies including African ones (GHS, KES, ZAR)
+- Live rates from exchangerate-api.com
+- Fallback rates when API unavailable
+- Quick NGN → USD reference table
+- Convert any supported currency pair
 
 ### What I Learned
-- 
+- Fetching live financial data from APIs
+- Building fallback systems for when API fails
+- Currency conversion mathematics
+- Formatting numbers for currencies (JPY has no decimals!)
+- Timeout handling for API calls
+- African currency codes
+- Building reference tables in terminal
 
 ### Challenges
-- 
+- Understanding currency conversion through base rates
+- Formatting different currencies correctly
+- Building the fallback rate system
+- Remembering tsconfig.json from the start
 
 ### Resources Used
-- 
+- exchangerate-api.com documentation
+- Currency codes reference (ISO 4217)
+- Axios timeout documentation
 
 ### Tomorrow's Plan
 - Day 9: TypeScript Encryption (crypto module)
