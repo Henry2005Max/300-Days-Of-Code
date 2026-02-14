@@ -37,25 +37,39 @@
 
 ---
 
-## Day 9 - [Date]
-**Project:** TypeScript Encryption (crypto module)  
-**Time Spent:** 
+## Day 9 - February 14, 2026
+**Project:** TypeScript Encryption (crypto module)
+**Time Spent:**
 
 ### What I Built
-- 
+- Hashing tool (MD5, SHA1, SHA256, SHA512)
+- AES-256 encryption and decryption
+- Base64 encoder and decoder
+- Caesar cipher (encrypt and decrypt)
+- Secure random token generator
+- UUID generator
 
 ### What I Learned
-- 
+- Difference between hashing and encryption
+- AES-256-CBC algorithm with IV
+- Key derivation with scrypt
+- Base64 is encoding not encryption
+- Caesar cipher logic with shift
+- Cryptographically secure random generation
+- When to use each security method
 
 ### Challenges
-- 
+- Understanding IV (Initialization Vector) in AES
+- Key derivation from passwords
+- Caesar cipher shift logic for both directions
 
 ### Resources Used
-- 
+- Node.js crypto documentation
+- AES encryption guide
+- Crypto best practices
 
 ### Tomorrow's Plan
-- Day 10: Review - Add Jest tests to Day 1
-
+- Day 10: Review - Add Jest tests to Day 1 Calculator
 ---
 
 ## Day 10 - [Date]
