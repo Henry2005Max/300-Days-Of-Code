@@ -10,7 +10,7 @@ import {
   isValidOperation
 } from './calculator-logic';
 
-// ─── Addition Tests ──────────────────────────────────────
+//  Addition Tests
 
 describe('add()', () => {
   test('adds two positive numbers', () => {
@@ -34,7 +34,7 @@ describe('add()', () => {
   });
 });
 
-// ─── Subtraction Tests ───────────────────────────────────
+// Subtraction Tests 
 
 describe('subtract()', () => {
   test('subtracts two numbers', () => {
@@ -54,7 +54,7 @@ describe('subtract()', () => {
   });
 });
 
-// ─── Multiplication Tests ────────────────────────────────
+// Multiplication Tests 
 
 describe('multiply()', () => {
   test('multiplies two positive numbers', () => {
@@ -82,7 +82,7 @@ describe('multiply()', () => {
   });
 });
 
-// ─── Division Tests ──────────────────────────────────────
+// Division Tests 
 
 describe('divide()', () => {
   test('divides evenly', () => {
@@ -106,7 +106,7 @@ describe('divide()', () => {
   });
 });
 
-// ─── Modulo Tests ────────────────────────────────────────
+//  Modulo Tests 
 
 describe('modulo()', () => {
   test('gets remainder correctly', () => {
@@ -126,7 +126,7 @@ describe('modulo()', () => {
   });
 });
 
-// ─── Power Tests ─────────────────────────────────────────
+//  Power Tests 
 
 describe('power()', () => {
   test('calculates power correctly', () => {
@@ -150,7 +150,7 @@ describe('power()', () => {
   });
 });
 
-// ─── Calculate Function Tests ────────────────────────────
+// Calculate Function Tests 
 
 describe('calculate()', () => {
   test('handles + operator', () => {
@@ -182,7 +182,7 @@ describe('calculate()', () => {
   });
 });
 
-// ─── Validation Tests ────────────────────────────────────
+// Validation Tests 
 
 describe('isValidNumber()', () => {
   test('valid integer returns true', () => {
