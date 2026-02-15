@@ -1,7 +1,7 @@
 // Calculator Logic - Extracted for testing
 // Day 10 of 300 Days of Code Challenge
 
-// ─── Basic Operations ────────────────────────────────────
+// ─── Basic Operations
 
 export function add(a: bigint, b: bigint): bigint {
   return a + b;
@@ -36,7 +36,7 @@ export function power(a: bigint, b: bigint): bigint {
   return a ** b;
 }
 
-// ─── Validation ──────────────────────────────────────────
+// ─── Validation 
 
 export function isValidNumber(input: string): boolean {
   try {
@@ -51,7 +51,7 @@ export function isValidOperation(op: string): boolean {
   return ['+', '-', '*', '/', '%', '**'].includes(op);
 }
 
-// ─── Main Calculate Function ─────────────────────────────
+// ─── Main Calculate Function 
 
 export function calculate(a: bigint, b: bigint, operation: string): bigint {
   switch (operation) {
