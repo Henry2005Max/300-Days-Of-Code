@@ -1,13 +1,13 @@
 # Day 10: Review - Jest Tests for Calculator
 
-## 📝 Description
+##  Description
 Day 10 is a review day! Instead of building something new, we went back to Day 1's calculator and added proper Jest tests. This is how real developers work - writing tests to make sure code works correctly and doesn't break when you make changes!
 
-## ✨ Features
-- 🧪 **40+ Tests** - Comprehensive test coverage
-- ✅ **All Operations Tested** - add, subtract, multiply, divide, modulo, power
-- 🚫 **Edge Cases** - Zero, negatives, large numbers
-- ❌ **Error Testing** - Division by zero, invalid operators
+##  Features
+-  **40+ Tests** - Comprehensive test coverage
+-  **All Operations Tested** - add, subtract, multiply, divide, modulo, power
+-  **Edge Cases** - Zero, negatives, large numbers
+-  **Error Testing** - Division by zero, invalid operators
 - ✔️ **Validation Tests** - Input and operation validation
 - 📊 **Coverage Reports** - See exactly what's tested
 - 👀 **Watch Mode** - Auto re-run tests on file changes
