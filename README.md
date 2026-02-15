@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 10/300 🔥  
+**Current Progress:** Day 11/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 9/300
-- **Projects Built:** 9
-- **Current Streak:** 9 days 🔥
+- **Days Completed:** 10/300
+- **Projects Built:** 10
+- **Current Streak:** 10 days 🔥
 
 ---
 
@@ -76,7 +76,8 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 7: BMI Calculator
 - ✅ Day 8: Currency Converter (NGN focus)
 - ✅ Day 9: TypeScript Encryption (crypto)
-- ⬜ Day 10: Review - Jest Tests
+- ✅ Day 10: Review - Jest Tests for Calculator
+- ⬜ Day 11: Unit Converter
   
 
 ### Sprint 2: Web Basics (Days 31-60)
