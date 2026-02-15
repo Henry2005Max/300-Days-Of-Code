@@ -8,23 +8,23 @@ Day 10 is a review day! Instead of building something new, we went back to Day 1
 -  **All Operations Tested** - add, subtract, multiply, divide, modulo, power
 -  **Edge Cases** - Zero, negatives, large numbers
 -  **Error Testing** - Division by zero, invalid operators
-- ✔️ **Validation Tests** - Input and operation validation
-- 📊 **Coverage Reports** - See exactly what's tested
-- 👀 **Watch Mode** - Auto re-run tests on file changes
+-  **Validation Tests** - Input and operation validation
+-  **Coverage Reports** - See exactly what's tested
+-  **Watch Mode** - Auto re-run tests on file changes
 
-## 🛠️ Technologies Used
+## Technologies Used
 - TypeScript
 - Jest (testing framework)
 - ts-jest (TypeScript + Jest integration)
 - @types/jest (TypeScript types for Jest)
 
-## 📦 Installation
+##  Installation
 
 ```bash
 npm install
 ```
 
-## 🚀 How to Run Tests
+##  How to Run Tests
 
 ### Run all tests once:
 ```bash
@@ -41,7 +41,7 @@ npm run test:watch
 npm run test:coverage
 ```
 
-## 📊 Expected Output
+##  Expected Output
 
 ```
 PASS  calculator.test.ts
@@ -117,7 +117,7 @@ PASS  calculator.test.ts
 Tests: 45 passed, 45 total
 ```
 
-## 🎓 What I Learned
+##  What I Learned
 - How to write unit tests with Jest
 - describe() blocks for grouping related tests
 - test() and expect() functions
@@ -129,7 +129,7 @@ Tests: 45 passed, 45 total
 - Why testing matters in real projects
 - Separating logic from UI for testability
 
-## 🔍 Test Structure
+##  Test Structure
 
 ```typescript
 // Group related tests
@@ -151,7 +151,7 @@ describe('functionName()', () => {
 });
 ```
 
-## 💡 Why Testing Matters
+##  Why Testing Matters
 
 ### Without Tests:
 - You change code and don't know if it broke
@@ -164,7 +164,7 @@ describe('functionName()', () => {
 - Automatic verification
 - Documentation of expected behavior
 
-## 🚀 Future Improvements
+##  Future Improvements
 - Add integration tests
 - Test the CLI interface
 - Add performance tests
@@ -172,7 +172,7 @@ describe('functionName()', () => {
 - Add snapshot testing
 - CI/CD pipeline integration
 
-## 📅 Challenge Info
+##  Challenge Info
 **Day:** 10/300  
 **Sprint:** 1 - Foundations  
 **Date:** Sun Feb 15 
@@ -181,4 +181,4 @@ describe('functionName()', () => {
 
 ---
 
-Part of my 300 Days of Code Challenge! 🚀
+Part of my 300 Days of Code Challenge! 
