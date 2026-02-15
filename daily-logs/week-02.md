@@ -72,21 +72,38 @@
 - Day 10: Review - Add Jest tests to Day 1 Calculator
 ---
 
-## Day 10 - [Date]
-**Project:** Review - Add Jest Tests to Day 1 Calculator  
-**Time Spent:** 
+## Day 10 - Febraury 15, 2026
+**Project:** Review - Jest Tests for Day 1 Calculator
+**Time Spent:**
 
 ### What I Built
-- 
+- 45 unit tests for the Day 1 calculator
+- Separated calculator logic into testable functions
+- Tests for all 6 operations (+, -, *, /, %, **)
+- Edge case tests (zero, negatives, large numbers)
+- Error tests (division by zero, invalid operators)
+- Validation tests for inputs and operations
 
 ### What I Learned
-- 
+- How to write unit tests with Jest
+- describe() for grouping, test() for individual cases
+- toBe() for equality, toThrow() for errors
+- ts-jest for TypeScript + Jest integration
+- Why separating logic from UI matters for testing
+- Test coverage reports
+- Watch mode for development
+- TDD mindset - test everything!
 
 ### Challenges
-- 
+- Separating calculator logic from CLI code
+- Understanding how toThrow() works
+- Setting up ts-jest correctly
+- Understanding test coverage reports
 
 ### Resources Used
-- 
+- Jest documentation
+- ts-jest documentation
+- Unit testing best practices
 
 ### Tomorrow's Plan
 - Day 11: Unit Converter
