@@ -108,7 +108,37 @@
 ### Tomorrow's Plan
 - Day 11: Unit Converter
 
----
+## Day 11 - February 16
+**Project:** Unit Converter
+**Time Spent:**
+
+### What I Built
+- Unit converter with 5 categories
+- Length: meter, km, mile, yard, foot, inch, cm, mm
+- Weight: kg, gram, pound, ounce, ton, milligram
+- Temperature: Celsius, Fahrenheit, Kelvin
+- Speed: m/s, km/h, mph, knots, feet/second
+- Area: sq meter, km, mile, foot, acre, hectare
+- Quick reference tables for common conversions
+
+### What I Learned
+- TypeScript mapped types for conversion tables
+- Generic functions that work with different data
+- Temperature needs special formula (not just multiply)
+- Organizing large data structures cleanly
+- Input validation for unit names
+
+### Challenges
+- Temperature conversion is different from others
+- Keeping conversion tables organized
+- Error messages when user types wrong unit name
+
+### Resources Used
+- Unit conversion formulas reference
+- TypeScript mapped types documentation
+
+### Tomorrow's Plan
+- Day 12: Dice Roller
 
 
 
