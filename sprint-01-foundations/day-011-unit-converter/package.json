@@ -1,0 +1,30 @@
+{
+  "name": "day-011-unit-converter",
+  "version": "1.0.0",
+  "description": "Unit converter for length, weight, temperature, speed and area - Day 11 of 300",
+  "main": "unit-converter.js",
+  "scripts": {
+    "build": "tsc unit-converter.ts",
+    "start": "node unit-converter.js",
+    "dev": "ts-node unit-converter.ts"
+  },
+  "keywords": [
+    "unit-converter",
+    "length",
+    "weight",
+    "temperature",
+    "speed",
+    "area",
+    "typescript",
+    "cli"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
