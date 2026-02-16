@@ -39,7 +39,7 @@
 
 ## Day 9 - February 14, 2026
 **Project:** TypeScript Encryption (crypto module)
-**Time Spent:**
+**Time Spent:** 5 hours
 
 ### What I Built
 - Hashing tool (MD5, SHA1, SHA256, SHA512)
@@ -74,7 +74,7 @@
 
 ## Day 10 - Febraury 15, 2026
 **Project:** Review - Jest Tests for Day 1 Calculator
-**Time Spent:**
+**Time Spent:** 3 hours
 
 ### What I Built
 - 45 unit tests for the Day 1 calculator
@@ -110,7 +110,7 @@
 
 ## Day 11 - February 16
 **Project:** Unit Converter
-**Time Spent:**
+**Time Spent:** 2 hours
 
 ### What I Built
 - Unit converter with 5 categories
