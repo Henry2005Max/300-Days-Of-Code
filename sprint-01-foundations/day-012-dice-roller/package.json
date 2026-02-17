@@ -1,0 +1,29 @@
+{
+  "name": "day-012-dice-roller",
+  "version": "1.0.0",
+  "description": "Cryptographically secure dice roller with D&D and poker modes - Day 12 of 300",
+  "main": "dice-roller.js",
+  "scripts": {
+    "build": "tsc dice-roller.ts",
+    "start": "node dice-roller.js",
+    "dev": "ts-node dice-roller.ts"
+  },
+  "keywords": [
+    "dice",
+    "roller",
+    "dnd",
+    "crypto",
+    "typescript",
+    "cli",
+    "games"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
