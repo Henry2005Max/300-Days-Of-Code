@@ -140,6 +140,42 @@
 ### Tomorrow's Plan
 - Day 12: Dice Roller
 
+## Day 12 - February 17
+**Project:** Dice Roller
+**Time Spent:**
+
+### What I Built
+- Cryptographically secure dice roller
+- Single die and multiple dice rolling
+- Roll with modifiers (e.g. 2d6+3)
+- Stress test with 100 rolls and frequency chart
+- D&D character stat generator (4d6 drop lowest)
+- Poker dice with hand detection
+- Color coded results (critical hits, fails)
+- Statistical analysis (avg, min, max)
+
+### What I Learned
+- crypto.randomBytes() for secure random numbers
+- Array methods: reduce, sort, filter, map
+- Frequency counting with objects
+- Statistical calculations
+- Poker hand detection logic
+- D&D dice rolling rules (4d6 drop lowest)
+- Visual bar charts in terminal
+
+### Challenges
+- Poker hand detection logic
+- D&D 4d6 drop lowest implementation
+- Making the frequency bar chart look good(chheck screenshot)
+- Color coding based on roll percentage
+
+### Resources Used
+- Node.js crypto documentation
+- D&D dice rolling rules
+- Poker hand rankings
+
+### Tomorrow's Plan
+- Day 13: Markdown Parser (marked library)
 
 
 
