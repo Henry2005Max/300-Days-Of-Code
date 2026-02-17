@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Dice Roller
 // Day 12 of 300 Days of Code Challenge
 
@@ -20,11 +18,11 @@ function askQuestion(question: string): Promise<string> {
   });
 }
 
-// ─── Dice Types ──────────────────────────────────────────
+//  Dice Types 
 
 const DICE_TYPES = [4, 6, 8, 10, 12, 20, 100];
 
-// ─── Secure Random Roll ──────────────────────────────────
+//  Secure Random Roll 
 
 function rollDie(sides: number): number {
   const randomBuffer = crypto.randomBytes(4);
@@ -32,7 +30,7 @@ function rollDie(sides: number): number {
   return (randomNumber % sides) + 1;
 }
 
-// ─── Roll Multiple Dice ──────────────────────────────────
+//  Roll Multiple Dice 
 
 function rollMultiple(count: number, sides: number): number[] {
   const results: number[] = [];
@@ -42,7 +40,7 @@ function rollMultiple(count: number, sides: number): number[] {
   return results;
 }
 
-// ─── Dice Visual ─────────────────────────────────────────
+//  Dice Visual 
 
 function getDiceEmoji(value: number, sides: number): string {
   if (sides === 6) {
@@ -60,7 +58,7 @@ function getResultColor(value: number, sides: number): string {
   return chalk.white(`${value}`);
 }
 
-// ─── Display Roll Results ─────────────────────────────────
+//  Display Roll Results 
 
 function displayRollResults(results: number[], sides: number, modifier: number = 0): void {
   const total = results.reduce((sum, val) => sum + val, 0) + modifier;
@@ -94,7 +92,7 @@ function displayRollResults(results: number[], sides: number, modifier: number =
   console.log(chalk.gray('\n  ' + '─'.repeat(50) + '\n'));
 }
 
-// ─── Statistics ───────────────────────────────────────────
+//  Statistics 
 
 function showStats(results: number[], sides: number): void {
   const total = results.reduce((a, b) => a + b, 0);
@@ -125,7 +123,7 @@ function showStats(results: number[], sides: number): void {
   console.log('');
 }
 
-// ─── Preset Games ────────────────────────────────────────
+//  Preset Games 
 
 async function dungeonMode(): Promise<void> {
   console.log(chalk.bold.magenta('\n  ⚔️  DUNGEON & DRAGONS MODE\n'));
@@ -172,7 +170,7 @@ async function pokerDice(): Promise<void> {
   console.log(chalk.bold.yellow(`\n  Result: ${hand}\n`));
 }
 
-// ─── Main Application ─────────────────────────────────────
+//  Main Application 
 
 async function runDiceRoller() {
   console.clear();
