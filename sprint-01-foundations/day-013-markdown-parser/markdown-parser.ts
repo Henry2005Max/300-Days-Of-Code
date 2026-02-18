@@ -1,4 +1,3 @@
-
 // Markdown Parser using marked library
 // Day 13 of 300 Days of Code Challenge
 
@@ -27,7 +26,7 @@ async function parseMarkdown(markdown: string): Promise<string> {
   return await marked.parse(markdown);
 }
 
-// ─── Read Markdown File ──────────────────────────────────
+//  Read Markdown File 
 
 async function readMarkdownFile(filePath: string): Promise<string> {
   try {
@@ -37,7 +36,7 @@ async function readMarkdownFile(filePath: string): Promise<string> {
   }
 }
 
-// ─── Write HTML File ─────────────────────────────────────
+//  Write HTML File 
 
 async function writeHTMLFile(filePath: string, html: string): Promise<void> {
   const fullHTML = `
@@ -109,7 +108,7 @@ async function writeHTMLFile(filePath: string, html: string): Promise<void> {
   await fs.writeFile(filePath, fullHTML);
 }
 
-// ─── Create Sample Markdown ──────────────────────────────
+//  Create Sample Markdown 
 
 function getSampleMarkdown(): string {
   return `# Welcome to Markdown Parser
@@ -172,11 +171,11 @@ greet('World');
 
 ---
 
-**That's it!** Try parsing your own markdown files now! 🚀
+**That's it!** Try parsing your own markdown files now! 
 `;
 }
 
-// ─── Display Markdown Stats ──────────────────────────────
+//  Display Markdown Stats 
 
 function displayStats(markdown: string): void {
   const lines = markdown.split('\n');
@@ -198,7 +197,7 @@ function displayStats(markdown: string): void {
   console.log('');
 }
 
-// ─── Main Application ─────────────────────────────────────
+//  Main Application 
 
 async function runMarkdownParser() {
   console.clear();
