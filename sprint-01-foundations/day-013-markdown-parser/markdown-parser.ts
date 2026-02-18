@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 
 // Markdown Parser using marked library
 // Day 13 of 300 Days of Code Challenge
@@ -22,7 +21,7 @@ function askQuestion(question: string): Promise<string> {
   });
 }
 
-// ─── Parse Markdown to HTML ──────────────────────────────
+//  Parse Markdown to HTML 
 
 async function parseMarkdown(markdown: string): Promise<string> {
   return await marked.parse(markdown);
