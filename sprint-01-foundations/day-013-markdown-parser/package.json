@@ -1,0 +1,29 @@
+{
+  "name": "day-013-markdown-parser",
+  "version": "1.0.0",
+  "description": "Markdown to HTML parser using marked library - Day 13 of 300",
+  "main": "markdown-parser.js",
+  "scripts": {
+    "build": "tsc markdown-parser.ts",
+    "start": "node markdown-parser.js",
+    "dev": "ts-node markdown-parser.ts"
+  },
+  "keywords": [
+    "markdown",
+    "parser",
+    "html",
+    "marked",
+    "typescript",
+    "cli"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^11.0.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
