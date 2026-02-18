@@ -142,7 +142,7 @@
 
 ## Day 12 - February 17
 **Project:** Dice Roller
-**Time Spent:**
+**Time Spent:** 3hrs
 
 ### What I Built
 - Cryptographically secure dice roller
@@ -176,6 +176,40 @@
 
 ### Tomorrow's Plan
 - Day 13: Markdown Parser (marked library)
+
+## Day 13 - February 18, 2026
+**Project:** Markdown Parser (marked library)
+**Time Spent:**2 hoursa
+
+### What I Built
+- Markdown to HTML parser using marked library
+- Parse .md files or direct text input
+- Sample markdown file generator
+- Statistics counter (lines, words, headings, links, code blocks)
+- Automatic HTML generation with styled CSS
+- File I/O operations
+
+### What I Learned
+- Using external npm libraries (marked)
+- Markdown syntax elements
+- Generating complete HTML documents with CSS
+- Multi-line input handling in terminal
+- Regex patterns for counting markdown elements
+- Template literals for HTML generation
+
+### Challenges
+- Multi-line input (solved with "END" marker)
+- Embedding CSS in generated HTML
+- Counting markdown elements with regex
+- File path handling
+
+### Resources Used
+- marked library documentation
+- Markdown syntax guide
+- Regex for markdown patterns
+
+### Tomorrow's Plan
+- Day 14: Email Validator
 
 
 
