@@ -200,8 +200,6 @@
 ### Challenges
 - Multi-line input (solved with "END" marker)
 - Embedding CSS in generated HTML
-- Counting markdown elements with regex
-- File path handling
 
 ### Resources Used
 - marked library documentation
