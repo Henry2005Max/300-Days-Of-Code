@@ -1,0 +1,27 @@
+{
+  "name": "day-014-email-validator",
+  "version": "1.0.0",
+  "description": "Email validator with detailed feedback - Day 14 of 300",
+  "main": "email-validator.js",
+  "scripts": {
+    "build": "tsc email-validator.ts",
+    "start": "node email-validator.js",
+    "dev": "ts-node email-validator.ts"
+  },
+  "keywords": [
+    "email",
+    "validator",
+    "regex",
+    "typescript",
+    "cli"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
