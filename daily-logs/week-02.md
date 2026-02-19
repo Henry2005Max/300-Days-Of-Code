@@ -209,13 +209,49 @@
 ### Tomorrow's Plan
 - Day 14: Email Validator
 
+## Day 14 - February 19, 2026
+**Project:** Email Validator
+**Time Spent:** 3hrs
 
+### What I Built
+- Email validator with detailed feedback
+- Single email validation with error reporting
+- Batch validation from file
+- Common provider detection (Gmail, Yahoo, etc.)
+- Regex-based validation
+- Statistics display
+
+### What I Learned
+- Email validation regex patterns
+- Email format rules (RFC 5322)
+- String parsing and analysis
+- Detailed error reporting
+- Batch file processing
+- Common email providers
+
+### Challenges
+- Understanding email validation rules
+- Writing comprehensive regex
+- Providing helpful error messages
+- Detecting different provider types
+
+### Resources Used
+- RFC 5322 email standard
+- Regex documentation
+- Email validation best practices
+
+---
+
+## Week 2 Summary (Days 8-14)
+
+**Total Projects:** 7
+**Total Hours:** 21 Hours
 
 **🏆 Biggest Win:**
-
+Completed Week 2 with 7 diverse projects! Built real-world tools: currency converter, encryption, dice roller, markdown parser, and email validator. tsconfig.json is now second nature!
 
 **😤 Biggest Challenge:**
-
+Remembering tsconfig.json at the start of each project. Multi-line input in markdown parser was tricky to understand at first. Regex for email validation required careful testing.
 
 **🎯 Next Week's Focus (Days 15-21):**
-
+Continue Sprint 1 - QR Generator, Joke API, Palindrome Checker, FizzBuzz with generics, Basic Chatbot, Recipe Randomizer, and more data handling projects!
