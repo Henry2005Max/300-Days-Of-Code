@@ -1,0 +1,30 @@
+{
+  "name": "day-015-qr-generator",
+  "version": "1.0.0",
+  "description": "QR code generator for URLs, WiFi, contacts and more - Day 15 of 300",
+  "main": "qr-generator.js",
+  "scripts": {
+    "build": "tsc qr-generator.ts",
+    "start": "node qr-generator.js",
+    "dev": "ts-node qr-generator.ts"
+  },
+  "keywords": [
+    "qr-code",
+    "generator",
+    "wifi",
+    "vcard",
+    "typescript",
+    "cli"
+  ],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode": "^1.5.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/qrcode": "^1.5.0",
+    "typescript": "^5.0.0"
+  }
+}
