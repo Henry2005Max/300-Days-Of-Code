@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 15/300 🔥  
+**Current Progress:** Day 16/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 14/300
-- **Projects Built:** 14
-- **Current Streak:** 14 days 🔥
+- **Days Completed:** 15/300
+- **Projects Built:** 15
+- **Current Streak:** 15 days 🔥
 
 ---
 
@@ -81,6 +81,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 12: Dice Roller
 - ✅ Day 13: Markdown Parser (marked library)
 - ✅ Day 14: Email Validator
+- ✅ Day 15: QR Code Generator
   
 
 ### Sprint 2: Web Basics (Days 31-60)
