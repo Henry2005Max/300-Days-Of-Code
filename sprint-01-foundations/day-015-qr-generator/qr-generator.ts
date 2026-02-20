@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // QR Code Generator
 // Day 15 of 300 Days of Code Challenge
 
@@ -20,7 +18,7 @@ function askQuestion(question: string): Promise<string> {
   });
 }
 
-// ─── Generate QR Code as Image ───────────────────────────
+//  Generate QR Code as Image 
 
 async function generateQRImage(
   text: string,
@@ -35,7 +33,7 @@ async function generateQRImage(
   await QRCode.toFile(filename, text, opts);
 }
 
-// ─── Generate QR Code in Terminal ────────────────────────
+//  Generate QR Code in Terminal 
 
 async function generateQRTerminal(text: string): Promise<void> {
   const qrString = await QRCode.toString(text, { type: 'terminal', small: true });
