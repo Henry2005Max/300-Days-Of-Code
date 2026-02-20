@@ -40,7 +40,7 @@ async function generateQRTerminal(text: string): Promise<void> {
   console.log('\n' + qrString);
 }
 
-// ─── Quick Presets ────────────────────────────────────────
+//  Quick Presets 
 
 async function generateURLQR(url: string): Promise<void> {
   if (!url.startsWith('http://') && !url.startsWith('https://')) {
