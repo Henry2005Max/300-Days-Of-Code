@@ -129,7 +129,7 @@ function showExamples(): void {
   console.log(chalk.white('    Email: john@example.com\n'));
 }
 
-// ─── Main Application ─────────────────────────────────────
+//  Main Application 
 
 async function runQRGenerator() {
   console.clear();
@@ -142,7 +142,7 @@ async function runQRGenerator() {
   let continueRunning = true;
 
   while (continueRunning) {
-    console.log(chalk.bold.cyan('\n📋 MENU\n'));
+    console.log(chalk.bold.cyan('\n MENU\n'));
     console.log(chalk.white('   1. Plain text QR code'));
     console.log(chalk.white('   2. URL QR code'));
     console.log(chalk.white('   3. WiFi QR code'));
@@ -166,7 +166,7 @@ async function runQRGenerator() {
         case '1': {
           const text = await askQuestion(chalk.cyan('\n  Enter text: '));
           if (!text) {
-            console.log(chalk.red('\n  ❌ Text cannot be empty!\n'));
+            console.log(chalk.red('\n   Text cannot be empty!\n'));
             break;
           }
 
@@ -174,14 +174,14 @@ async function runQRGenerator() {
           
           console.log(chalk.cyan('\n  🔄 Generating QR code...'));
           await generateQRImage(text, filename);
-          console.log(chalk.green(`\n  ✅ QR code saved as: ${filename}\n`));
+          console.log(chalk.green(`\n   QR code saved as: ${filename}\n`));
           break;
         }
 
         case '2': {
           const url = await askQuestion(chalk.cyan('\n  Enter URL: '));
           if (!url) {
-            console.log(chalk.red('\n  ❌ URL cannot be empty!\n'));
+            console.log(chalk.red('\n   URL cannot be empty!\n'));
             break;
           }
 
@@ -297,7 +297,7 @@ async function runQRGenerator() {
 
     const again = await askQuestion(chalk.cyan('Generate another? (yes/no): '));
     if (again.toLowerCase() !== 'yes' && again.toLowerCase() !== 'y') {
-      console.log(chalk.magenta('\n👋 Keep scanning! Goodbye!\n'));
+      console.log(chalk.magenta('\n Keep scanning! Goodbye!\n'));
       continueRunning = false;
     }
   }
