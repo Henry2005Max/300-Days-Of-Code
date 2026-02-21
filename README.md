@@ -1,4 +1,4 @@
-# Hi, I'm Henry! 👋
+# Hi, I'm Henry! 👋 
 
 ##  300 Days of Code Challenge
 
