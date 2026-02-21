@@ -1,0 +1,22 @@
+{
+  "name": "day16-joke-api-fetcher",
+  "version": "1.0.0",
+  "description": "Day 16 of 300 Days of Code - Joke API Fetcher CLI in TypeScript",
+  "main": "dist/joke-fetcher.js",
+  "scripts": {
+    "start": "npx ts-node joke-fetcher.ts",
+    "build": "npx tsc",
+    "run:built": "node dist/joke-fetcher.js"
+  },
+  "keywords": ["joke", "api", "typescript", "cli", "day16", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
