@@ -54,7 +54,7 @@ interface JokeAPIResponse {
 
 type Category = 'Any' | 'Programming' | 'Misc' | 'Dark' | 'Pun' | 'Spooky' | 'Christmas';
 
-// ─── API Fetcher ──────────────────────────────────────────
+//  API Fetcher 
 
 function fetchFromAPI(url: string): Promise<JokeAPIResponse> {
   return new Promise((resolve, reject) => {
@@ -74,7 +74,7 @@ function fetchFromAPI(url: string): Promise<JokeAPIResponse> {
   });
 }
 
-// ─── Fetch Functions ──────────────────────────────────────
+//  Fetch Functions 
 
 async function fetchSingleJoke(category: Category = 'Any', safe: boolean = false): Promise<Joke | null> {
   const safeFlag = safe ? '?safe-mode' : '';
