@@ -117,7 +117,7 @@ async function fetchProgrammingJoke(): Promise<Joke | null> {
   return fetchSingleJoke('Programming');
 }
 
-// ─── Display Functions ────────────────────────────────────
+//  Display Functions 
 
 function displayJoke(joke: Joke, index?: number): void {
   const label = index !== undefined ? `Joke #${index + 1}` : 'Joke';
@@ -168,7 +168,7 @@ function showCategories(): void {
   console.log('');
 }
 
-// ─── Main Application ─────────────────────────────────────
+//  Main Application 
 
 async function runJokeFetcher(): Promise<void> {
   console.clear();
