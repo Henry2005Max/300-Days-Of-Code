@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Day 16 of 300 Days of Code - Joke API Fetcher CLI in TypeScript",
   "main": "dist/joke-fetcher.js",
-  "scripts": {
+  "scripts": { 
     "start": "npx ts-node joke-fetcher.ts",
     "build": "npx tsc",
     "run:built": "node dist/joke-fetcher.js"
