@@ -200,7 +200,7 @@ async function runJokeFetcher(): Promise<void> {
     try {
       switch (choice) {
 
-        // ── Option 1: Random Joke ────────────────────────
+        //  Option 1: Random Joke 
         case '1': {
           console.log(chalk.cyan('\n  Fetching joke...'));
           const joke = await fetchSingleJoke();
@@ -212,7 +212,7 @@ async function runJokeFetcher(): Promise<void> {
           break;
         }
 
-        // ── Option 2: By Category ────────────────────────
+        //  Option 2: By Category 
         case '2': {
           showCategories();
           const categoryInput = await askQuestion(chalk.cyan('  Enter category: '));
@@ -234,7 +234,7 @@ async function runJokeFetcher(): Promise<void> {
           break;
         }
 
-        // ── Option 3: Programming Joke ───────────────────
+        //  Option 3: Programming Joke 
         case '3': {
           console.log(chalk.cyan('\n  Fetching programming joke...'));
           const joke = await fetchProgrammingJoke();
@@ -246,7 +246,7 @@ async function runJokeFetcher(): Promise<void> {
           break;
         }
 
-        // ── Option 4: Multiple Jokes ─────────────────────
+        //  Option 4: Multiple Jokes 
         case '4': {
           const amountInput = await askQuestion(chalk.cyan('\n  How many jokes? (1-10): '));
           const amount = Math.min(Math.max(parseInt(amountInput) || 1, 1), 10);
@@ -268,7 +268,7 @@ async function runJokeFetcher(): Promise<void> {
           break;
         }
 
-        // ── Option 5: Safe Mode ──────────────────────────
+        //  Option 5: Safe Mode 
         case '5': {
           console.log(chalk.cyan('\n  Fetching family-friendly joke...'));
           const joke = await fetchSingleJoke('Any', true);
