@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Joke API Fetcher
 // Day 16 of 300 Days of Code Challenge
 
@@ -20,7 +18,7 @@ function askQuestion(question: string): Promise<string> {
   });
 }
 
-// ─── Types ────────────────────────────────────────────────
+//  Types 
 
 interface SingleJoke {
   type: 'single';
