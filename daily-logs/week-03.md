@@ -27,3 +27,31 @@ None
 
 ### Tomorrow
 Day 16: Joke API Fetcher
+
+
+## Day 16 - February 16, 2026
+**Project:** Joke API Fetcher
+**Time Spent:** A lottttt of time (haha)
+
+### What I Built
+- Interactive CLI with 7 menu options
+- Random joke fetcher from JokeAPI.dev
+- Category filter (Programming, Misc, Dark, Pun, Spooky, Christmas)
+- Dedicated programming jokes option
+- Multiple jokes fetcher (1-10 at once)
+- Safe mode for family-friendly jokes
+- Two-part joke display with dramatic pause
+
+### What I Learned
+- Making HTTP requests with Node.js built-in https module
+- Consuming a public REST API with TypeScript types
+- Union types for different response shapes (SingleJoke | TwoPartJoke)
+- Wrapping callback-based APIs in Promises
+
+### Resources Used
+- JokeAPI docs: https://v2.jokeapi.dev
+- Node.js https module docs: https://nodejs.org/api/https.html
+- Chalk v4 docs: https://github.com/chalk/chalk/tree/v4
+
+### Tomorrow
+Day 17 - Palindrome Checker
