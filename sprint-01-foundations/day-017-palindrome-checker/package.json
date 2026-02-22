@@ -1,0 +1,22 @@
+{
+  "name": "day17-palindrome-checker",
+  "version": "1.0.0",
+  "description": "Day 17 of 300 Days of Code - Palindrome Checker CLI in TypeScript",
+  "main": "dist/palindrome-checker.js",
+  "scripts": {
+    "start": "npx ts-node palindrome-checker.ts",
+    "build": "npx tsc",
+    "run:built": "node dist/palindrome-checker.js"
+  },
+  "keywords": ["palindrome", "typescript", "cli", "day17", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
