@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Palindrome Checker
 // Day 17 of 300 Days of Code Challenge
 
@@ -30,7 +28,7 @@ interface PalindromeResult {
   wordCount: number;
 }
 
-// ─── Core Logic ───────────────────────────────────────────
+//  Core Logic 
 
 function cleanString(input: string): string {
   // Remove spaces, punctuation, convert to lowercase
@@ -61,7 +59,7 @@ function checkMultiple(inputs: string[]): PalindromeResult[] {
   return inputs.map(checkPalindrome);
 }
 
-// ─── Display Functions ────────────────────────────────────
+//  Display Functions 
 
 function displayResult(result: PalindromeResult): void {
   console.log(chalk.gray('\n  ' + '─'.repeat(50)));
@@ -140,7 +138,7 @@ function showExamples(): void {
   console.log('');
 }
 
-// ─── Main Application ─────────────────────────────────────
+//  Main Application 
 
 async function runPalindromeChecker(): Promise<void> {
   console.clear();
@@ -170,7 +168,7 @@ async function runPalindromeChecker(): Promise<void> {
     try {
       switch (choice) {
 
-        // ── Option 1: Single Check ───────────────────────
+        //  Option 1: Single Check 
         case '1': {
           const input = await askQuestion(chalk.cyan('\n  Enter a word or phrase: '));
           if (!input) {
@@ -182,7 +180,7 @@ async function runPalindromeChecker(): Promise<void> {
           break;
         }
 
-        // ── Option 2: Multiple Checks ────────────────────
+        //  Option 2: Multiple Checks 
         case '2': {
           console.log(chalk.cyan('\n  Enter words/phrases one per line.'));
           console.log(chalk.gray('  Type "done" when finished.\n'));
@@ -204,7 +202,7 @@ async function runPalindromeChecker(): Promise<void> {
           break;
         }
 
-        // ── Option 3: Number Check ───────────────────────
+        //  Option 3: Number Check 
         case '3': {
           const input = await askQuestion(chalk.cyan('\n  Enter a number: '));
           if (!input || isNaN(Number(input))) {
@@ -216,7 +214,7 @@ async function runPalindromeChecker(): Promise<void> {
           break;
         }
 
-        // ── Option 4: Examples ───────────────────────────
+        //  Option 4: Examples 
         case '4': {
           showExamples();
           break;
