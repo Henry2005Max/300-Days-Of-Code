@@ -19,7 +19,7 @@ function askQuestion(question: string): Promise<string> {
   });
 }
 
-// ─── Types ────────────────────────────────────────────────
+//  Types 
 
 interface PalindromeResult {
   original: string;
