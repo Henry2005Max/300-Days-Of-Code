@@ -55,3 +55,31 @@ Day 16: Joke API Fetcher
 
 ### Tomorrow
 Day 17 - Palindrome Checker
+
+## Day 17 - February 22nd, 2026
+**Project:** Palindrome Checker
+**Time Spent:** 2hrs
+
+### What I Built
+- Single word/phrase palindrome checker
+- Batch checker for multiple inputs with summary
+- Number palindrome checker
+- Break detection (shows exact position where it fails)
+- Examples viewer with classic palindromes
+- Smart string cleaning (ignores spaces, punctuation, casing)
+
+### What I Learned
+- String manipulation: split(), reverse(), join()
+- Regex for stripping non-alphanumeric characters (/[^a-z0-9]/g)
+- TypeScript interfaces for structured return types
+- Batch processing arrays with .map() and .filter()
+
+### Resources Used
+- MDN String methods: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+- MDN Array.reverse(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+- Regex tester: https://regex101.com
+
+### Challenges
+
+### Tomorrow
+Day 18 - FizzBuzz with TypeScript Generics
