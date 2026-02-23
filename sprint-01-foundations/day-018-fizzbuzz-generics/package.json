@@ -1,0 +1,22 @@
+{
+  "name": "day18-fizzbuzz-generics",
+  "version": "1.0.0",
+  "description": "Day 18 of 300 Days of Code - FizzBuzz with TypeScript Generics",
+  "main": "dist/fizzbuzz.js",
+  "scripts": {
+    "start": "npx ts-node fizzbuzz.ts",
+    "build": "npx tsc",
+    "run:built": "node dist/fizzbuzz.js"
+  },
+  "keywords": ["fizzbuzz", "generics", "typescript", "cli", "day18", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
