@@ -83,3 +83,33 @@ Day 17 - Palindrome Checker
 
 ### Tomorrow
 Day 18 - FizzBuzz with TypeScript Generics
+
+## Day 18 - February 23rd, 2026
+**Project:** FizzBuzz with TypeScript Generics
+**Time Spent:** 2hours
+
+### What I Built
+- Classic FizzBuzz (1 to any number)
+- Extended FizzBuzzBazz with 3 rules (3, 5, 7)
+- Nigeria Edition (Naija, Lagos, Abuja)
+- Emoji Edition (fire, water, lightning)
+- Custom rule builder (up to 5 rules, your own divisors and labels)
+- Match stats showing total, matched and plain numbers
+
+### What I Learned
+- TypeScript Generics with type parameter <T>
+- Generic interfaces: FizzBuzzRule<T> and FizzBuzzResult<T>
+- How generics let one function handle many different types
+- Modulo operator (%) for divisibility checks
+- Rule-based systems vs hardcoded if/else chains
+
+### Resources Used
+- TypeScript Generics docs: https://www.typescriptlang.org/docs/handbook/2/generics.html
+- MDN Remainder operator: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder
+- Chalk v4 docs: https://github.com/chalk/chalk/tree/v4
+
+### Challenges
+None
+
+### Tomorrow
+Day 19 - Basic Chatbot with readline
