@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // FizzBuzz with TypeScript Generics
 // Day 18 of 300 Days of Code Challenge
 
@@ -19,7 +17,7 @@ function askQuestion(question: string): Promise<string> {
   });
 }
 
-// ─── Types ────────────────────────────────────────────────
+//  Types 
 
 interface FizzBuzzRule<T> {
   divisor: number;
@@ -32,7 +30,7 @@ interface FizzBuzzResult<T> {
   matched: boolean;
 }
 
-// ─── Core Generic Logic ───────────────────────────────────
+//  Core Generic Logic 
 
 // Generic FizzBuzz — works with ANY label type (string, number, object, etc.)
 function fizzBuzz<T>(
@@ -66,7 +64,7 @@ function fizzBuzz<T>(
   return results;
 }
 
-// ─── Preset Rule Sets ─────────────────────────────────────
+//  Preset Rule Sets 
 
 const classicRules: FizzBuzzRule<string>[] = [
   { divisor: 3, label: 'Fizz' },
@@ -91,7 +89,7 @@ const emojiRules: FizzBuzzRule<string>[] = [
   { divisor: 7, label: '⚡' },
 ];
 
-// ─── Display Functions ────────────────────────────────────
+//  Display Functions 
 
 function displayResults<T>(results: FizzBuzzResult<T>[], limit?: number): void {
   const toShow = limit ? results.slice(0, limit) : results;
@@ -135,7 +133,7 @@ function displayCustomResult(results: FizzBuzzResult<string>[]): void {
   console.log(chalk.gray(`\n  Total: ${results.length} numbers | ${matchCount} matched\n`));
 }
 
-// ─── Main Application ─────────────────────────────────────
+//  Main Application 
 
 async function runFizzBuzz(): Promise<void> {
   console.clear();
@@ -166,7 +164,7 @@ async function runFizzBuzz(): Promise<void> {
     try {
       switch (choice) {
 
-        // ── Option 1: Classic ────────────────────────────
+        //  Option 1: Classic 
         case '1': {
           const limitInput = await askQuestion(chalk.cyan('\n  How far? (default: 100): '));
           const limit = parseInt(limitInput) || 100;
@@ -177,7 +175,7 @@ async function runFizzBuzz(): Promise<void> {
           break;
         }
 
-        // ── Option 2: Extended ───────────────────────────
+        //  Option 2: Extended 
         case '2': {
           const limitInput = await askQuestion(chalk.cyan('\n  How far? (default: 100): '));
           const limit = parseInt(limitInput) || 100;
@@ -189,7 +187,7 @@ async function runFizzBuzz(): Promise<void> {
           break;
         }
 
-        // ── Option 3: Nigeria Edition ────────────────────
+        //  Option 3: Nigeria Edition 
         case '3': {
           const limitInput = await askQuestion(chalk.cyan('\n  How far? (default: 100): '));
           const limit = parseInt(limitInput) || 100;
@@ -201,7 +199,7 @@ async function runFizzBuzz(): Promise<void> {
           break;
         }
 
-        // ── Option 4: Emoji Edition ──────────────────────
+        //  Option 4: Emoji Edition 
         case '4': {
           const limitInput = await askQuestion(chalk.cyan('\n  How far? (default: 50): '));
           const limit = parseInt(limitInput) || 50;
@@ -213,7 +211,7 @@ async function runFizzBuzz(): Promise<void> {
           break;
         }
 
-        // ── Option 5: Custom Rules ───────────────────────
+        //  Option 5: Custom Rules 
         case '5': {
           console.log(chalk.cyan('\n  Build your own FizzBuzz rules!\n'));
 
