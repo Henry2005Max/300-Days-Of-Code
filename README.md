@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 19/300 🔥  
+**Current Progress:** Day 20/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 18/300
-- **Projects Built:** 18
-- **Current Streak:** 18 days 🔥
+- **Days Completed:** 19/300
+- **Projects Built:** 19
+- **Current Streak:** 19 days 🔥
 
 ---
 
@@ -85,6 +85,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 16: Joke Api Fetcher
 - ✅ Day 17: Palindrome Checker
 - ✅ Day 18: FizzBuzz Generics
+- ✅ Day 19: Basic Chatbot
   
 
 ### Sprint 2: Web Basics (Days 31-60)
