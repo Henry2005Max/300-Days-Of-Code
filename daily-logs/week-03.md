@@ -113,3 +113,32 @@ None
 
 ### Tomorrow
 Day 19 - Basic Chatbot with readline
+
+
+## Day 19 - February 24, 2026
+**Project:** Basic Chatbot with readline
+**Time Spent:**3hours 30 minutes
+
+### What I Built
+- Rule-based chatbot (Cody) that responds to keyword triggers
+- Personalised responses using the user's name
+- Conversation history with timestamps (type "history")
+- Topics: greetings, coding, Nigeria, jokes, time, date, help, bye
+- Random response selection so replies vary each time
+- Graceful exit detection for bye/goodbye/quit/exit
+- Message counter tracking total messages in session
+
+### What I Learned
+- Building rule-based systems with keyword arrays and BotRule interface
+- Managing session state (userName, messageCount, history array)
+- TypeScript interfaces for Message and BotRule types
+- Using Math.random() for varied responses
+- Continuous async input loop with readline
+
+### Resources Used
+- Node.js readline docs: https://nodejs.org/api/readline.html
+- MDN Math.random(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+- Chalk v4 docs: https://github.com/chalk/chalk/tree/v4
+
+### Tomorrow
+Day 20 - Recipe Randomizer
