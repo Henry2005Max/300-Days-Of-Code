@@ -1,0 +1,22 @@
+{
+  "name": "day19-basic-chatbot",
+  "version": "1.0.0",
+  "description": "Day 19 of 300 Days of Code - Basic Chatbot with readline in TypeScript",
+  "main": "dist/chatbot.js",
+  "scripts": {
+    "start": "npx ts-node chatbot.ts",
+    "build": "npx tsc",
+    "run:built": "node dist/chatbot.js"
+  },
+  "keywords": ["chatbot", "readline", "typescript", "cli", "day19", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
