@@ -142,3 +142,34 @@ Day 19 - Basic Chatbot with readline
 
 ### Tomorrow
 Day 20 - Recipe Randomizer
+
+
+## Day 20 - February 25, 2026
+**Project:** Recipe Randomizer
+**Time Spent:**3 hours
+
+### What I Built
+- 10 recipes stored as structured TypeScript data (Nigerian, Italian, Asian, American, Mexican)
+- Random recipe picker
+- Filter by category (Breakfast, Lunch, Dinner, Snack, Dessert, Drink)
+- Filter by cuisine (Nigerian, Italian, Asian, American, Mexican)
+- Filter by difficulty (Easy, Medium, Hard)
+- Tag search (spicy, quick, rice, fried, etc.)
+- Full recipe display with ingredients, steps, times, servings and tags
+- Clean list view with name, cuisine, difficulty and total time
+
+### What I Learned
+- Structuring rich data with TypeScript interfaces and union types
+- Multiple optional filter parameters on a single function
+- Generic helper functions with getRandom<T>
+- Building a multi-filter search system from scratch
+- Organising a CLI app around a local data store
+
+### Resources Used
+- TypeScript Union Types: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types
+- TypeScript Interfaces: https://www.typescriptlang.org/docs/handbook/2/objects.html
+- MDN Array.filter(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+
+### Tomorrow
+Day 21 - TS with Lodash for Arrays (Sprint 1 Week 4 begins!)
