@@ -1,0 +1,24 @@
+{
+  "name": "day21-lodash-arrays",
+  "version": "1.0.0",
+  "description": "Day 21 of 300 Days of Code - TypeScript with Lodash for Arrays",
+  "main": "dist/lodash-arrays.js",
+  "scripts": {
+    "start": "npx ts-node lodash-arrays.ts",
+    "build": "npx tsc",
+    "run:built": "node dist/lodash-arrays.js"
+  },
+  "keywords": ["lodash", "arrays", "typescript", "cli", "day21", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/lodash": "^4.17.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
