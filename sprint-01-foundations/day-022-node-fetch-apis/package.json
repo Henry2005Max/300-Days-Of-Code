@@ -1,0 +1,22 @@
+{
+  "name": "day22-node-fetch-apis",
+  "version": "1.0.0",
+  "description": "Day 22 of 300 Days of Code - node-fetch for APIs in TypeScript",
+  "main": "dist/node-fetch-apis.js",
+  "scripts": {
+    "start": "npx ts-node node-fetch-apis.ts",
+    "build": "npx tsc",
+    "run:built": "node dist/node-fetch-apis.js"
+  },
+  "keywords": ["fetch", "api", "typescript", "cli", "day22", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
