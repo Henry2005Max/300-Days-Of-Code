@@ -26,3 +26,32 @@
 
 ### Tomorrow
 Day 22 - node-fetch for APIs
+
+## Day 22 - [Today's Date]
+**Project:** node-fetch for APIs
+**Time Spent:** 2hours
+
+### What I Built
+- Generic typed fetch wrapper fetchJSON<T> for all API calls
+- JSONPlaceholder integration: fetch posts with limit, fetch users, filter posts by user ID
+- PokeAPI integration: search Pokemon by name or ID with stat bar chart
+- CoinGecko integration: live BTC, ETH, SOL, ADA, DOGE prices with 24h change indicator
+- JokeAPI integration: live programming jokes
+- Full TypeScript interfaces for all API response shapes
+
+### What I Learned
+- Node.js 18+ has fetch built in — no extra library needed
+- Generic typed fetch wrapper fetchJSON<T> for type-safe API responses
+- Typing complex nested JSON responses with TypeScript interfaces
+- Handling HTTP errors with response.ok and response.status
+- Consuming multiple different APIs in a single project
+
+### Resources Used
+- Node.js fetch docs: https://nodejs.org/api/globals.html#fetch
+- JSONPlaceholder API: https://jsonplaceholder.typicode.com
+- PokeAPI docs: https://pokeapi.co/docs/v2
+- CoinGecko API: https://www.coingecko.com/api/documentation
+- JokeAPI docs: https://sv443.net/jokeapi/v2
+
+### Tomorrow
+Day 23 - Simple CSV Parser with PapaParse
