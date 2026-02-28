@@ -86,4 +86,4 @@ Order  : desc
 **Next Day:** Day 24 - Basic Plots with Chart.js in Node
 
 ---
-Part of my 300 Days of Code Challenge!
+Part of my 300 Days of Code Challenge
