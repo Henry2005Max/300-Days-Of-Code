@@ -1,0 +1,11 @@
+month,product,units_sold,revenue,region
+January,Laptop,12,5400000,South West
+January,Phone,45,8100000,South West
+February,Laptop,8,3600000,North Central
+February,Phone,60,10800000,South East
+March,Laptop,20,9000000,South West
+March,Tablet,30,3600000,Lagos
+April,Phone,55,9900000,North West
+April,Laptop,15,6750000,South West
+May,Tablet,40,4800000,South East
+May,Phone,70,12600000,Lagos

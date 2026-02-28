@@ -1,0 +1,11 @@
+name,category,price,in_stock,rating
+Laptop,Electronics,450000,true,4.5
+Phone,Electronics,180000,true,4.2
+Headphones,Electronics,25000,false,4.0
+Rice 50kg,Food,45000,true,4.8
+Cooking Oil,Food,8500,true,4.3
+T-Shirt,Clothing,5000,true,3.9
+Sneakers,Clothing,35000,false,4.6
+Blender,Appliances,22000,true,4.1
+Fan,Appliances,18000,true,3.8
+Tablet,Electronics,120000,true,4.4
