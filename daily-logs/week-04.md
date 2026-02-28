@@ -27,7 +27,7 @@
 ### Tomorrow
 Day 22 - node-fetch for APIs
 
-## Day 22 - [Today's Date]
+## Day 22 - February 27
 **Project:** node-fetch for APIs
 **Time Spent:** 2hours
 
@@ -55,3 +55,35 @@ Day 22 - node-fetch for APIs
 
 ### Tomorrow
 Day 23 - Simple CSV Parser with PapaParse
+
+
+## Day 23 - February 28
+**Project:** Simple CSV Parser with PapaParse
+**Time Spent:**2hrs
+
+### What I Built
+- CSV loader using PapaParse with header detection and dynamicTyping
+- Formatted table display with dynamic column widths
+- File stats: rows, columns, headers, numeric columns, empty values
+- Filter by any column with partial string matching
+- Sort by any column ascending or descending
+- Column statistics: count, sum, average, median, min, max
+- Export filtered or full data back to a new CSV file
+- Auto-generated sample files: students.csv, products.csv, sales.csv
+
+### What I Learned
+- PapaParse for CSV parsing and unparsing in Node.js
+- dynamicTyping option to auto-convert number strings to numbers
+- Building aligned table output with padEnd for dynamic column widths
+- Computing median from a sorted array
+- Papa.unparse to write arrays of objects back to CSV format
+
+### Resources Used
+- PapaParse docs: https://www.papaparse.com/docs
+- @types/papaparse: https://www.npmjs.com/package/@types/papaparse
+- MDN Array.sort(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+### Challenges
+
+### Tomorrow
+Day 24 - Basic Plots with Chart.js in Node
