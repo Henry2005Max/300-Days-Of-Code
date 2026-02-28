@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Simple CSV Parser with PapaParse
 // Day 23 of 300 Days of Code Challenge
 
@@ -22,7 +20,7 @@ function askQuestion(question: string): Promise<string> {
   });
 }
 
-// ─── Types ────────────────────────────────────────────────
+//  Types 
 
 interface ParsedRow {
   [key: string]: string | number;
@@ -36,7 +34,7 @@ interface CSVStats {
   emptyValues: number;
 }
 
-// ─── Sample CSV Files (created on startup) ───────────────
+//  Sample CSV Files (created on startup) 
 
 function createSampleFiles(): void {
   const studentsCSV = `name,age,subject,grade,city
@@ -80,7 +78,7 @@ May,Phone,70,12600000,Lagos`;
   fs.writeFileSync('sales.csv', salesCSV);
 }
 
-// ─── Core Parser Functions ────────────────────────────────
+//  Core Parser Functions 
 
 function parseCSV(filePath: string): ParsedRow[] {
   const content = fs.readFileSync(filePath, 'utf-8');
@@ -166,7 +164,7 @@ function exportFiltered(rows: ParsedRow[], filename: string): void {
   console.log(chalk.green(`\n  Exported ${rows.length} rows to ${filename}\n`));
 }
 
-// ─── Display Functions ────────────────────────────────────
+//  Display Functions 
 
 function displayTable(rows: ParsedRow[], limit: number = 10): void {
   if (rows.length === 0) {
@@ -210,7 +208,7 @@ function displayStats(stats: CSVStats, filename: string): void {
   console.log('');
 }
 
-// ─── Main Application ─────────────────────────────────────
+//  Main Application 
 
 async function runCSVParser(): Promise<void> {
   console.clear();
@@ -253,7 +251,7 @@ async function runCSVParser(): Promise<void> {
     try {
       switch (choice) {
 
-        // ── Option 1: Load File ──────────────────────────
+        //  Option 1: Load File 
         case '1': {
           console.log(chalk.cyan('\n  Available sample files: students.csv, products.csv, sales.csv'));
           const filename = await askQuestion(chalk.cyan('  Enter filename: '));
@@ -268,7 +266,7 @@ async function runCSVParser(): Promise<void> {
           break;
         }
 
-        // ── Option 2: View Data ──────────────────────────
+        //  Option 2: View Data 
         case '2': {
           if (!currentFile) { console.log(chalk.red('\n  Load a file first!\n')); break; }
           const limitInput = await askQuestion(chalk.cyan('\n  How many rows to show? (default: 10): '));
@@ -277,7 +275,7 @@ async function runCSVParser(): Promise<void> {
           break;
         }
 
-        // ── Option 3: Stats ──────────────────────────────
+        //  Option 3: Stats 
         case '3': {
           if (!currentFile) { console.log(chalk.red('\n  Load a file first!\n')); break; }
           const stats = getStats(currentRows);
@@ -285,7 +283,7 @@ async function runCSVParser(): Promise<void> {
           break;
         }
 
-        // ── Option 4: Filter ─────────────────────────────
+        //  Option 4: Filter 
         case '4': {
           if (!currentFile) { console.log(chalk.red('\n  Load a file first!\n')); break; }
           const stats = getStats(currentRows);
@@ -299,7 +297,7 @@ async function runCSVParser(): Promise<void> {
           break;
         }
 
-        // ── Option 5: Sort ───────────────────────────────
+        //  Option 5: Sort 
         case '5': {
           if (!currentFile) { console.log(chalk.red('\n  Load a file first!\n')); break; }
           const stats = getStats(currentRows);
@@ -313,7 +311,7 @@ async function runCSVParser(): Promise<void> {
           break;
         }
 
-        // ── Option 6: Column Stats ───────────────────────
+        //  Option 6: Column Stats 
         case '6': {
           if (!currentFile) { console.log(chalk.red('\n  Load a file first!\n')); break; }
           const stats = getStats(currentRows);
@@ -323,7 +321,7 @@ async function runCSVParser(): Promise<void> {
           break;
         }
 
-        // ── Option 7: Export ─────────────────────────────
+        //  Option 7: Export 
         case '7': {
           if (!currentFile) { console.log(chalk.red('\n  Load a file first!\n')); break; }
           const stats = getStats(currentRows);
