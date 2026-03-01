@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 24/300 🔥  
+**Current Progress:** Day 25/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 23/300
-- **Projects Built:** 23
-- **Current Streak:** 23 days 🔥
+- **Days Completed:** 24/300
+- **Projects Built:** 24
+- **Current Streak:** 24 days 🔥
 
 ---
 
@@ -90,6 +90,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 21: Lodash Arrays
 - ✅ Day 22: Node Fetch APIs
 - ✅ Day 23: CSV Parser
+- ✅ Day 24: Chartjs Plots
   
 
 ### Sprint 2: Web Basics (Days 31-60)
