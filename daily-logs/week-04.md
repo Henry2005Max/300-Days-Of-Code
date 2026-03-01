@@ -87,3 +87,33 @@ Day 23 - Simple CSV Parser with PapaParse
 
 ### Tomorrow
 Day 24 - Basic Plots with Chart.js in Node
+
+## Day 24 - March 1st
+**Project:** Basic Plots with Chart.js in Node
+**Time Spent:**3-4 hrs
+
+### What I Built
+- Bar chart: monthly sales comparison Lagos vs Abuja (6 months)
+- Line chart: website visitors and conversions with area fill (8 months)
+- Pie chart: product category sales breakdown (5 categories)
+- Doughnut chart: user distribution across 5 Nigerian cities
+- Scatter plot: study hours vs grade for Math and Science students
+- Generate all option to create all 5 charts at once
+- All charts saved as 800x500px PNG files
+
+### What I Learned
+- chartjs-node-canvas renders Chart.js server-side without a browser
+- Chart.js configuration object: type, data (labels + datasets), options
+- renderToBuffer() returns PNG bytes to write to disk with fs.writeFileSync
+- Different chart types and when each one is appropriate
+- Customising titles, legends, axis labels, colors and tension in Chart.js
+
+### Resources Used
+- chartjs-node-canvas docs: https://github.com/SeanSobey/ChartjsNodeCanvas
+- Chart.js docs: https://www.chartjs.org/docs/latest
+- Chart.js configuration: https://www.chartjs.org/docs/latest/configuration
+
+
+
+### Tomorrow
+Day 25 - Cron Job Scheduler with node-cron
