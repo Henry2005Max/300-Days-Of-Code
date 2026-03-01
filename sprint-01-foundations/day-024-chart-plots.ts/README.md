@@ -2,7 +2,7 @@
 
 ## Description
 
-A TypeScript CLI tool that generates PNG chart images directly from Node.js using Chart.js and chartjs-node-canvas. No browser needed — charts are rendered server-side and saved as PNG files. Covers five chart types with Nigerian-themed data including monthly sales by region, website traffic, product category breakdown, users by city and a study hours vs grade scatter plot.
+A TypeScript CLI tool that generates PNG chart images directly from Node.js using Chart.js and chartjs-node-canvas. No browser needed, charts are rendered server-side and saved as PNG files. Covers five chart types with Nigerian-themed data including monthly sales by region, website traffic, product category breakdown, users by city and a study hours vs grade scatter plot.
 
 ## Features
 
