@@ -1,0 +1,24 @@
+{
+  "name": "day25-cron-scheduler",
+  "version": "1.0.0",
+  "description": "Day 25 of 300 Days of Code - Cron Job Scheduler with node-cron in TypeScript",
+  "main": "dist/cron-scheduler.js",
+  "scripts": {
+    "start": "npx ts-node cron-scheduler.ts",
+    "build": "npx tsc",
+    "run:built": "node dist/cron-scheduler.js"
+  },
+  "keywords": ["cron", "node-cron", "scheduler", "typescript", "cli", "day25", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/node-cron": "^3.0.11",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
