@@ -83,8 +83,6 @@ Day 23 - Simple CSV Parser with PapaParse
 - @types/papaparse: https://www.npmjs.com/package/@types/papaparse
 - MDN Array.sort(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
-### Challenges
-
 ### Tomorrow
 Day 24 - Basic Plots with Chart.js in Node
 
@@ -117,3 +115,35 @@ Day 24 - Basic Plots with Chart.js in Node
 
 ### Tomorrow
 Day 25 - Cron Job Scheduler with node-cron
+
+## Day 25 - 2nd March, 2026
+**Project:** Cron Job Scheduler with node-cron
+**Time Spent:**
+
+### What I Built
+- System check job: logs memory usage and process uptime
+- Greeting job: time-aware morning/afternoon/evening message
+- Backup simulation: creates timestamped backup files
+- Random quote job: prints a programming quote from a list
+- Counter job: tracks and displays total run count per job
+- Seven schedule presets (every 5 seconds to daily at 8am)
+- Custom cron expression input with validation
+- Job registry with start, stop, view and stop-all controls
+- Automatic logging to cron-log.txt with fs.appendFileSync
+
+### What I Learned
+- node-cron for scheduling tasks in Node.js
+- Cron expression syntax: second, minute, hour, day of month, month, day of week
+- cron.validate() to check expressions before scheduling
+- Managing multiple concurrent jobs with a Map registry
+- Stopping tasks cleanly with scheduledTask.stop()
+- process.exit(0) needed to terminate when cron keeps process alive
+
+### Resources Used
+- node-cron docs: https://github.com/node-cron/node-cron
+- Cron expression guide: https://crontab.guru
+- @types/node-cron: https://www.npmjs.com/package/@types/node-cron
+
+
+### Tomorrow
+Day 26 - Sprint 1 Data Handling: TS Dashboard Mock
