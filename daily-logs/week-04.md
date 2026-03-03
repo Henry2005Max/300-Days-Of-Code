@@ -147,3 +147,32 @@ Day 25 - Cron Job Scheduler with node-cron
 
 ### Tomorrow
 Day 26 - Sprint 1 Data Handling: TS Dashboard Mock
+
+## Day 26 - March 3rd
+**Project:** TypeScript Dashboard Mock
+**Time Spent:** 3hrs
+
+### What I Built
+- Overview section: 6 KPI cards with revenue growth indicator and yearly bar chart
+- Sales report: 12-month table with revenue, orders, customers and annual totals
+- Top products: revenue-ranked table with stock alerts and category bar chart
+- User report: plan breakdown, top 5 spenders, active status, city distribution
+- Low stock alert: items under 100 units with red highlighting under 50
+- Full dashboard: all sections in one run
+- Terminal ASCII bar charts built from scratch with block characters
+
+### What I Learned
+- Designing multi-section CLI dashboards with structured TypeScript data
+- Building ASCII bar charts using padEnd and block characters proportionally
+- Calculating business KPIs: growth %, avg order value, active user rate
+- TypeScript union types for constrained values (Free | Pro | Enterprise)
+- Sorting, filtering and aggregating across multiple typed datasets
+
+### Resources Used
+- TypeScript interfaces: https://www.typescriptlang.org/docs/handbook/2/objects.html
+- Chalk docs: https://github.com/chalk/chalk/tree/v4
+- Unicode block characters: https://unicode-table.com/en/blocks/block-elements
+
+
+### Tomorrow
+Day 27 - Cron Examples
