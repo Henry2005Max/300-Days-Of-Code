@@ -176,3 +176,34 @@ Day 26 - Sprint 1 Data Handling: TS Dashboard Mock
 
 ### Tomorrow
 Day 27 - Cron Examples
+
+## Day 27 - March 4th, 2026
+**Project:** Cron Examples
+**Time Spent:** 3hourrs
+
+### What I Built
+- Health monitor: memory, uptime, CPU tracking saved to metrics-history.json
+- Report generator: timestamped sales report .txt files on schedule
+- Data cleanup: simulated stale file scanning with storage freed calculation
+- News ticker: 8 Nigerian headlines cycling every 6 seconds
+- Rate limiter: API call accumulation with quota check and reset per window
+- Shared structured log file with INFO/WARN/ERROR/SUCCESS levels
+- Map registry for named task management and clean stop control
+- Metrics history viewer showing last 8 snapshots in a table
+
+### What I Learned
+- Real-world cron patterns used in production: monitoring, reporting, cleanup
+- Writing structured log entries with log levels to a shared file
+- Persisting growing data to JSON with fs.writeFileSync on every update
+- Rate limiter window pattern: accumulate calls → check → reset
+- Running 5+ concurrent jobs at different intervals simultaneously
+- Named Map registry for cleaner task management vs anonymous arrays
+
+### Resources Used
+- node-cron docs: https://github.com/node-cron/node-cron
+- Node.js fs.appendFileSync: https://nodejs.org/api/fs.html#fsappendfilesyncpath-data-options
+- Rate limiting patterns: https://developer.mozilla.org/en-US/docs/Glossary/Rate_limit
+
+
+### Tomorrow
+Day 28 - GitHub Action for CI
