@@ -1,6 +1,6 @@
 ## Day 21 - February 26
 **Project:** TypeScript with Lodash for Arrays
-**Time Spent:** 2hrs 33mins
+**Time Spent:** 2hrs 33mins 
 
 ### What I Built
 - Student data demo: orderBy, groupBy, meanBy, filter, maxBy, minBy, countBy, uniqBy
