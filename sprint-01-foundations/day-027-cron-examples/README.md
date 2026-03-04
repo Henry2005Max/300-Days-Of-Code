@@ -2,7 +2,7 @@
 
 ## Description
 
-Day 25 taught you how to schedule cron jobs. Day 27 shows you why people use them in real systems, and what those systems actually look like.
+Day 25 taught me how to schedule cron jobs. Day 27 shows me why people use them in real systems, and what those systems actually look like.
 The health monitor pattern is everywhere. Every server in production has something like this running, checking memory, CPU, disk space and writing those numbers to a file. Operations teams use that data to spot problems before they become outages.
 The rate limiter is one of the most important patterns in backend development. APIs limit how many calls you can make per minute or per hour. The way it works is simple: keep a counter, increment it on every call, and at the end of each time window log the count and reset to zero. If the count hits the limit, trigger a warning. That’s exactly what the big API providers do, same logic, bigger scale.
 The key difference from Day 25 is the Map registry. Instead of creating anonymous tasks and losing track of them, every job gets a name. That means you can stop a specific job by name, check if it’s already running before starting a duplicate, and keep the whole system clean and predictable. That’s production thinking.​​​​​​​​​​​​​​​​
