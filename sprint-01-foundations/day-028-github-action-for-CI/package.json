@@ -1,0 +1,24 @@
+{
+  "name": "day28-github-action-ci",
+  "version": "1.0.0",
+  "description": "Day 28 of 300 Days of Code - GitHub Action for CI with TypeScript and Jest",
+  "main": "dist/calculator.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "build": "npx tsc",
+    "typecheck": "npx tsc --noEmit"
+  },
+  "keywords": ["github-actions", "ci", "jest", "typescript", "day28", "300days"],
+  "author": "Henry2005Max",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
