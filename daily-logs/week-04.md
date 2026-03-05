@@ -207,3 +207,34 @@ Day 27 - Cron Examples
 
 ### Tomorrow
 Day 28 - GitHub Action for CI
+
+
+## Day 28 - March 5th, 2026
+**Project:** GitHub Action for CI
+**Time Spent:** 2hrs
+
+### What I Built
+- calculator.ts: six typed functions with error throwing (divide by zero, zero total)
+- calculator.test.ts: 20 Jest tests in 6 describe blocks covering all edge cases
+- .github/workflows/ci.yml: CI pipeline with 7 steps across Node 18 and 20
+- jest.config.js: ts-jest preset for running TypeScript tests directly
+- Full CI workflow: typecheck → test → build → upload artifact
+
+### What I Learned
+- Writing GitHub Actions workflow YAML from scratch
+- Matrix strategy to test across multiple Node.js versions simultaneously
+- Difference between npm install and npm ci for reproducible CI installs
+- tsc --noEmit for type checking without generating output files
+- ts-jest for running TypeScript test files without pre-compiling
+- actions/upload-artifact for saving build output to GitHub
+- Writing Jest tests with toThrow() for error case validation
+
+### Resources Used
+- GitHub Actions docs: https://docs.github.com/en/actions
+- actions/checkout: https://github.com/actions/checkout
+- actions/setup-node: https://github.com/actions/setup-node
+- ts-jest docs: https://kulshekhar.github.io/ts-jest
+- Jest docs: https://jestjs.io/docs/getting-started
+
+### Tomorrow
+Day 29 - Log Parser
