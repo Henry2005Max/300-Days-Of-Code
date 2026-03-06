@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 29/300 🔥  
+**Current Progress:** Day 30/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 28/300
-- **Projects Built:** 28
-- **Current Streak:** 28 days 🔥
+- **Days Completed:** 29/300
+- **Projects Built:** 29
+- **Current Streak:** 29 days 🔥
 
 ---
 
@@ -95,6 +95,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 26: TypeScript Dashboard Mock
 - ✅ Day 27: Cron Examples
 - ✅ Day 28: Github Action for Continuous Integration
+- ✅ Day 29: Data Pipeline
   
 
 ### Sprint 2: Web Basics (Days 31-60)
