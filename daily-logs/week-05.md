@@ -32,3 +32,38 @@
 ### Tomorrow
 
 Day 30 - Sprint 1 Review
+
+## Day 30 - March 07
+
+**Project:** Sprint 1 Review CLI
+**Time Spent:** 2
+
+### What I Built
+
+- Interactive menu CLI tying together all Sprint 1 technologies
+- Sprint statistics: category and difficulty breakdowns with ASCII bar charts using Lodash
+- Project browser: all 30 projects grouped by category with difficulty color coding
+- Motivational quote fetcher: live API call to Quotable API with node-fetch
+- Live progress ticker: cron job cycling through all 30 projects every 3 seconds
+- JSON exporter: full sprint summary saved to sprint-01-summary.json
+- CSV data layer: sprint project data stored and parsed with papaparse
+
+### What I Learned
+
+- How to run a cron job inside a readline interactive menu without blocking input
+- Using Lodash countBy, mapValues, and sampleSize together for rich data summaries
+- How combining multiple tools (lodash + papaparse + node-fetch + node-cron) in one project shows how far the sprint has come
+- Structuring a multi-feature CLI with a clean reusable menu loop
+- The value of review days for consolidating and reflecting on what was built
+
+### Resources Used
+
+- Lodash docs: https://lodash.com/docs/4.17.15
+- papaparse docs: https://www.papaparse.com/docs
+- node-cron docs: https://github.com/node-cron/node-cron
+- node-fetch docs: https://github.com/node-fetch/node-fetch
+- Quotable API: https://api.quotable.io
+
+### Tomorrow
+
+Day 31 - React/TS Static Resume Page (Sprint 2 begins!)
