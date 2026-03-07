@@ -1,0 +1,30 @@
+{
+  "name": "day-030-sprint-review",
+  "version": "1.0.0",
+  "description": "Day 30 of 300 Days of Code - Sprint 1 Review: interactive CLI showcasing all 30 projects using TypeScript, lodash, papaparse, node-fetch, and node-cron",
+  "main": "sprint-review.ts",
+  "scripts": {
+    "start": "npx ts-node sprint-review.ts",
+    "build": "tsc",
+    "run:built": "node dist/sprint-review.js"
+  },
+  "keywords": ["typescript", "sprint-review", "lodash", "papaparse", "node-fetch", "node-cron", "cli"],
+  "author": "Henry2005Max",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "4.1.2",
+    "lodash": "^4.17.21",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^2.7.0",
+    "papaparse": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.0.0",
+    "@types/node-cron": "^3.0.11",
+    "@types/node-fetch": "^2.6.11",
+    "@types/papaparse": "^5.3.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}
