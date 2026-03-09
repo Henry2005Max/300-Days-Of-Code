@@ -103,3 +103,41 @@ Day 31 - React/TS Static Resume Page (Sprint 2 begins!)
 ### Tomorrow
 
 Day 32 - Styled-Components Themed Landing Page
+
+## Day 32 - March 09
+
+**Project:** Styled-Components Themed Landing Page
+**Time Spent:** 2hrs
+
+### What I Built
+
+- Full landing page with Nav, Hero, Features, Testimonial, CTA, and Footer sections
+- Dark/light theme toggle with ThemeProvider passing theme to every styled component
+- Sticky frosted-glass navbar with backdrop-filter blur and smooth scroll links
+- Hero with animated badge (slideIn), title (fadeUp), pulsing CTA button, stats grid, and skill progress bars
+- Features grid: 6 cards with hover lift and border highlight transition
+- Testimonial section with Playfair Display italic quote and accent quotation marks
+- Full-width CTA section with accent orange background and white button
+- Keyframe animations: fadeUp, slideIn, pulse, all from styled-components keyframes helper
+- TypeScript typed theme objects (lightTheme, darkTheme) with Theme type applied to all component props
+
+### What I Learned
+
+- How ThemeProvider injects theme as a prop into every styled component in the tree
+- Defining a Theme type from typeof lightTheme and using it for prop typing
+- createGlobalStyle for global resets, font imports, and body transitions
+- keyframes helper from styled-components for reusable CSS animations
+- How to pass theme explicitly vs relying on automatic injection for TypeScript compatibility
+- styled-components v6 no longer needs @types/styled-components separately
+
+### Resources Used
+
+- styled-components docs: https://styled-components.com/docs
+- styled-components ThemeProvider: https://styled-components.com/docs/advanced#theming
+- Playfair Display font: https://fonts.google.com/specimen/Playfair+Display
+- Vite React setup: https://vitejs.dev/guide
+- CSS backdrop-filter: https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter
+
+### Tomorrow
+
+Day 33 - React Counter with Hooks
