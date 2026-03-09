@@ -21,6 +21,10 @@ A full themed landing page built with React, TypeScript, and styled-components. 
 - Vite
 - Google Fonts (Playfair Display, Libre Baskerville, Jost)
 
+- ## Live Demo
+
+https://henry-day032.netlify.app
+
 ## Installation
 
 ```bash
@@ -76,6 +80,10 @@ Vite + React 18    ThemeProvider     CSS Grid layouts
 [Type Safe]        [Animated]        [Component Driven]
 TypeScript props   Keyframes + hover Self-contained blocks
 ```
+
+## Live Demo
+
+https://henry-day032.netlify.app
 
 ## What I Learned
 - How styled-components ThemeProvider passes theme to every component in the tree
