@@ -141,3 +141,41 @@ Day 32 - Styled-Components Themed Landing Page
 ### Tomorrow
 
 Day 33 - React Counter with Hooks
+
+## Day 33 - March 10
+
+**Project:** React Counter with Hooks
+
+### What I Built
+
+- Counter app with useReducer state machine: INCREMENT, DECREMENT, RESET, UNDO, SET actions
+- Custom useLocalStorage hook persisting count to localStorage across refreshes
+- Undo system tracking full counter history as an array in reducer state
+- Configurable step selector: 1, 5, 10, 25, 100 — changes how much each click adds or subtracts
+- Set-any-value input with Enter key support
+- Keyboard shortcuts: Arrow Up/Down increment/decrement, R resets, Ctrl+Z undoes
+- Auto-scrolling history panel using useRef to always show the latest entry
+- Live stats panel: total changes, current step, highest and lowest values seen
+- Color-coded count display: green (positive), red (negative), indigo (zero)
+- Progress bar tracking percentage toward 100 in absolute value
+
+### What I Learned
+
+- Why useReducer outperforms multiple useState calls for interdependent state
+- How to write TypeScript discriminated union action types for a reducer
+- Building custom hooks that wrap useState + useEffect for localStorage sync
+- useEffect cleanup function — removing event listeners to avoid memory leaks
+- useCallback for stable function references used as useEffect dependencies
+- useRef for scrolling a DOM element without triggering a re-render
+
+### Resources Used
+
+- React hooks docs: https://react.dev/reference/react
+- useReducer guide: https://react.dev/reference/react/useReducer
+- useRef docs: https://react.dev/reference/react/useRef
+- localStorage API: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- JetBrains Mono font: https://fonts.google.com/specimen/JetBrains+Mono
+
+### Tomorrow
+
+Day 34 - Form Validator with React Hook Form
