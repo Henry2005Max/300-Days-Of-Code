@@ -179,3 +179,43 @@ Day 33 - React Counter with Hooks
 ### Tomorrow
 
 Day 34 - Form Validator with React Hook Form
+
+## Day 34 - March 11
+
+**Project:** Form Validator with React Hook Form
+
+### What I Built
+
+- Registration form with 9 fields all validated using React Hook Form
+- Real-time validation on every keystroke using mode: “onChange”
+- Password strength meter checking 5 criteria: length, uppercase, lowercase, number, symbol
+- Cross-field validation for confirm password using the validate function
+- Live field status sidebar showing idle, touched, valid, or error per field
+- Progress bar tracking filled fields out of total
+- Character counter on Bio textarea with max 200 limit
+- Green/red border color feedback on valid/invalid fields
+- 800ms simulated async submit with loading state
+- Success screen rendering all submitted form data after passing validation
+- Fully typed form interface with useForm<RegisterForm> generic
+
+### What I Learned
+
+- React Hook Form’s register replaces manual onChange/value/ref wiring entirely
+- mode: “onChange” vs “onBlur” vs “onSubmit” and when to use each
+- Cross-field validation with the validate option referencing another watched field
+- formState.dirtyFields and touchedFields for driving nuanced UI states
+- watch() subscribes to live field values without causing unnecessary re-renders
+- handleSubmit only invokes the submit handler when all validations pass
+- TypeScript generics on useForm make field names autocomplete and type-safe
+
+### Resources Used
+
+- React Hook Form docs: https://react-hook-form.com/docs
+- React Hook Form TypeScript guide: https://react-hook-form.com/ts
+- register API: https://react-hook-form.com/docs/useform/register
+- formState docs: https://react-hook-form.com/docs/useform/formstate
+- IBM Plex Sans font: https://fonts.google.com/specimen/IBM+Plex+Sans
+
+### Tomorrow
+
+Day 35 - Quote Display with Axios
