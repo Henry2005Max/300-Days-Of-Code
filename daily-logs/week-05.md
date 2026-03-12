@@ -219,3 +219,43 @@ Day 34 - Form Validator with React Hook Form
 ### Tomorrow
 
 Day 35 - Quote Display with Axios
+
+
+## Day 35 - March 12
+
+**Project:** Quote Display with Axios
+
+### What I Built
+
+- Axios instance with baseURL (https://api.quotable.io) and 5s timeout
+- Random quote fetcher with optional tag/category filtering
+- 7 category filter buttons updating the active tag and re-fetching
+- Shimmer skeleton loading animation while Axios request is in flight
+- Graceful fallback to 6 local quotes when API errors or times out
+- Save/unsave favorites system with toggle and remove buttons
+- Session history array with index pointer — navigate back and forward through seen quotes
+- Live stats: total fetched, saved count, average length of saved quotes, most saved tag
+- Fade-in CSS animation on each new quote card render
+- Keyboard shortcuts: N (new quote), S (save), Arrow Left/Right (history navigation)
+- Click saved quote in panel to jump directly to it in the main view
+
+### What I Learned
+
+- Axios auto-parses JSON and throws on non-2xx responses, unlike fetch which requires manual checks
+- How to type AxiosError correctly in TypeScript catch blocks
+- Creating a history navigation system with an array and a current index pointer
+- useCallback dependency arrays — why fetchQuote needs to list activeTag and historyIndex
+- CSS shimmer animation using linear-gradient with background-position keyframes
+- Graceful degradation: always have fallback data so the UI never breaks on API failure
+
+### Resources Used
+
+- Axios docs: https://axios-http.com/docs/intro
+- Axios instance config: https://axios-http.com/docs/instance
+- Quotable API: https://api.quotable.io
+- CSS shimmer technique: https://css-tricks.com/building-skeleton-screens-css-custom-properties
+- Cormorant Garamond font: https://fonts.google.com/specimen/Cormorant+Garamond
+
+### Tomorrow
+
+Day 36 - Clock/Timer Component
