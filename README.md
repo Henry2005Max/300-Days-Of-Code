@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 36/300 🔥  
+**Current Progress:** Day 37/300 🔥  
 **Current Sprint:** Sprint 1 - Foundations (JS/TS Basics & CLIs)
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 35/300
-- **Projects Built:** 35
-- **Current Streak:** 35 days 🔥
+- **Days Completed:** 36/300
+- **Projects Built:** 36
+- **Current Streak:** 36 days 🔥
 
 ---
 
@@ -101,7 +101,8 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 32: Theme Styled Landing Page
 - ✅ Day 33: React Counter With Hooks
 - ✅ Day 34: Form validator with react hook
-- ✅ Day 35: Quote Fetcher 
+- ✅ Day 35: Quote Fetcher
+- ✅ Day 36: Clock/Timer
   
 
 ### Sprint 2: Web Basics (Days 31-60)
