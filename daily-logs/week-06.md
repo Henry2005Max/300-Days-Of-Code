@@ -29,3 +29,39 @@
 ### Tomorrow
 
 Day 37 - Image Gallery with Lazy Load
+
+## Day 37 - March 14
+
+**Project:** Image Gallery with Lazy Load
+
+### What I Built
+
+- Masonry image gallery with 16 Unsplash images across 6 categories
+- LazyImage component using IntersectionObserver to defer image fetching until 200px from viewport
+- Shimmer placeholder animation per image, fades out when the image loads
+- Masonry layout via CSS grid with 2/3/4 column toggle
+- Tag filter bar with image count per tag
+- Live search filtering by subject or photographer
+- Fullscreen Lightbox component with high-res image, prev/next buttons and keyboard nav
+- Hover overlay with scale and overlay effects on each gallery card
+- Results count updating live with active filter and search term
+
+### What I Learned
+
+- IntersectionObserver API replaces scroll event listeners for lazy loading — more performant, no calculation needed
+- rootMargin: “200px” starts loading images before they are visible, so there is no flash
+- Calling observer.disconnect() after first intersection prevents repeated callbacks
+- Masonry achieved by splitting images into N column arrays and rendering each as a flex column
+- Separating thumb URL from full-res URL keeps the grid fast while lightbox loads quality images
+- useCallback prevents unnecessary re-renders when passing handlers to deeply nested children
+
+### Resources Used
+
+- IntersectionObserver MDN: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+- Unsplash source images: https://unsplash.com
+- CSS masonry patterns: https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout
+- Fraunces font: https://fonts.google.com/specimen/Fraunces
+
+### Tomorrow
+
+Day 38 - Dark Mode with Context API
