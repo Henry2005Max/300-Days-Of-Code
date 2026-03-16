@@ -101,3 +101,41 @@ Day 38 - Dark Mode with Context API
 ### Tomorrow
 
 Day 39 - Weather App UI
+
+## Day 39 - March 16
+
+**Project:** Weather App UI (Fetch Data)
+
+### What I Built
+
+- Weather app fetching current conditions and 5-day forecast from OpenWeatherMap API
+- Parallel API calls using Promise.all for weather and forecast endpoints simultaneously
+- Dynamic background gradient based on weather icon code (clear, cloudy, rain, storm, snow, mist)
+- Current weather card: city, date, description, large temperature, high/low, feels like, weather icon
+- 6-stat detail grid: humidity, wind speed + direction, pressure, visibility, sunrise, sunset
+- 5-day forecast by grouping OpenWeatherMap 3h intervals into daily min/max summaries
+- 10 Nigerian city quick-chips: Lagos, Abuja, Kano, Port Harcourt, Ibadan, Enugu, Kaduna, Benin City, Calabar, Jos
+- °C / °F toggle re-fetching with correct units parameter
+- Spinner loading, error handling for invalid cities
+- Demo mode: detects missing API key and serves mock Lagos data with a banner
+
+### What I Learned
+
+- Promise.all runs multiple async requests concurrently — faster than awaiting them sequentially
+- OpenWeatherMap /forecast returns 3-hourly data — grouping by date string gives daily summaries
+- Dynamic CSS class names based on data (icon code → bg class) is a clean React pattern
+- Glassmorphism requires a non-transparent parent behind the element for the blur to work
+- Demo/mock mode is essential for projects with API keys — lets the app still run and look good
+- Wind direction in degrees converted to compass points using an 8-direction lookup
+
+### Resources Used
+
+- OpenWeatherMap current weather API: https://openweathermap.org/current
+- OpenWeatherMap forecast API: https://openweathermap.org/forecast5
+- OpenWeatherMap weather icons: https://openweathermap.org/weather-conditions
+- Promise.all MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+- Barlow Condensed font: https://fonts.google.com/specimen/Barlow+Condensed
+
+### Tomorrow
+
+Day 40 - Review: Add Tailwind responsiveness to Day 31 Resume
