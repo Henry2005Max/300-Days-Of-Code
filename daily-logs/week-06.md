@@ -139,3 +139,38 @@ Day 39 - Weather App UI
 ### Tomorrow
 
 Day 40 - Review: Add Tailwind responsiveness to Day 31 Resume
+
+## Day 40 - March 17
+
+**Project:** Review — Resume with Tailwind CSS
+
+### What I Built
+
+- Day 31 resume page fully rebuilt using Tailwind CSS utility classes
+- Replaced entire App.css with className utilities directly in JSX
+- lg:grid-cols-[280px_1fr] for two-column layout that collapses on mobile
+- sm:flex-row on experience rows so date/company wraps correctly at small sizes
+- Hover transitions on project cards using hover:border-l-gray-900 and transition-all
+- Tailwind stone/orange/gray palette replacing custom CSS variables
+- Showcase block at the bottom listing every responsive decision made
+
+### What I Learned
+
+- Utility-first CSS means writing styles in JSX, not a separate file — faster iteration
+- Tailwind responsive prefixes are mobile-first: sm: means “at 640px and above”
+- Arbitrary value syntax grid-cols-[280px_1fr] escapes the default scale when needed
+- JIT (Just-In-Time) compilation means Tailwind scans your files and only ships classes you use
+- PostCSS config is mandatory — tailwindcss and autoprefixer plugins required
+- Comparing Day 31 vs Day 40: Tailwind is faster to write, custom CSS is easier to read at scale
+
+### Resources Used
+
+- Tailwind CSS docs: https://tailwindcss.com/docs
+- Tailwind responsive design: https://tailwindcss.com/docs/responsive-design
+- Tailwind arbitrary values: https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values
+- Vite + Tailwind setup: https://tailwindcss.com/docs/guides/vite
+- DM Serif Display font: https://fonts.google.com/specimen/DM+Serif+Display
+
+### Tomorrow
+
+Day 41 - Todo App with Recoil/Redux
