@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { font-family: 'DM Sans', sans-serif; }
+.font-serif { font-family: 'DM Serif Display', serif !important; }
