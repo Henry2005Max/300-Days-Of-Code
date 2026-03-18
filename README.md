@@ -106,7 +106,8 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 37: Image Gallery with lazy loading
 - ✅ Day 38: Dark Mode with context API
 - ✅ Day 39: Weather App
-- ✅ Day 40: Tailwind Resume 
+- ✅ Day 40: Tailwind Resume
+- ✅ Day 41: Todo Redux
   
 
 ### Sprint 2: Web Basics (Days 31-60)
