@@ -174,3 +174,42 @@ Day 40 - Review: Add Tailwind responsiveness to Day 31 Resume
 ### Tomorrow
 
 Day 41 - Todo App with Recoil/Redux
+
+## Day 41 - March 18
+
+**Project:** Todo App with Redux Toolkit
+
+### What I Built
+
+- Redux Toolkit slice with 10 typed actions: addTodo, toggleTodo, deleteTodo, editTodo, setPriority, setFilter, setSearch, setActiveCategory, clearCompleted, reorderTodo
+- configureStore wiring the todos reducer and exporting RootState and AppDispatch types
+- Typed useAppDispatch and useAppSelector hooks eliminating all casting
+- AddTodoForm that expands on focus to show priority buttons, category select, and due date input
+- TodoItem with checkbox toggle, double-click inline edit, priority border, category/priority tags, overdue detection
+- Category sidebar with live item counts per category
+- Stats panel: total, active, completed, high-priority counts with progress bar
+- Search input and All/Active/Completed filter bar
+- Clear Completed button dispatching clearCompleted action
+- Hover-reveal Edit and Delete action buttons on each task
+- 6 Nigerian-themed pre-loaded tasks across multiple categories
+
+### What I Learned
+
+- createSlice combines action creators and reducer in one — no separate switch statements
+- Immer is baked into Redux Toolkit — writing state.items.push() in a reducer is safe
+- configureStore automatically enables Redux DevTools Extension in the browser
+- useAppSelector runs the selector on every Redux state change — cheap selectors matter
+- Provider at the root gives all children access to the store via hooks
+- Separating slice, store, and hooks into a /store folder is the standard RTK pattern
+
+### Resources Used
+
+- Redux Toolkit docs: https://redux-toolkit.js.org/introduction/getting-started
+- createSlice API: https://redux-toolkit.js.org/api/createSlice
+- React Redux hooks: https://react-redux.js.org/api/hooks
+- configureStore: https://redux-toolkit.js.org/api/configureStore
+- Inter font: https://fonts.google.com/specimen/Inter
+
+### Tomorrow
+
+Day 42 - Color Picker
