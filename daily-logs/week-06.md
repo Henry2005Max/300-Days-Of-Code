@@ -213,3 +213,41 @@ Day 41 - Todo App with Recoil/Redux
 ### Tomorrow
 
 Day 42 - Color Picker
+
+## Day 42 - March 19
+
+**Project:** Color Picker
+
+### What I Built
+
+- HSL color picker with three live slider tracks — Hue with rainbow gradient, Saturation and Lightness with color-aware gradients
+- Color preview card with auto-contrast text using luminance formula
+- Copy to clipboard for HEX, HSL, and RGB formats with confirmation flash
+- Hex input field that parses any valid #rrggbb value and jumps to that color
+- Auto color naming function mapping hue ranges and lightness to descriptive names
+- Shades tab: 9 fixed-lightness swatches for the current hue, click to activate
+- Harmony tab: 5 harmony types using HSL hue rotation — complementary, triadic, analogous, split, tetradic
+- Saved palette with up to 20 colors — save, restore, copy, or delete each
+- Color Info panel showing all values and contrast recommendation
+- All color math written from scratch: hslToHex, hexToHsl, hslToRgb, getContrastColor, generateHarmony, generateShades
+
+### What I Learned
+
+- HSL to RGB: use the hue sector and chroma formula, convert to 0-255 range
+- HEX to HSL: normalise RGB to 0-1, find max/min channels, compute lightness as (max+min)/2
+- Relative luminance for contrast: human eyes are most sensitive to green (0.587), least to blue (0.114)
+- Color harmonies are just hue rotations: complementary = +180°, triadic = +120°/+240°
+- CSS range inputs need custom styling — use a transparent input over a styled div for custom tracks
+- Clipboard API requires HTTPS in production but works on localhost without it
+
+### Resources Used
+
+- HSL color model: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl
+- Color harmony theory: https://www.canva.com/colors/color-wheel
+- Clipboard API: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
+- WCAG contrast formula: https://www.w3.org/TR/WCAG20-TECHS/G17.html
+- Geist font: https://vercel.com/font
+
+### Tomorrow
+
+Day 43 - Meme Generator with Canvas
