@@ -34,3 +34,43 @@
 ### Tomorrow
 
 Day 44 - BMI Calculator Form
+
+
+## Day 44 - March 21
+
+**Project:** BMI Calculator Form
+
+### What I Built
+
+- BMI calculator with metric (kg/cm) and imperial (lbs/ft/in) unit modes
+- Correct BMI formula for each unit system applied via calcBMI helper
+- useMemo for BMI value — only recalculates when weight or height inputs change
+- Imperial height split into ft/in inputs, combined to total inches via a second useMemo
+- Visual gauge: four colour-coded segments with an animated needle tracking BMI position on a 10–40 scale
+- BMI category table with the matching row highlighted after calculation
+- Ideal weight range back-calculated from BMI bounds for current height
+- Health advice block per category with colour-coded styling
+- Calculation history: typed BMIRecord array, last 10 entries, clearable
+- Nigerian city BMI reference bar chart with proportional bars and category colours
+- Optional age and gender fields shown in result details panel
+
+### What I Learned
+
+- Imperial BMI formula: (703 × weight_lbs) / height_in² — the 703 constant converts units
+- useMemo dependency array — only the values that trigger recalculation go in the array
+- Deriving ideal weight from BMI: weight = BMI × height² (rearranged formula)
+- Gauge needle: clamp BMI between 10-40, compute percentage, use CSS left with transition
+- Splitting state resets on unit switch prevents stale values carrying across modes
+- Typed history records make the history list fully type-safe without any casting
+
+### Resources Used
+
+- BMI formula: https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html
+- useMemo docs: https://react.dev/reference/react/useMemo
+- WHO BMI classification: https://www.who.int/europe/news-room/fact-sheets/item/a-healthy-lifestyle—who-recommendations
+- Plus Jakarta Sans font: https://fonts.google.com/specimen/Plus+Jakarta+Sans
+- JetBrains Mono font: https://fonts.google.com/specimen/JetBrains+Mono
+
+### Tomorrow
+
+Day 45 - Password Strength Meter
