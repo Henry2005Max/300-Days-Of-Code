@@ -110,7 +110,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 41: Todo Redux
 - ✅ Day 42: Color Picker
 - ✅ Day 43: Meme Generator
-- ✅ Day 44: BMI Calculator
+- ✅ Day 44: BMI Calculator form
   
 
 ### Sprint 2: Web Basics (Days 31-60)
