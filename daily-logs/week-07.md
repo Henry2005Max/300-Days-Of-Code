@@ -74,3 +74,41 @@ Day 44 - BMI Calculator Form
 ### Tomorrow
 
 Day 45 - Password Strength Meter
+
+## Day 45 - March 22
+
+**Project:** Password Strength Meter
+
+### What I Built
+
+- Password input with show/hide toggle and copy to clipboard
+- 8 weighted security checks evaluated live as user types
+- Weighted score system — max 11 points, symbols and long length worth double
+- 5-level strength classification with colour-coded label and animated bar
+- Crack time estimator using charset size, password length, and 10B attempts/sec assumption
+- Entropy calculator: length × log₂(charset_size) in bits
+- Password generator with length slider (8–64) and 4 charset toggles
+- Generator enforces at least one char per enabled charset before padding with random pool
+- Recent generated passwords kept in state — click to restore
+- Strength legend panel with active level highlighted
+
+### What I Learned
+
+- Weighted scoring is more accurate than simple pass/fail counts for password strength
+- Entropy in bits tells you the information content: higher = harder to guess
+- Crack time is an estimate based on offline GPU brute force — real attackers may be faster or slower
+- Shuffling with sort(() => Math.random() - 0.5) isn’t cryptographically secure but fine for a UI demo
+- Guaranteeing charset inclusion means picking one forced char per set first, then padding randomly
+- useMemo for all derived values (score, strength, crackTime, entropy) keeps renders cheap
+
+### Resources Used
+
+- Password entropy: https://en.wikipedia.org/wiki/Password_strength#Entropy_as_a_measure_of_password_strength
+- NIST password guidelines: https://pages.nist.gov/800-63-3/sp800-63b.html
+- Clipboard API: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
+- Sora font: https://fonts.google.com/specimen/Sora
+- JetBrains Mono: https://fonts.google.com/specimen/JetBrains+Mono
+
+### Tomorrow
+
+Day 46 - Quiz App
