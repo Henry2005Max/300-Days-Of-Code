@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 46/300 🔥  
+**Current Progress:** Day 47/300 🔥  
 **Current Sprint:** Sprint 2 - Web Basics
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 45/300
-- **Projects Built:** 45
-- **Current Streak:** 45 days 🔥
+- **Days Completed:** 46/300
+- **Projects Built:** 46
+- **Current Streak:** 46 days 🔥
 
 ---
 
@@ -111,6 +111,8 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 42: Color Picker
 - ✅ Day 43: Meme Generator
 - ✅ Day 44: BMI Calculator form
+- ✅ Day 45: Password Strength Meter
+- ✅ Day 46: Quiz App
   
 
 ### Sprint 2: Web Basics (Days 31-60)
