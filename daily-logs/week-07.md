@@ -112,3 +112,40 @@ Day 45 - Password Strength Meter
 ### Tomorrow
 
 Day 46 - Quiz App
+
+
+## Day 46 - March 23
+
+**Project:** Quiz App
+
+### What I Built
+
+- Three-screen quiz app: Setup → Quiz → Results managed via a single screen state string
+- 20 questions across Tech, Science, Nigeria, and General categories with Easy/Medium/Hard difficulties
+- Setup screen with category pills, difficulty pills, question count slider, and time-per-question slider
+- Countdown timer using setTimeout chain, resets on each question, auto-submits as wrong on expiry
+- Answer reveal: correct turns green, wrong selection turns red, others dim — via getOptionClass helper
+- Explanation text revealed after each answer with correct/wrong icon
+- Live score sidebar: correct count, wrong count, mini coloured dot per answered question
+- Results screen: grade circle (A–F based on %) , score stats, average response time
+- Full review list: every question showing selected answer, correct answer, explanation
+- Retry Same and New Quiz actions on results screen
+
+### What I Learned
+
+- A screen state string (“setup” | “quiz” | “result”) cleanly replaces multiple boolean flags
+- Timer implemented as setTimeout chain — useEffect sets timeLeft, another useEffect decrements it
+- Cleanup function in useEffect (return () => clearTimeout) prevents stale timers on question change
+- getOptionClass centralises button CSS logic — keeps JSX clean, logic in one place
+- Date.now() diff for per-question response time tracking
+- Shuffling with sort(() => Math.random() - 0.5) before slice gives a random subset each quiz
+
+### Resources Used
+
+- React useEffect docs: https://react.dev/reference/react/useEffect
+- setTimeout cleanup pattern: https://react.dev/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed
+- Nunito font: https://fonts.google.com/specimen/Nunito
+
+### Tomorrow
+
+Day 47 - Currency UI
