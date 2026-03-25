@@ -149,3 +149,42 @@ Day 46 - Quiz App
 ### Tomorrow
 
 Day 47 - Currency UI
+
+## Day 47 - March 24
+
+**Project:** Currency UI
+
+### What I Built
+
+- Currency converter with live rates fetched via Axios from exchangerate-api.com
+- 12 currencies including NGN, GHS, KES, ZAR and other African currencies
+- Currency swap button flipping from/to pair with one click
+- Intl.NumberFormat for correct locale currency formatting per code
+- Bidirectional rate display: 1 NGN = x USD and 1 USD = x NGN shown simultaneously
+- NGN Quick Reference table for 7 common Naira amounts with click-to-populate
+- All Rates vs NGN panel showing Naira cost of 1 unit of each currency
+- Click-to-set on both reference tables populates the converter instantly
+- Conversion history saving up to 10 records, click to restore
+- Demo mode with fallback hardcoded rates when API key not configured
+- Refresh button to manually trigger rate refetch
+
+### What I Learned
+
+- Cross-rate formula: to_rate / from_rate gives the exchange rate between any two currencies when both rates are relative to a common base (USD)
+- Intl.NumberFormat style: “currency” handles symbol, decimal places, and grouping per locale automatically
+- JPY has no subunit — maximumFractionDigits: 0 prevents “.00” appearing on yen amounts
+- Demo/fallback mode: checking for a placeholder key string avoids a failed API call on load
+- useMemo for rate and result — only recalculate when from, to, or amount change, not on history updates
+- Axios response is already parsed JSON — res.data is the object, no .json() step needed
+
+### Resources Used
+
+- exchangerate-api.com docs: https://www.exchangerate-api.com/docs/overview
+- Intl.NumberFormat MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+- Axios docs: https://axios-http.com/docs/api_intro
+- Currency codes ISO 4217: https://en.wikipedia.org/wiki/ISO_4217
+- Inter font: https://fonts.google.com/specimen/Inter
+
+### Tomorrow
+
+Day 48 - Rock Paper Scissors
