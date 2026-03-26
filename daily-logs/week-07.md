@@ -188,3 +188,44 @@ Day 47 - Currency UI
 ### Tomorrow
 
 Day 48 - Rock Paper Scissors
+
+## Day 48 - March 25
+
+**Project:** Rock Paper Scissors
+
+
+### What I Built
+
+- Rock Paper Scissors game with Free Play, Best of 3, and Best of 5 modes
+- Pure function game logic: getResult uses a BEATS record to determine winner, randomChoice picks from the 3 options
+- 600ms reveal delay using setTimeout inside useCallback — CPU emoji shakes then pops in
+- Arena background tints reactively based on result via CSS class on the arena div
+- Series progress dots: filled green for player wins, red for CPU wins
+- Series completion detected via useEffect watching seriesWins vs target
+- Random taunts: 5 strings per result outcome, random pick on each reveal
+- Scoreboard: wins, losses, draws with Righteous display font
+- Win streak counter showing with fire emoji when > 1
+- Stats panel: total rounds, win rate, best streak, favourite choice (derived from history)
+- Stacked bar chart: proportional win/draw/loss segments with transition
+- Round history: last 15 rounds with player emoji, CPU emoji, W/L/D badge
+- Keyboard shortcuts via useEffect on window keydown with useCallback dependency
+
+### What I Learned
+
+- Pure functions for game logic (getResult, randomChoice) make the core logic easy to reason about
+- setTimeout inside play handler works well for a simple delay — no need for a timer state
+- useCallback dependency array must include all values the function closes over
+- useEffect watching derived state (series wins) is cleaner than checking inside the play function
+- CSS animation classes (shake on revealing, pop on shown) add game feel with minimal code
+- IIFE inside JSX to derive favourite choice keeps the state minimal — no need to track it separately
+
+### Resources Used
+
+- React useCallback docs: https://react.dev/reference/react/useCallback
+- CSS animation docs: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+- Righteous font: https://fonts.google.com/specimen/Righteous
+- Nunito font: https://fonts.google.com/specimen/Nunito
+
+### Tomorrow
+
+Day 49 - Tip Calculator
