@@ -229,3 +229,37 @@ Day 48 - Rock Paper Scissors
 ### Tomorrow
 
 Day 49 - Tip Calculator
+
+## Day 49 - March 26
+
+**Project:** Tip Calculator
+
+### What I Built
+
+- Tip calculator with Nigerian Naira formatting via Intl.NumberFormat
+- Bill input with ₦ prefix, 6 preset tip buttons, custom tip input
+- Split between N people with +/− stepper — shows per-person total and tip
+- Round up toggle: Math.ceil(total / 100) * 100 rounds to nearest ₦100
+- Save bills with optional venue label — auto-assigns Nigerian venue name if blank
+- Saved bills history: click any record to restore all inputs
+- Nigerian tipping guide for fast food through fine dining
+- useMemo for all bill calculations
+
+### What I Learned
+
+- Intl.NumberFormat style: “currency”, currency: “NGN” handles ₦ symbol and decimal formatting
+- Round-up formula: Math.ceil(value / 100) * 100 rounds to nearest 100
+- Two tip states (preset + custom) with a derived activeTip value — custom overrides preset when non-empty
+- useMemo keeps bill math from recalculating on unrelated state changes (e.g. label input)
+- Restoring a full form from a saved record requires setting every controlled input
+
+### Resources Used
+
+- Intl.NumberFormat MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+- useMemo docs: https://react.dev/reference/react/useMemo
+- DM Sans font: https://fonts.google.com/specimen/DM+Sans
+- DM Mono font: https://fonts.google.com/specimen/DM+Mono
+
+### Tomorrow
+
+Day 50 - Blog Template with MDX
