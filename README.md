@@ -116,7 +116,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 47: Currency Converter
 - ✅ Day 48: Rock Paper Scissors
 - ✅ Day 49: Tip Calculator
-- Day 50: Blog Template with MDX
+- ✅ Day 50: Blog Template with MDX
   
 
 ### Sprint 2: Web Basics (Days 31-60)
