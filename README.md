@@ -117,6 +117,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 48: Rock Paper Scissors
 - ✅ Day 49: Tip Calculator
 - ✅ Day 50: Blog Template with MDX
+- ✅ Day 51: todo App with recoil
   
 
 ### Sprint 2: Web Basics (Days 31-60)
