@@ -33,4 +33,40 @@
 
 ### Tomorrow
 
-Day 51 - Todo App with Recoil
+Day 51 - Todo App with Recoil 
+
+## Day 51 - March 28
+
+**Project:** Todo App with Recoil
+
+### What I Built
+
+- atoms.ts with 4 atoms (todos, filter, search, activeCategory) and 3 selectors (filtered todos, stats, category counts)
+- RecoilRoot wrapping the app — no store config needed
+- AddForm using useSetRecoilState to append new todos to the atom
+- TodoItem using useSetRecoilState for toggle, delete, and inline edit
+- CategorySidebar reading category counts from categoryCountsSelector
+- StatsBar reading all derived stats from statsSelector
+- filteredTodosSelector combining all 4 atoms into a filtered list
+- Recoil vs Redux Toolkit comparison table showing key differences
+
+### What I Learned
+
+- Recoil atom = useState but shareable across the component tree without prop drilling
+- Selector = useMemo but reactive — automatically recalculates when any upstream atom changes
+- useRecoilState returns [value, setter] like useState
+- useSetRecoilState returns only the setter — components that only write don’t re-render on state changes
+- useRecoilValue returns only the value — read-only components
+- RecoilRoot is far simpler to set up than Redux configureStore + Provider + slice
+- Fine-grained subscriptions: the search input component only re-renders when searchAtom changes
+
+### Resources Used
+
+- Recoil docs: https://recoiljs.org/docs/introduction/getting-started
+- Recoil atoms: https://recoiljs.org/docs/basic-tutorial/atoms
+- Recoil selectors: https://recoiljs.org/docs/basic-tutorial/selectors
+- Inter font: https://fonts.google.com/specimen/Inter
+
+### Tomorrow
+
+Day 52 - Color Picker Extended
