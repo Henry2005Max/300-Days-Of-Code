@@ -70,3 +70,42 @@ Day 51 - Todo App with Recoil
 ### Tomorrow
 
 Day 52 - Color Picker Extended
+
+## Day 52 - March 29
+
+**Project:** Color Picker Extended
+
+### What I Built
+
+- Canvas 2D saturation/lightness picker using two overlapping linear gradients and mouse event handlers
+- Hue strip with rainbow CSS gradient and a transparent range input overlay
+- HSL sliders with live label updates
+- Four color space display and copy: HEX, HSL, RGB, oklch
+- Hex paste input that jumps to the pasted color on valid 6-digit hex
+- Palette tab: 5 harmony types generating 6–9 swatches each, click to activate
+- Gradient tab: dynamic stop array with position and hue sliders, live CSS string output, copy button, add stop button
+- Swatches tab: 24-slot saved colors grid with hover-reveal delete button
+- Contrast checker showing white and black text on the current color with recommendation
+- Color values sidebar panel with all four formats, click-to-copy on each row
+- H/S/L/R/G/B stats grid
+
+### What I Learned
+
+- Canvas picker: two gradients drawn sequentially — saturation horizontal, then lightness vertical (semi-transparent black overlay)
+- Mouse position → S/L: x/width = saturation percentage, y/height = inverted lightness percentage
+- useRef for dragging flag prevents re-renders on every mouse move event
+- Gradient builder: array of stops sorted by position, mapped to CSS color stops
+- oklch is a new CSS color space — more perceptually uniform than HSL but not yet universally supported
+- Extending Day 42 showed how a feature set can grow by adding tabs rather than cramming everything into one view
+
+### Resources Used
+
+- Canvas API MDN: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+- oklch color space: https://oklch.com
+- CSS linear-gradient: https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient
+- WCAG contrast: https://www.w3.org/TR/WCAG20-TECHS/G17.html
+- Geist font: https://vercel.com/font
+
+### Tomorrow
+
+Day 53 - BMI Calculator
