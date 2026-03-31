@@ -108,4 +108,42 @@ Day 52 - Color Picker Extended
 
 ### Tomorrow
 
-Day 53 - BMI Calculator
+Day 53 - Weather Dashboard
+
+## Day 53 - March 30
+
+**Project:** Weather Dashboard
+
+
+### What I Built
+
+- Weather dashboard with mock data for 6 Nigerian cities
+- Hero card with dynamic gradient background class switching on city change
+- °C/°F unit toggle converting all temperature displays simultaneously
+- 8 stat widgets: humidity, wind speed + compass direction, pressure, visibility, UV index with colour label, AQI with colour label, sunrise, sunset
+- Custom hourly bar chart: 9 columns, bar heights proportional to temperature range using (temp - min) / (max - min) formula
+- 7-day forecast rows with OpenWeatherMap CDN icons, description, high/low, humidity
+- City comparison grid: all 6 cities, click to switch active, active city highlighted
+- Sidebar city list with search filter, save/unsave star toggle per city
+- Saved cities quick-access chips section
+- 500ms setTimeout loading simulation between city switches
+
+### What I Learned
+
+- Dynamic background on a card: compute a CSS class name from weather condition data, apply to className — much cleaner than inline styles for multi-property theme changes
+- Bar chart without a library: normalise to percentage with (val - min) / (max - min) * 100, set as CSS height
+- useMemo for AQI and UV — prevent random regeneration on every render by memoising with [activeCity] as dep
+- useCallback for the city fetch simulation to prevent recreation on every render
+- Barlow Condensed works very well for large weather numbers — narrow and readable at big sizes
+
+### Resources Used
+
+- OpenWeatherMap icons: https://openweathermap.org/weather-conditions
+- UV index scale: https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index
+- AQI scale: https://www.airnow.gov/aqi/aqi-basics
+- Barlow Condensed font: https://fonts.google.com/specimen/Barlow+Condensed
+- Plus Jakarta Sans: https://fonts.google.com/specimen/Plus+Jakarta+Sans
+
+### Tomorrow
+
+Day 54 - Expense Tracker
