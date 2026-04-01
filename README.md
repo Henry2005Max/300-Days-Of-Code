@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 54/300 🔥  
+**Current Progress:** Day 55/300 🔥  
 **Current Sprint:** Sprint 2 - Web Basics
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 53/300
-- **Projects Built:** 53
-- **Current Streak:** 53 days 🔥
+- **Days Completed:** 54/300
+- **Projects Built:** 54
+- **Current Streak:** 54 days 🔥
 
 ---
 
@@ -120,6 +120,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 51: todo App with recoil
 - ✅ Day 52: Extended Color Picker
 - ✅ Day 53: Weather Dashboard
+- ✅ Day 54: Extended Expense Tracker
   
 
 ### Sprint 2: Web Basics (Days 31-60)
