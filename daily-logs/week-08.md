@@ -147,3 +147,36 @@ Day 53 - Weather Dashboard
 ### Tomorrow
 
 Day 54 - Expense Tracker
+
+
+## Day 54 - April 01
+**Project:** Expense Tracker
+
+### What I Built
+- Expense tracker with income/expense/balance/savings-rate summary cards
+- Month picker filtering all stats, charts, and transaction list to the selected month
+- SVG donut chart from scratch using strokeDasharray on stacked circle elements
+- Horizontal bar breakdown for top 5 spending categories with percentage labels
+- Add transaction form: income/expense toggle, amount, date, category, description
+- 8 categories each with a colour and emoji: Food, Transport, Housing, Shopping, Health, Entertainment, Savings, Other
+- Transaction list with left colour border per type, hover-reveal delete button
+- Filters: type dropdown, category dropdown, text search, sort by date or amount
+- 12 seed transactions with Nigerian context — Lagos rent, Abuja suya, Kuda savings, Silverbird cinema
+- Intl.NumberFormat NGN for all money values
+
+### What I Learned
+- SVG donut chart: each segment is a circle with stroke-dasharray set to (pct × circumference, remainder)
+- Segments are stacked by accumulating a dashoffset value — each starts where the previous ended
+- A rotate(-90) transform on each circle moves the starting point to 12 o'clock
+- A filled circle at a smaller radius covers the centre, creating the donut hole
+- useMemo for both filtered list and catBreakdown — they depend on different state so separate memos are correct
+- Savings rate can be negative if expenses > income — Math.max(0, rate) prevents a negative bar width
+
+### Resources Used
+- SVG stroke-dasharray: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray
+- Intl.NumberFormat NGN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+- useMemo docs: https://react.dev/reference/react/useMemo
+- Inter font: https://fonts.google.com/specimen/Inter
+
+### Tomorrow
+Day 55 - Pomodoro Timer
