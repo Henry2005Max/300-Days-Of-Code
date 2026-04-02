@@ -180,3 +180,38 @@ Day 54 - Expense Tracker
 
 ### Tomorrow
 Day 55 - Pomodoro Timer
+
+## Day 55 - April 02
+**Project:** Pomodoro Timer
+
+### What I Built
+- Pomodoro timer with three modes: Focus (25min), Short Break (5min), Long Break (15min)
+- SVG ring countdown using stroke-dashoffset animated via CSS transition
+- Web Audio API beeps using OscillatorNode + GainNode + exponentialRampToValueAtTime — no audio files
+- Lazy AudioContext initialisation via useRef — created only after first user gesture
+- Pomo dots showing progress within the current cycle toward the long break
+- Task name input displayed on each session in the log
+- Settings panel with all durations, long break interval, auto-start, and sound toggle
+- Auto-start: after a session completes, the next timer starts automatically after 500ms
+- Session log recording each completed focus session with task and timestamp
+- Today's stats derived with useMemo from the sessions array
+- Page title countdown using useEffect on timeLeft + running + mode
+- Dynamic --mode-color CSS variable on the app root themes header badge, ring, active tab, settings buttons
+
+### What I Learned
+- SVG ring: circumference = 2πr, dashoffset = circumference × (1 - progress), CSS transition animates between values
+- Web Audio OscillatorNode: set frequency, connect to GainNode, use exponentialRampToValueAtTime for tone fade-out
+- AudioContext needs a user gesture to start — creating it lazily in a ref prevents "not allowed" errors
+- useEffect with running as a dependency creates/destroys the interval cleanly — no stacking
+- handleComplete must be in useCallback with all deps or the interval captures a stale closure
+- CSS custom properties can be set via React's style prop as `{ "--mode-color": color }` and cascade to all children
+
+### Resources Used
+- Web Audio API MDN: https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
+- OscillatorNode: https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode
+- SVG stroke-dashoffset: https://css-tricks.com/svg-line-animation-works
+- Pomodoro technique: https://todoist.com/productivity-methods/pomodoro-technique
+- Rubik font: https://fonts.google.com/specimen/Rubik
+
+### Tomorrow
+Day 56 - Markdown Editor
