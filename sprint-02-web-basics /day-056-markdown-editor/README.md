@@ -4,6 +4,8 @@
 
 A live split-pane Markdown editor built with React, TypeScript, and the marked library. Write Markdown on the left and see formatted HTML on the right in real time. Supports a full toolbar for inserting formatting, keyboard shortcuts, word/character/line count, read time estimate, auto-save to localStorage, and export as .md or .html.
 
+https://56markdown-editor.netlify.app/
+
 ## Features
 
 - Live split-pane preview — editor and rendered output side by side
