@@ -59,7 +59,7 @@ Building 300 projects in 300 days to become a full-stack developer!
 ## 📅 Challenge Timeline
 **Start Date:** Friday 6TH FEBRUARY 2026.
 **End Date:** WEDNESDAY, DECEMBER 2ND, 2026. 
-**Current Day:** 56/300
+**Current Day:** 56/300 
 
 ---
 
