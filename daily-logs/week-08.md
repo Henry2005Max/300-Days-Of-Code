@@ -215,3 +215,31 @@ Day 55 - Pomodoro Timer
 
 ### Tomorrow
 Day 56 - Markdown Editor
+
+## Day 56 - January 30
+
+**Project:** Markdown Editor
+**Time Spent:** 3 hours
+
+### What I Built
+
+A live split-pane Markdown editor called MarkPad. The editor uses React and TypeScript with the marked library to parse Markdown and render HTML in real time. Features include a 12-button formatting toolbar that inserts or wraps selected text, three view modes (split, editor-only, preview-only), keyboard shortcuts for bold, italic, save, and tab indent, real-time word count, character count, line count and read time stats, auto-save to localStorage with an 800ms debounce, manual save with a visual badge confirmation, and export as .md or .html files. The design is a dark terminal aesthetic using JetBrains Mono for the editor and Sora for the UI.
+
+### What I Learned
+
+- `onMouseDown` with `e.preventDefault()` must be used on toolbar buttons instead of `onClick` — clicking a button fires blur on the textarea first, which clears the selection range before the handler can read it. Preventing default on mousedown keeps the textarea focused and the selection intact
+- After a React state update, the textarea caret position resets to 0. Using `requestAnimationFrame` to call `setSelectionRange` defers the cursor repositioning until after React has flushed the DOM update, which correctly restores the cursor inside the newly inserted text
+- Debouncing localStorage writes with `setTimeout` inside `useEffect` and returning a cleanup that calls `clearTimeout` prevents a write on every single keystroke while still saving reliably after the user pauses
+- `marked.setOptions({ gfm: true, breaks: true })` enables the full GitHub Flavored Markdown spec including tables, strikethrough, fenced code blocks, and task list checkboxes
+- Generating a download file entirely in the browser uses `new Blob([content], { type })` then `URL.createObjectURL(blob)` assigned to a programmatically created anchor element — no server needed
+
+### Resources Used
+
+- https://marked.js.org/
+- https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/setSelectionRange
+- https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+- https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
+
+### Tomorrow
+
+Day 57 — Sprint 2 continues.
