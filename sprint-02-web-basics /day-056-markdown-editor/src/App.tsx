@@ -5,7 +5,7 @@ import { marked } from "marked";
 interface Stats {
   words: number;
   chars: number;
-  lines: number;
+  lines: number; 
   readTime: string;
 }
 
