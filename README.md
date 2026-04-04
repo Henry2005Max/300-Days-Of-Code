@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 57/300 🔥  
+**Current Progress:** Day 58/300 🔥  
 **Current Sprint:** Sprint 2 - Web Basics 
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 56/300
-- **Projects Built:** 56
-- **Current Streak:** 56 days 🔥
+- **Days Completed:** 57/300
+- **Projects Built:** 57
+- **Current Streak:** 57 days 🔥
 
 ---
 
@@ -58,8 +58,8 @@ Building 300 projects in 300 days to become a full-stack developer!
 
 ## 📅 Challenge Timeline
 **Start Date:** Friday 6TH FEBRUARY 2026.
-**End Date:** WEDNESDAY, DECEMBER 2ND, 2026. 
-**Current Day:** 56/300 
+**End Date:** THURSDAY, DECEMBER 3RD, 2026. 
+**Current Day:** 57/300 
 
 ---
 
@@ -123,6 +123,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 54: Extended Expense Tracker
 - ✅ Day 55: Pomodoro Timer
 - ✅ Day 56: Markdown Editor
+- ✅ Day 57: Kanban Board
   
 
 ### Sprint 2: Web Basics (Days 31-60)
