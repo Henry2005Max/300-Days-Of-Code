@@ -3,7 +3,7 @@
 ## Description
 
 A flashcard study app built with React and TypeScript. Cards flip with a CSS 3D transform animation to reveal the answer. Four themed decks are included: Nigerian Geography, React Concepts, TypeScript, and Nigerian History. Each study session tracks correct and incorrect answers, lets you retry only the cards you missed, and shows a results screen with your score percentage at the end.
-
+https://day58flashcard-app.netlify.app
 ## Features
 
 - CSS 3D flip animation using `rotateY(180deg)` and `preserve-3d` — no library
