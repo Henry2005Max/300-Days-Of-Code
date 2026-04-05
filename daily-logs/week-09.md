@@ -23,4 +23,33 @@ A drag-and-drop Kanban board with three columns (To Do, In Progress, Done) using
 
 ### Tomorrow
 
-Day 58 — Flashcard App with flip animation, score tracking, and Nigerian-themed card decks.
+Day 58 — Flashcard App with flip animation, score tracking, and Nigerian-themed card decks. 
+
+**
+## Day 58 - April 05
+
+**Project:** Flashcard App
+**Time Spent:** 3+ hours
+
+### What I Built
+
+A flashcard study app with a CSS 3D flip animation, four themed decks (Nigerian Geography, React Concepts, TypeScript, Nigerian History), and a full study flow. Cards shuffle on every session. After flipping a card to reveal the answer, the user marks it correct or incorrect. A score bar and progress dot strip update live throughout the session. The results screen shows a grade label, percentage score, and correct/incorrect counts. Missed cards can be retried in a separate reshuffled session. Built entirely with React, TypeScript, and native CSS — no animation library.
+
+### What I Learned
+
+- CSS 3D flip requires all three of: `perspective` on the scene container, `transform-style: preserve-3d` on the inner element, and `backface-visibility: hidden` on both faces — the effect silently breaks if any one is missing
+- The back face must be pre-rotated with `transform: rotateY(180deg)` so it appears right-way-up when the wrapper completes its 180-degree rotation
+- `-webkit-backface-visibility: hidden` is still required alongside the unprefixed version for Safari support
+- Fisher-Yates shuffle is O(n) and produces a truly uniform permutation — `Array.sort(() => Math.random() - 0.5)` is biased and unreliable
+- Passing CSS custom properties via React inline style (`style={{ "--deck-color": color } as React.CSSProperties}`) is a clean pattern for per-instance theming without needing CSS Modules or styled-components
+
+### Resources Used
+
+- https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style
+- https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
+- https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+- https://react.dev/learn/passing-props-to-a-component
+
+### Tomorrow
+
+Day 59 — Habit Tracker with daily check-ins, streak counter, and weekly grid view.
