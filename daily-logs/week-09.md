@@ -53,3 +53,30 @@ A flashcard study app with a CSS 3D flip animation, four themed decks (Nigerian 
 ### Tomorrow
 
 Day 59 — Habit Tracker with daily check-ins, streak counter, and weekly grid view.
+
+## Day 59 - April 06
+
+**Project:** Habit Tracker
+
+### What I Built
+
+A daily habit tracker called Streaks with a 7-day weekly dot grid, per-habit streak counters, a daily completion progress bar, and a 28-day compact grid view. Each habit has a custom emoji, colour, and independent completion history stored in localStorage. Habits can be added through a modal with an emoji selector and colour picker, and deleted with a confirmation. Pre-loaded with four developer-life habits. Design uses DM Serif Display headings with Rubik body text on a warm cream background, with each habit's colour accent applied to its left border, weekly dots, and grid cells.
+
+### What I Learned
+
+- Streak calculation requires walking backwards day by day from today (or yesterday if today is not yet done) and stopping at the first missing date — sorting and checking consecutive index differences breaks when there are non-consecutive completion gaps
+- `new Date(date + "T12:00:00")` is necessary when constructing Date objects from ISO date strings to prevent timezone offset from shifting the date to the previous day near midnight
+- CSS `color-mix(in srgb, var(--hcolor) 15%, transparent)` derives tinted variants of a CSS variable without any JavaScript — this is supported in all modern browsers and avoids a lot of inline style computation
+- `aspect-ratio: 1` on grid cells keeps them perfectly square regardless of container width without hardcoded pixel dimensions
+- Per-instance CSS custom properties via `style={{ "--hcolor": color } as React.CSSProperties` is cleaner than prop drilling colour values into deeply nested CSS classes
+
+### Resources Used
+
+- https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix
+- https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+- https://react.dev/learn/passing-props-to-a-component
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+### Tomorrow
+
+Day 60 — Sprint 2 Review: Portfolio Dashboard showcasing all Sprint 2 projects. Last day of the sprint!
