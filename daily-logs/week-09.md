@@ -80,3 +80,30 @@ A daily habit tracker called Streaks with a 7-day weekly dot grid, per-habit str
 ### Tomorrow
 
 Day 60 — Sprint 2 Review: Portfolio Dashboard showcasing all Sprint 2 projects. Last day of the sprint!
+
+
+## Day 60 - April 07
+
+**Project:** Sprint 2 Review — Portfolio Dashboard
+**Time Spent:** 2.5 hours
+
+### What I Built
+
+A shareable portfolio dashboard for all 30 Sprint 2 projects. Bold editorial hero with a Playfair Display serif title, stats strip (projects, sprint, days, theme), sticky filter bar with 15+ tag buttons and a live search input, and a responsive card grid. Highlighted projects have a red left border. useMemo handles filtering so the array is only recomputed when tag or search state changes. This closes out Sprint 2 — 30 React/TypeScript projects in 30 days.
+
+### What I Learned
+
+- `useMemo` is the right tool for derived data (filtered arrays, computed values) — it avoids the pattern of useEffect + setState which adds an unnecessary extra render cycle
+- `position: sticky; top: 0; z-index: 50` on the filter bar keeps it visible during scroll — forgetting z-index causes cards to render on top of it
+- `clamp(min, preferred, max)` creates fluid typography that scales with the viewport without needing breakpoints for every size
+- Horizontal scrolling tag rows need both `overflow-x: auto` and `::-webkit-scrollbar { display: none }` for a clean look on mobile
+
+### Resources Used
+
+- https://react.dev/reference/react/useMemo
+- https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
+- https://developer.mozilla.org/en-US/docs/Web/CSS/position
+
+### Tomorrow
+
+Day 61 — Sprint 3 begins. Node.js + TypeScript Hello World server with Express. First time writing back-end code in the challenge.
