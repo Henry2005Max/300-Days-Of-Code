@@ -3,7 +3,7 @@
 ## Description
 
 A shareable portfolio dashboard showcasing all 30 projects built during Sprint 2 of the 300 Days of Code challenge. Features a bold editorial hero section, a stats strip, tag filtering, and a search bar. Every project from Day 31 to Day 60 is listed with its description and tech stack tags. Highlighted projects (Days 50, 56, 57, 58, 59, 60) are marked with a red left border and accent dot.
-
+https://day60review-dash.netlify.app/
 ## Features
 
 - All 30 Sprint 2 projects displayed in a responsive card grid
