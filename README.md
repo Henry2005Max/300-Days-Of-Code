@@ -59,7 +59,7 @@ Building 300 projects in 300 days to become a full-stack developer!
 ## 📅 Challenge Timeline
 **Start Date:** Friday 6TH FEBRUARY 2026.
 **End Date:** THURSDAY, DECEMBER 3RD, 2026. 
-**Current Day:** 59/300 
+**Current Day:** 60/300 
 
 ---
 
@@ -97,6 +97,11 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 28: Github Action for Continuous Integration
 - ✅ Day 29: Data Pipeline
 - ✅ Day 30: Sprint Review
+
+  
+### Sprint 2: Web Basics (Days 31-60)
+React/TypeScript Web UIs
+
 - ✅ Day 31: React Resume
 - ✅ Day 32: Theme Styled Landing Page
 - ✅ Day 33: React Counter With Hooks
@@ -126,11 +131,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 57: Kanban Board
 - ✅ Day 58: Flashcard App
 - ✅ Day 59: Habit Tracker
-- ✅ Day 60: Sprint 2 review 
-  
-
-### Sprint 2: Web Basics (Days 31-60)
-React/TypeScript Web UIs
+- ✅ Day 60: Sprint 2 review
 
 ### Sprint 3: Back-End & APIs (Days 61-90)
 Node/TypeScript Servers
