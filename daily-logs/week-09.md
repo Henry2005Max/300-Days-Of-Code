@@ -107,3 +107,34 @@ A shareable portfolio dashboard for all 30 Sprint 2 projects. Bold editorial her
 ### Tomorrow
 
 Day 61 — Sprint 3 begins. Node.js + TypeScript Hello World server with Express. First time writing back-end code in the challenge.
+
+
+## Day 61 - April 08
+
+**Project:** Node/TypeScript Hello World Server
+**Time Spent:** 2 hours
+
+### What I Built
+
+The first back-end project of Sprint 3. An Express + TypeScript HTTP server with five routes across two files — a root overview, a health check, GET /hello, GET /hello/:name with route parameters, and POST /hello/echo that reads a JSON request body. Custom request logger middleware logs every request with colour-coded status codes. dotenv loads PORT and APP_NAME from a .env file. A 404 handler catches unmatched routes and a global error handler catches unexpected crashes.
+
+### What I Learned
+
+- Sprint 3 runs in Node.js, not the browser. There is no index.html, no Vite, no DOM. The server runs in the terminal and responds to HTTP requests.
+- Middleware is a function with (req, res, next) that runs before route handlers. Calling next() passes control forward. Forgetting next() hangs the request forever.
+- express.json() is middleware that parses JSON request bodies into req.body. Without it, req.body is undefined on POST requests.
+- Route parameters (:name in the URL) are accessed via req.params.name. They let you make dynamic routes that respond differently based on the URL.
+- The tsconfig for Node uses "module": "CommonJS" unlike Sprint 2 which used "ESNext" — because Node.js uses CommonJS require() natively, not ES Modules.
+- tsx watch auto-restarts the server on file save, equivalent to Vite's hot reload in Sprint 2.
+- The 404 handler must be the last app.use() call after all routes — Express checks routes in order and only reaches the 404 handler if nothing matched.
+
+### Resources Used
+
+- https://expressjs.com/en/guide/routing.html
+- https://expressjs.com/en/guide/using-middleware.html
+- https://www.npmjs.com/package/tsx
+- https://www.npmjs.com/package/dotenv
+
+### Tomorrow
+
+Day 62 — Express API Endpoints. Building a proper REST API with multiple resources, query parameters, and structured JSON responses.
