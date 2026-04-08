@@ -124,9 +124,9 @@ The first back-end project of Sprint 3. An Express + TypeScript HTTP server with
 - Middleware is a function with (req, res, next) that runs before route handlers. Calling next() passes control forward. Forgetting next() hangs the request forever.
 - express.json() is middleware that parses JSON request bodies into req.body. Without it, req.body is undefined on POST requests.
 - Route parameters (:name in the URL) are accessed via req.params.name. They let you make dynamic routes that respond differently based on the URL.
-- The tsconfig for Node uses "module": "CommonJS" unlike Sprint 2 which used "ESNext" — because Node.js uses CommonJS require() natively, not ES Modules.
+- The tsconfig for Node uses "module": "CommonJS" unlike Sprint 2 which used "ESNext",  because Node.js uses CommonJS require() natively, not ES Modules.
 - tsx watch auto-restarts the server on file save, equivalent to Vite's hot reload in Sprint 2.
-- The 404 handler must be the last app.use() call after all routes — Express checks routes in order and only reaches the 404 handler if nothing matched.
+- The 404 handler must be the last app.use() call after all routes,  Express checks routes in order and only reaches the 404 handler if nothing matched.
 
 ### Resources Used
 
