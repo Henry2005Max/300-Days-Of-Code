@@ -138,3 +138,32 @@ The first back-end project of Sprint 3. An Express + TypeScript HTTP server with
 ### Tomorrow
 
 Day 62 — Express API Endpoints. Building a proper REST API with multiple resources, query parameters, and structured JSON responses.
+
+## Day 62 - April 09
+
+**Project:** Express API Endpoints — Nigerian Cities REST API
+**Time Spent:** 3 hours
+
+### What I Built
+
+A full CRUD REST API for Nigerian cities with Express and TypeScript. Six endpoints covering GET all (with query param filtering by region, capital status, and search), GET one by ID, GET regions summary, POST create with validation and duplicate checking, PUT update, and DELETE. Every response uses a consistent ApiResponse<T> shape with success, data, error, and meta fields. Proper HTTP status codes throughout — 200, 201, 400, 404, 409. In-memory data store with 15 Nigerian cities across all geopolitical zones.
+
+### What I Learned
+
+- Query parameters (req.query) always arrive as strings regardless of what the client sends — ?capital=true comes in as the string "true", not the boolean true, so comparisons must be string-based
+- Specific routes like /cities/regions must be registered before parameter routes like /cities/:id — Express matches routes in order and would incorrectly treat "regions" as an ID value if the order were reversed
+- HTTP 201 Created is the correct status for successful POST responses that create a new resource — 200 is for returning existing data
+- The Location response header is a standard HTTP convention telling the client the URL of the newly created resource
+- A generic TypeScript interface ApiResponse<T> provides type safety while remaining reusable — ApiResponse<City>, ApiResponse<City[]>, and ApiResponse<{ name: string }[]> all use the same interface
+- Number(req.params.id) converts a string to number, and isNaN() catches values like "abc" that cannot be converted — both checks are always needed when using URL params as numeric IDs
+
+### Resources Used
+
+- https://expressjs.com/en/guide/routing.html
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+- https://www.typescriptlang.org/docs/handbook/2/generics.html
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location
+
+### Tomorrow
+
+Day 63 — REST API with Zod validation. Replacing manual if-checks with a proper schema validation library.
