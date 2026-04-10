@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 63/300 🔥  
+**Current Progress:** Day 64/300 🔥  
 **Current Sprint:** Sprint 2 - Web Basics 
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 62/300
-- **Projects Built:** 62
-- **Current Streak:** 62 days 🔥
+- **Days Completed:** 63/300
+- **Projects Built:** 63
+- **Current Streak:** 63 days 🔥
 
 ---
 
@@ -138,6 +138,7 @@ Node/TypeScript Servers
 
 - ✅ Day 61: Node Server
 - ✅ Day 62: Express Api
+- ✅ Day 63: Zod Validation
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
