@@ -167,3 +167,32 @@ A full CRUD REST API for Nigerian cities with Express and TypeScript. Six endpoi
 ### Tomorrow
 
 Day 63 — REST API with Zod validation. Replacing manual if-checks with a proper schema validation library.
+
+## Day 63 - April 10
+
+**Project:** REST API with Zod Validation — Student Records API
+**Time Spent:** 3 hours
+
+### What I Built
+
+A Student Records REST API introducing Zod schema validation. Three schemas cover creation (strict types, min/max, enum constraints), update (.partial() makes all fields optional), and query params (string-to-boolean transform for gdgMember). A validate() middleware factory applies any schema before a route handler runs — handlers are only reached if data is valid. A validateQuery() version handles req.query. Ten Nigerian GDG-themed students pre-loaded. Stats endpoint returns aggregate data across all records.
+
+### What I Learned
+
+- Zod’s safeParse() never throws — it returns { success: true, data } or { success: false, error } which is safe to use inside middleware without try/catch
+- A middleware factory is a function that returns a middleware — validate(schema) returns (req, res, next) => void. This pattern lets one piece of middleware logic work with any schema
+- z.infer<typeof Schema> extracts the TypeScript type from a Zod schema automatically — this eliminates the duplication of writing both a Zod schema and a separate TypeScript interface for the same shape
+- .partial() transforms a schema so every field becomes optional — the clean standard approach for update endpoints where clients send only the fields they want to change
+- .transform() lets Zod convert a value after it validates — used here to convert the query string “true” and “false” to real booleans so route handlers never deal with string comparisons
+- Replacing req.body with result.data in the middleware means all transformations (.trim(), .toLowerCase(), .default()) are already applied before the handler runs
+
+### Resources Used
+
+- https://zod.dev/
+- https://zod.dev/?id=safeparse
+- https://zod.dev/?id=infer
+- https://zod.dev/?id=partial
+
+### Tomorrow
+
+Day 64 — SQLite with better-sqlite3. First real database in the challenge. Data will persist between server restarts.
