@@ -139,6 +139,7 @@ Node/TypeScript Servers
 - ✅ Day 61: Node Server
 - ✅ Day 62: Express Api
 - ✅ Day 63: Zod Validation
+- ✅ Day 64: SQLite
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
