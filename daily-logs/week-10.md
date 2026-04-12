@@ -28,3 +28,32 @@ Rebuilt the Day 63 Student Records API with a real SQLite database replacing the
 ### Tomorrow
 
 Day 65 — JWT Authentication. Adding login, register, and protected routes using JSON Web Tokens.
+
+## Day 65 - April 12
+
+**Project:** JWT Authentication
+**Time Spent:** 3.5 hours
+
+### What I Built
+
+Added full authentication to the Express + SQLite API. Users register and login via POST routes that return a JWT. Protected routes verify the token using an authenticate middleware that reads the Authorization: Bearer header, calls jwt.verify(), and attaches the decoded payload to req.user. Passwords are hashed with bcrypt at 10 salt rounds before storage — never stored in plain text. A requireRole() middleware factory adds role-based access control. All student routes are protected by applying router.use(authenticate) once at the top of the students router.
+
+### What I Learned
+
+- bcrypt.hash() is a one-way function — you can never reverse it to get the original password. When a user logs in you re-hash their input with the same salt and compare the results
+- jwt.sign() base64-encodes the payload — it is NOT encrypted. Anyone can decode the payload without the secret. The secret only proves the token was created by your server. Never put passwords or sensitive data in the JWT payload.
+- jwt.verify() throws two specific error types: TokenExpiredError when the token has passed its expiry time, and JsonWebTokenError when the signature is wrong or the token is malformed. Catching them separately gives better error messages to clients.
+- Extending Express's Request interface with `declare global { namespace Express { interface Request { user?: JwtPayload } } }` tells TypeScript about req.user so there's no need to cast it in every handler
+- Returning the same 401 error for wrong email and wrong password prevents attackers from discovering which email addresses have registered accounts — this is called preventing email enumeration
+- router.use(authenticate) applies the middleware to every subsequent route on that router — cleaner and safer than adding the middleware to each route one by one
+
+### Resources Used
+
+- https://jwt.io/introduction
+- https://www.npmjs.com/package/jsonwebtoken
+- https://www.npmjs.com/package/bcryptjs
+- https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+
+### Tomorrow
+
+Day 66 — Webhook Handler. Building an endpoint that receives and processes incoming webhook events.
