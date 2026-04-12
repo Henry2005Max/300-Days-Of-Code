@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 65/300 🔥  
+**Current Progress:** Day 66/300 🔥  
 **Current Sprint:** Sprint 2 - Web Basics 
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 64/300
-- **Projects Built:** 64
-- **Current Streak:** 64 days 🔥
+- **Days Completed:** 65/300
+- **Projects Built:** 65
+- **Current Streak:** 65 days 🔥
 
 ---
 
@@ -59,9 +59,7 @@ Building 300 projects in 300 days to become a full-stack developer!
 ## 📅 Challenge Timeline
 **Start Date:** Friday 6TH FEBRUARY 2026.
 **End Date:** THURSDAY, DECEMBER 3RD, 2026. 
-**Current Day:** 60/300 
-
----
+--
 
 ## The Plan
 
@@ -140,6 +138,7 @@ Node/TypeScript Servers
 - ✅ Day 62: Express Api
 - ✅ Day 63: Zod Validation
 - ✅ Day 64: SQLite
+- ✅ Day 65: JWT Authentication
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
