@@ -57,3 +57,32 @@ Added full authentication to the Express + SQLite API. Users register and login 
 ### Tomorrow
 
 Day 66 — Webhook Handler. Building an endpoint that receives and processes incoming webhook events.
+
+## Day 66 - April 13
+
+**Project:** Webhook Handler
+**Time Spent:** 3 hours
+
+### What I Built
+
+A webhook receiver that handles incoming POST requests from GitHub and Paystack with HMAC-SHA256 signature verification. The key insight is that webhook routes use express.raw() instead of express.json() to preserve raw body bytes — HMAC verification must run against the exact bytes received from the network, not a re-serialised JSON object. verifyGitHubSignature() and verifyPaystackSignature() each compute the expected HMAC and compare using crypto.timingSafeEqual(). Event routing via switch handles push, pull_request, ping for GitHub and charge.success, charge.failed, transfer.success for Paystack. A /webhooks/test endpoint with no signature check makes Postman testing easy. All received webhooks are logged in memory with source, event type, summary, and full payload.
+
+### What I Learned
+
+- Webhooks are push-based HTTP — instead of polling an API repeatedly, providers POST to your server the moment an event occurs. This is more efficient and real-time.
+- HMAC verification requires raw body bytes — if you parse JSON first and re-stringify it, whitespace differences break the hash comparison. express.raw() captures the original network bytes.
+- express.raw() must be registered before express.json() for the same path — Express applies middleware in registration order and the first matching middleware wins
+- crypto.timingSafeEqual() takes a constant amount of time regardless of where the mismatch occurs — regular string comparison short-circuits at the first differing character, leaking timing info
+- Webhook handlers must respond 200 as fast as possible — providers like GitHub retry delivery if they don't receive a response within seconds. Heavy processing should be offloaded to a queue or async function after sending the response
+- GitHub signs with prefix "sha256=<hex>" while Paystack sends just "<hex>" — every provider has different header names and signature formats
+
+### Resources Used
+
+- https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries
+- https://paystack.com/docs/payments/webhooks/
+- https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b
+- https://expressjs.com/en/4x/api.html#express.raw
+
+### Tomorrow
+
+Day 67 — Ethical Web Scraper using cheerio.
