@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 67/300 🔥  
-**Current Sprint:** Sprint 2 - Web Basics 
+**Current Progress:** Day 68/300 🔥  
+**Current Sprint:** Sprint 3 - Back-End & APIs
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 66/300
-- **Projects Built:** 66
-- **Current Streak:** 66 days 🔥
+- **Days Completed:** 67/300
+- **Projects Built:** 67
+- **Current Streak:** 67 days 🔥
 
 ---
 
