@@ -140,6 +140,7 @@ Node/TypeScript Servers
 - ✅ Day 64: SQLite
 - ✅ Day 65: JWT Authentication
 - ✅ Day 66: Webhook Handler
+- ✅ Day 68: Ethical Scraping
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
