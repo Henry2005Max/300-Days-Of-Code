@@ -86,3 +86,31 @@ A webhook receiver that handles incoming POST requests from GitHub and Paystack 
 ### Tomorrow
 
 Day 67 — Ethical Web Scraper using cheerio.
+
+## Day 67 - April 14
+
+**Project:** Ethical Web Scraper
+
+### What I Built
+
+A web scraping API with Express, Axios, and Cheerio. Two scrapers: Hacker News front page (extracts rank, title, URL, points, author, comments from tr.athing rows) and quotes.toscrape.com (extracts quote text, author, tags from div.quote elements with pagination). Three ethical practices built in: robots.txt parser that checks Disallow rules before scraping, per-domain rate limiter using a Map to track last request time per hostname, and in-memory TTL cache that returns stored results without hitting the network if still fresh. A utility endpoint checks any URL against its robots.txt.
+
+### What I Learned
+
+- Cheerio loads HTML and gives a jQuery-like $() API — CSS selectors, .text(), .attr(), .each(), .find(), .next() all work the same as in browser jQuery. It only parses static HTML and cannot run JavaScript.
+- The .next() method on a Cheerio element gets the immediately following sibling — used here to get the subtext row (points, author, comments) that follows each Hacker News story row
+- robots.txt must be fetched and parsed manually in Node.js — there is no automatic enforcement. The format uses User-agent and Disallow lines. We look for User-agent: * blocks and check if our path starts with any disallowed path.
+- Per-domain rate limiting is more polite than global limiting — each domain gets its own timer so one slow site doesn’t block requests to a different fast site
+- An in-memory Map with timestamps is sufficient for simple TTL caching — check if the entry exists and if Date.now() is still before expiresAt
+- Cheerio Unicode curly quotes (\u201c and \u201d) appear in quote text and must be stripped manually since the site uses them as decorative opening/closing marks
+
+### Resources Used
+
+- https://cheerio.js.org/docs/intro
+- https://www.robotstxt.org/robotstxt.html
+- https://quotes.toscrape.com
+- https://news.ycombinator.com
+
+### Tomorrow
+
+Day 68 — API Proxy. Building a server that forwards requests to external APIs, adding auth headers and caching on the server side.
