@@ -114,3 +114,32 @@ A web scraping API with Express, Axios, and Cheerio. Two scrapers: Hacker News f
 ### Tomorrow
 
 Day 68 — API Proxy. Building a server that forwards requests to external APIs, adding auth headers and caching on the server side.
+
+## Day 68 - April 15
+
+**Project:** API Proxy
+**Time Spent:** 3 hours
+
+### What I Built
+
+A proxy server wrapping three public APIs — Open-Meteo for weather, REST Countries for country data, and ExchangeRate for currency rates. All three routes check the cache before hitting upstream, set different TTLs appropriate to how often that data changes (10 min for weather, 24 hours for countries, 1 hour for exchange rates), and transform the raw upstream responses into clean minimal shapes. ProxyResponse<T> wraps every response with source, cached flag, cachedAt timestamp, and expiresInSeconds. A WMO code mapping file converts Open-Meteo's integer weather codes into human-readable descriptions. 502 Bad Gateway is returned on upstream failures rather than leaking raw upstream errors.
+
+### What I Learned
+
+- A proxy server is a middleman — the client calls your server, your server calls the external API, and you control everything in between including keys, caching, and response shape
+- 502 Bad Gateway is the correct HTTP status when your server is healthy but an upstream dependency failed — 500 is for when your own code crashes
+- Per-route TTL caching is more granular and efficient than a single global TTL — weather data needs refreshing every 10 minutes while country data can be cached for a full day
+- Response transformation is one of the most valuable things a proxy can do — external APIs often return massive objects with dozens of fields. Stripping to only what the client needs reduces payload size and simplifies frontend code
+- res.redirect() in Express sends a 302 response pointing the client to another URL — useful for default route aliases like /proxy/exchange → /proxy/exchange/USD
+- WMO (World Meteorological Organization) codes are the standard integer-based weather condition system. Without a code→description mapping, weather APIs return numbers with no meaning to end users.
+
+### Resources Used
+
+- https://open-meteo.com/en/docs
+- https://restcountries.com/#endpoints-name
+- https://www.exchangerate-api.com/docs/free
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+
+### Tomorrow
+
+Day 69 — Rate Limiter Middleware. Building a configurable rate limiter from scratch using the sliding window algorithm.
