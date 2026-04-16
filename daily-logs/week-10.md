@@ -143,3 +143,32 @@ A proxy server wrapping three public APIs — Open-Meteo for weather, REST Count
 ### Tomorrow
 
 Day 69 — Rate Limiter Middleware. Building a configurable rate limiter from scratch using the sliding window algorithm.
+
+## Day 69 - April 16
+
+**Project:** Rate Limiter Middleware
+**Time Spent:** 3 hours
+
+### What I Built
+
+A sliding window rate limiter middleware built from scratch with no external library. createRateLimiter() is a factory that takes windowMs and max options and returns an Express middleware. It stores an array of request timestamps per client IP in a Map. On every request: timestamps older than the window are filtered out, the remaining count is checked against the limit, and either the request is allowed (timestamp added) or blocked with a 429. Standard rate limit headers are set on every response. A setInterval cleanup prevents memory leaks by removing expired client records. Three limiters with different configs protect general API (20/min), search (10/min), and auth login (5/15min) routes. A tight test limiter (5/10s) makes it easy to trigger in the browser.
+
+### What I Learned
+
+- The sliding window algorithm filters timestamps older than (now - windowMs) on every request — this means the window literally slides forward with time rather than resetting at a fixed clock boundary. A burst at the very end of a fixed window then the start of the next is impossible with sliding window.
+- setInterval().unref() prevents the Node.js event loop from staying alive just because the cleanup interval is running — without it, the process won’t exit cleanly on Ctrl+C
+- A middleware factory is the right pattern for rate limiters — you want to call createRateLimiter({ windowMs: 900000, max: 5 }) once, get back a middleware function, and attach it to specific routes. This lets different routes have completely different limits.
+- X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset are HTTP standard headers. Clients use them to implement automatic exponential backoff — they wait until X-RateLimit-Reset before retrying.
+- Retry-After should always accompany a 429 response — it tells the client the exact number of seconds to wait. Without it, clients have to guess or just retry immediately (making the problem worse).
+- Auth endpoints need much stricter limits than data endpoints — 5 login attempts per 15 minutes is a reasonable threshold to stop brute-force attacks without blocking real users who forget their passwords.
+
+### Resources Used
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-RateLimit-Limit
+- https://nodejs.org/api/timers.html#timeoutunref
+
+### Tomorrow
+
+Day 70 — Review day. Adding comprehensive error handling to the Day 61 Hello World server, covering all the error patterns learned in Sprint 3 so far.
