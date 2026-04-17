@@ -172,3 +172,32 @@ A sliding window rate limiter middleware built from scratch with no external lib
 ### Tomorrow
 
 Day 70 — Review day. Adding comprehensive error handling to the Day 61 Hello World server, covering all the error patterns learned in Sprint 3 so far.
+
+## Day 70 - April 17
+
+**Project:** Review — Comprehensive Error Handling
+**Time Spent:** 3 hours
+
+### What I Built
+
+A fully hardened Express server combining all Sprint 3 patterns with production-grade error handling. AppError is a base class with statusCode, code, isOperational, and details fields. Eight subclasses cover every HTTP error scenario: BadRequestError (400), UnauthorizedError (401), ForbiddenError (403), NotFoundError (404), ConflictError (409), ValidationError (422), RateLimitError (429), UpstreamError (502). asyncHandler wraps async route handlers so throws are automatically forwarded to the centralized error handler via next(). The error handler distinguishes AppErrors, ZodErrors, JSON parse errors, and unknown crashes. Process-level handlers catch unhandledRejection and uncaughtException. SIGTERM triggers graceful shutdown. Demo routes trigger every error type for testing.
+
+### What I Learned
+
+- Express does not catch errors thrown inside async route handlers — they silently disappear. asyncHandler wraps the function in Promise.resolve(fn(req, res, next)).catch(next) which forwards any rejection to Express’s error handler pipeline.
+- Extending the built-in Error class in TypeScript requires Object.setPrototypeOf(this, new.target.prototype) to correctly restore the prototype chain. Without this, instanceof AppError returns false even for instances of NotFoundError.
+- The isOperational flag cleanly separates expected errors (user sent bad data, record not found) from unexpected programmer errors (null pointer, missing env var). Operational errors log just the message; programmer errors log the full stack trace for debugging.
+- process.on(“unhandledRejection”) catches Promises that were rejected without a .catch() handler. process.on(“uncaughtException”) catches synchronous throws outside any try/catch block. Both should trigger a graceful shutdown — a server in an unknown error state is dangerous.
+- Graceful shutdown with server.close() inside a SIGTERM handler allows in-flight HTTP requests to complete before the process exits. Without this, a rolling deployment would drop active connections mid-response.
+- Centralizing error formatting in one middleware (errorHandler) keeps every route handler clean — handlers just throw typed errors and never worry about status codes or response shapes.
+
+### Resources Used
+
+- https://expressjs.com/en/guide/error-handling.html
+- https://nodejs.org/api/process.html#event-unhandledrejection
+- https://nodejs.org/api/process.html#event-uncaughtexception
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target
+
+### Tomorrow
+
+Day 71 — WebSocket Chat API. Real-time bidirectional communication using the ws library.
