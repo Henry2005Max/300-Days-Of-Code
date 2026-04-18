@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 71/300 🔥  
+**Current Progress:** Day 72/300 🔥  
 **Current Sprint:** Sprint 3 - Back-End & APIs
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 70/300
-- **Projects Built:** 70
-- **Current Streak:** 70 days 🔥
+- **Days Completed:** 71/300
+- **Projects Built:** 71
+- **Current Streak:** 71 days 🔥
 
 ---
 
@@ -144,6 +144,7 @@ Node/TypeScript Servers
 - ✅ Day 68: API Proxy
 - ✅ Day 69: Rate Limiter
 - ✅ Day 70: Error Handling
+- ✅ Day 71: Websocket chat
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
