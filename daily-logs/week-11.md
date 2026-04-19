@@ -26,3 +26,31 @@ A real-time chat server using Node.js, Express, and the ws library. The HTTP ser
 ### Tomorrow
 
 Day 72 — Weather Backend. A proper weather API server that fetches from Open-Meteo, stores results in SQLite, and serves historical queries.
+
+## Day 72 - April 19
+
+**Project:** Weather Backend
+**Time Spent:** 3 hours
+
+### What I Built
+
+A weather API backend combining SQLite persistence with Open-Meteo API fetching. Two tables: locations (10 Nigerian cities with coordinates, fetch_count, last_fetched_at) and weather_readings (every fetched snapshot with temperature, humidity, wind, weather code, and a forecast_json column storing the 7-day forecast as a JSON string). getCurrentWeather() checks if the latest reading for a location is younger than CACHE_FRESH_MS — if yes, return it from DB; if no, call Open-Meteo, store the result, update fetch stats, and return the new reading. History endpoint returns all stored readings for a city with an average temperature summary. Stats endpoint shows total readings and top queried cities.
+
+### What I Learned
+
+- Storing JSON in a SQLite TEXT column is a clean pattern for nested data you don’t need to filter by — the 7-day forecast array is always fetched as a whole, so a separate forecast_days table with foreign keys would add complexity with no query benefit
+- A database index on (location_id, fetched_at DESC) is essential for history queries — without it SQLite scans every row in weather_readings to find matching location_id rows and sort them. With the index it goes directly to the matching rows.
+- The freshness cache pattern — get latest row timestamp, compare to Date.now(), fetch if stale — is the same whether you cache in memory (Day 67), in Redis, or in SQLite. The principle is identical.
+- `fetch_count = fetch_count + 1` in a SQL UPDATE is atomic. It reads and increments in a single operation in the database engine, avoiding the read-modify-write race condition that would happen if you read the count in Node.js, added 1, and wrote it back.
+- Separating service logic from route handlers is especially important when the same logic (getCurrentWeather) needs to be called from multiple routes or reused in tests — routes stay thin and focused on HTTP
+
+### Resources Used
+
+- https://open-meteo.com/en/docs
+- https://www.sqlite.org/queryplanner.html
+- https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime
+
+### Tomorrow
+
+Day 73 — Currency Service. Exchange rates stored in SQLite with scheduled refresh.
