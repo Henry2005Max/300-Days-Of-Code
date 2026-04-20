@@ -54,3 +54,33 @@ A weather API backend combining SQLite persistence with Open-Meteo API fetching.
 ### Tomorrow
 
 Day 73 — Currency Service. Exchange rates stored in SQLite with scheduled refresh.
+
+
+## Day 73 - April 20
+
+**Project:** Currency Service
+**Time Spent:** 3 hours
+
+### What I Built
+
+A currency exchange rate service with SQLite persistence and a node-cron background scheduler. On startup, the server checks if the DB has any data — if not, it immediately fetches rates from open.er-api.com and stores them. A background job then refreshes rates on a cron schedule (every hour by default, configurable in .env). All read endpoints (rates, NGN summary, conversion, history) always query SQLite — the external API is never in the read request path. A refresh_log table records every scheduler run with success flag, duration, and error message. The conversion endpoint uses cross-rate calculation: amount × (toRate / fromRate) with USD as the bridge currency.
+
+### What I Learned
+
+- node-cron uses standard 5-field cron syntax. cron.validate() returns false for invalid expressions — always validate before scheduling to avoid a silent no-op.
+- Background jobs must not crash the server on failure — a network timeout fetching rates at 3am should log the error and keep the old snapshot available. Wrapping the job body in try/catch and logging to refresh_log achieves this.
+- Cross-rate conversion via a common base (USD) is the standard technique: to convert NGN to GBP, calculate (USD→GBP rate) / (USD→NGN rate) × amount. All rates in the snapshot share the same base so this always works.
+- An initial fetch on startup is necessary for a good first-run experience — without it the server starts but every read endpoint returns 503 until the first cron fire.
+- Storing the full rates JSON in one column (rates_json) is appropriate here because we always read and write the entire rate set together. Individual rate lookups happen in JavaScript after parsing, not in SQL.
+- stopScheduler() in a SIGTERM handler prevents the cron job from firing mid-shutdown — important if a job is writing to the database when the process exits.
+
+### Resources Used
+
+- https://www.npmjs.com/package/node-cron
+- https://crontab.guru (cron expression helper)
+- https://www.exchangerate-api.com/docs/free
+- https://en.wikipedia.org/wiki/Exchange_rate#Cross_rate
+
+### Tomorrow
+
+Day 74 — Quote API. A REST API serving categorised quotes stored in SQLite, with search, favourites, and random quote endpoint.
