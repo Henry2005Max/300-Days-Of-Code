@@ -84,3 +84,33 @@ A currency exchange rate service with SQLite persistence and a node-cron backgro
 ### Tomorrow
 
 Day 74 — Quote API. A REST API serving categorised quotes stored in SQLite, with search, favourites, and random quote endpoint.
+
+
+## Day 74 - April 21
+
+**Project:** Quote API
+**Time Spent:** 3 hours
+
+### What I Built
+
+A self-contained Quote REST API with 60 seeded quotes across 5 categories — Nigerian proverbs, tech, motivation, philosophy, and leadership. The key features are SQLite FTS5 full-text search, cursor pagination on all list endpoints, per-quote view count incremented on every GET, and IP-keyed favourites with toggle behaviour. The FTS5 virtual table uses content=‘quotes’ to avoid data duplication, and three database triggers (AFTER INSERT, AFTER UPDATE, AFTER DELETE) keep the FTS index in sync with the main table automatically. The search endpoint JOINs back to the main quotes table and uses ORDER BY rank for relevance-sorted results.
+
+### What I Learned
+
+- SQLite FTS5 builds an inverted index — a data structure that maps every unique word to the rows containing it. This makes full-text search O(log n) instead of O(n) like LIKE scanning.
+- A content FTS5 table (content=‘quotes’, content_rowid=‘id’) stores only the search index, not copies of the text. The tradeoff is that you must JOIN to the main table to retrieve full row data, and you must maintain the index manually via triggers.
+- Database triggers are functions that run automatically inside SQLite when a specific event (INSERT, UPDATE, DELETE) occurs on a table. They are the correct way to keep a derived structure (like an FTS index) in sync with a source table.
+- Pagination always needs two queries: COUNT(*) for total (to calculate pages and hasNext/hasPrev), and SELECT with LIMIT/OFFSET for the actual data slice. OFFSET = (page - 1) × limit.
+- ORDER BY rank in FTS5 queries sorts results by relevance — SQLite FTS5 computes a rank score based on term frequency and inverse document frequency (TF-IDF style).
+- view_count = view_count + 1 in SQL UPDATE is atomic — multiple simultaneous requests won’t produce a race condition where they both read 0 and both write 1.
+
+### Resources Used
+
+- https://www.sqlite.org/fts5.html
+- https://www.sqlite.org/lang_createtrigger.html
+- https://use-the-index-luke.com/sql/partial-results/fetch-next-page
+- https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md
+
+### Tomorrow
+
+Day 75 — User Registration with bcrypt. Full user auth flow: register, login, profile update, password change, account deletion.
