@@ -74,7 +74,7 @@ JavaScript/TypeScript Basics & CLI Apps
 - ✅ Day 7: BMI Calculator
 - ✅ Day 8: Currency Converter (NGN focus)
 - ✅ Day 9: TypeScript Encryption (crypto)
-- ✅ Day 10: Review - Jest Tests for Calculator
+- ✅ Day 10: Review- Jest Tests for Calculator
 - ✅ Day 11: Unit Converter
 - ✅ Day 12: Dice Roller
 - ✅ Day 13: Markdown Parser (marked library)
