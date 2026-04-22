@@ -54,7 +54,7 @@ I'm building **300 projects in 300 days** to master full-stack development!
 
 #  300 Days of Code Challenge
 
-Building 300 projects in 300 days to become a full-stack developer!
+Building 300 projects in 300 days to become a full-stack developer
 
 ## 📅 Challenge Timeline
 **Start Date:** Friday 6TH FEBRUARY 2026.
