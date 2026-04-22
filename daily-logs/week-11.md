@@ -114,3 +114,32 @@ A self-contained Quote REST API with 60 seeded quotes across 5 categories — Ni
 ### Tomorrow
 
 Day 75 — User Registration with bcrypt. Full user auth flow: register, login, profile update, password change, account deletion.
+
+## Day 75 - April 22
+
+**Project:** User Registration with bcrypt
+**Time Spent:** 3 hours
+
+### What I Built
+
+A complete user management system extending Day 65’s basic auth with a full lifecycle: register (with password confirmation and policy), login (with login attempt logging), profile updates (name/bio/avatarUrl via PATCH), password change (requires current password), email change (requires password confirmation), login history (last 10 attempts), and hard account deletion (requires password + “DELETE” string confirmation). Six distinct Zod schemas cover each flow. A database trigger automatically updates the updated_at column on every user UPDATE. The login_log table records every authentication attempt regardless of success with userId, IP, success flag, reason, and timestamp.
+
+### What I Learned
+
+- Zod’s .refine() adds cross-field validation to a schema — used here for password confirmation (data.password === data.confirmPassword) and for ensuring the new password differs from the current one. The path option controls which field the error is attached to in the errors array.
+- Password change must verify the current password first — without this, anyone who captures a JWT token can permanently change the password and lock out the real account owner. The token proves identity but the password proves possession of the credential.
+- The “DELETE” confirmation pattern for account deletion creates two independent hurdles (correct password AND correct string) — both must pass. This prevents both accidental deletion and token-based attacks.
+- A database AFTER UPDATE trigger that sets updated_at = datetime(‘now’) is safer than relying on application code — it fires for every UPDATE regardless of which code path triggered it, so updated_at can never be stale.
+- Recording failed login attempts in login_log is as important as recording successes — failed attempts are the signal for brute-force detection, and the combination of IP + timestamp + user_id gives security teams the data to investigate suspicious activity.
+- Returning the same “Invalid email or password” error for both wrong-email and wrong-password prevents enumeration attacks — if the API distinguished between them, attackers could cheaply validate which emails are registered.
+
+### Resources Used
+
+- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+- https://zod.dev/?id=superrefine
+- https://www.sqlite.org/lang_createtrigger.html
+- https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+
+### Tomorrow
+
+Day 76 — File Upload with multer. Accepting image and document uploads, validating file type and size, storing to disk.
