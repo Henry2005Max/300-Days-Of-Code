@@ -143,3 +143,84 @@ A complete user management system extending Day 65’s basic auth with a full li
 ### Tomorrow
 
 Day 76 — File Upload with multer. Accepting image and document uploads, validating file type and size, storing to disk.
+
+# Daily Log — File Upload System (Multer)
+
+## Date
+April 23, 2026
+
+---
+
+## Goal
+Build a complete file upload system with Multer, supporting avatars and documents with database tracking.
+
+---
+
+## Tasks Completed
+
+- Set up Express router for uploads
+- Configured Multer middleware for:
+  - Single avatar upload
+  - Multiple document uploads
+- Implemented file validation:
+  - File size limits
+  - File type filtering
+- Built upload endpoints:
+  - POST /uploads/avatar
+  - POST /uploads/documents
+- Integrated SQLite database for storing file metadata
+- Created helper functions:
+  - baseUrl()
+  - recordUpload()
+- Implemented:
+  - GET /uploads (with filtering + limit)
+  - GET /uploads/:id
+  - GET /uploads/stats
+- Built DELETE /uploads/:id with:
+  - DB-first deletion strategy
+  - File system cleanup
+- Added structured API responses
+- Logged upload activity to console
+
+---
+
+## Challenges Faced
+
+- Handling Multer errors correctly (LIMIT_FILE_SIZE, LIMIT_FILE_COUNT, etc.)
+- Ensuring correct field names for file uploads
+- Managing file paths across different categories
+- Preventing orphaned files or database records
+
+---
+
+## Solutions
+
+- Implemented custom error handling inside Multer callbacks
+- Standardized field names ("avatar", "documents")
+- Used environment variables for directory paths
+- Applied DB-first deletion strategy to maintain consistency
+
+---
+
+## What I Learned
+
+- How Multer processes multipart/form-data
+- Proper error handling patterns in file uploads
+- Structuring scalable upload systems
+- Managing file storage alongside database records
+
+---
+
+## Next Steps
+
+- Add cloud storage integration (e.g., S3)
+- Implement authentication for uploads
+- Add rate limiting
+- Optimize images before storage
+- Improve validation rules
+
+---
+
+## Notes
+
+System is functional, scalable, and ready for extension into production-level features.
