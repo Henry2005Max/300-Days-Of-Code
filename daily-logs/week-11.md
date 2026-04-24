@@ -224,3 +224,36 @@ Build a complete file upload system with Multer, supporting avatars and document
 ## Notes
 
 System is functional, scalable, and ready for extension into production-level features.
+
+## Day 77 - April 24
+
+**Project:** Notification Service with Nodemailer
+**Time Spent:** 3.5 hours
+
+### What I Built
+
+Today I built a full notification service that sends transactional emails via Nodemailer and persists every delivery attempt in SQLite. The server exposes five endpoints — create/send, list with filters, stats, single lookup, and retry — all backed by the same Express + Zod + asyncHandler patterns I have been using throughout Sprint 3.
+
+The most interesting part was the Ethereal integration. On first run the server calls `nodemailer.createTestAccount()` to provision a sandbox SMTP inbox, then prints the credentials to the console. After every send, `nodemailer.getTestMessageUrl()` returns a preview URL I can open in the browser to inspect the full rendered email — headers, HTML view, and raw source — without a single real email being delivered. This made iterating on the HTML templates very fast.
+
+I structured the email logic across three files: `mailer.ts` owns the Nodemailer transporter and the low-level `sendMail()` call; `templates.ts` contains the five HTML template builder functions; and `notification.service.ts` orchestrates them — inserting a pending row in SQLite first, calling `sendMail()`, then updating the row with the outcome. Separating rendering from transport from orchestration means I can swap out Nodemailer for SendGrid or Resend later without touching the templates.
+
+### What I Learned
+
+- Nodemailer’s `createTransport()` takes an SMTP options object and returns a reusable transporter instance — exactly like how `new Database()` returns a reusable SQLite handle
+- The “insert pending first, update after send” pattern is the correct way to handle async delivery failures; if the SMTP call throws, the row still exists in the database with `status = 'failed'` and can be retried
+- HTML emails must use inline styles because most email clients (Gmail, Outlook, Apple Mail) strip `<style>` blocks from the `<head>` — every layout property goes directly on the element
+- `asyncHandler` from Day 69 continues to be essential — a rejected promise inside a route handler silently hangs the request in Express 4 without it
+- Building a dynamic WHERE clause with named parameters in better-sqlite3 is clean and injection-safe; the key is building the conditions array separately and only joining it if non-empty
+
+### Resources Used
+
+- https://nodemailer.com/about/
+- https://ethereal.email/
+- https://nodemailer.com/smtp/testing/
+- https://www.caniemail.com/ (CSS support in email clients)
+- https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md
+
+### Tomorrow
+
+Day 78 — RSS Parser: build an Express API that fetches and parses RSS feeds using the `rss-parser` npm package, caches results in SQLite with a TTL, and exposes endpoints to subscribe to feeds, list items, and mark items as read.
