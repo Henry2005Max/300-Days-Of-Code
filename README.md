@@ -150,6 +150,7 @@ Node/TypeScript Servers
 - ✅ Day 74: Quote APi
 - ✅ Day 75: User Registration
 - ✅ Day 76: File Upload with Mutler
+- ✅ Day 78: Notification Service
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
