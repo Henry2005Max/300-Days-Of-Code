@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 79/300 🔥  
+**Current Progress:** Day 80/300 🔥  
 **Current Sprint:** Sprint 3 - Back-End & APIs
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 78/300
-- **Projects Built:** 78
-- **Current Streak:** 78 days 🔥
+- **Days Completed:** 79/300
+- **Projects Built:** 79
+- **Current Streak:** 79 days 🔥
 
 ---
 
@@ -152,6 +152,7 @@ Node/TypeScript Servers
 - ✅ Day 76: File Upload with Mutler
 - ✅ Day 77: Notification Service
 - ✅ Day 78: RSS Parser
+- ✅ Day 79: Map API
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
