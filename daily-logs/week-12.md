@@ -30,3 +30,38 @@ I also made the cache key normalisation explicit: `rawAddress.toLowerCase().trim
 ### Tomorrow
 
 Day 80 — Lagos Traffic Mock API: build an Express API that simulates real-time Lagos traffic data — routes between major Lagos landmarks, traffic conditions (light/moderate/heavy), estimated travel times, and incident reports — all generated from realistic mock data stored in SQLite.
+
+## Day 80 - April 27
+
+**Project:** Lagos Traffic Mock API
+**Time Spent:** 3.5 hours
+
+### What I Built
+
+Today I built a Lagos traffic simulation API that continuously updates its own state using a node-cron scheduler. The simulation engine reads the current hour, looks up a pre-built hourly congestion table (the Lagos 07:00–09:00 and 16:00–20:00 rush hours are modelled explicitly), applies a route-specific multiplier for structurally congested roads like Apapa–Oshodi Expressway (1.5×) and Third Mainland Bridge (1.4×), adds variance from a seeded pseudo-random function, then factors in the severity of any active incidents on that route. The result is written to `traffic_states` as the current condition and also appended to `traffic_history` as a time-series snapshot. The entire tick runs in a single SQLite transaction, so all 12 routes update atomically.
+
+The incident system feeds directly into the simulation. When a high-severity incident is reported on Route 7, the next cron tick adds 30 percentage points of congestion to that route's calculation. Incidents auto-resolve after 3 hours via a cleanup query at the end of each tick — no separate scheduler needed. This design means the system degrades gracefully: if you never report incidents, it still behaves realistically based on time-of-day alone.
+
+I also built an overview endpoint that aggregates the current state into a single response: worst three routes, best three routes, average city-wide congestion, and active incident count. This is the kind of endpoint a dashboard would poll every minute.
+
+### What I Learned
+
+- A pre-built hourly lookup array is the right tool for time-of-day modelling — real traffic patterns are irregular and domain-specific, not smooth mathematical functions
+- Separating global state (time-of-day congestion) from local state (route multiplier) from event state (incident impact) into additive layers makes the simulation easy to tune — you change one number, not a formula
+- Running one simulation tick immediately before `app.listen()` eliminates the cold-start problem where the first few requests get seed data instead of simulated data
+- An append-only time-series table with no UPDATE statements is the correct pattern for history — it preserves the full audit trail and never needs conflict resolution
+- `node-cron` uses standard Unix cron syntax (`*/2 * * * *` = every 2 minutes) and runs callbacks in the same Node.js process, making it lightweight for this use case versus a separate worker
+- Auto-resolving stale incidents inside the simulation tick (rather than a dedicated cleanup cron) keeps all database writes to traffic data in one place, which makes the code easier to reason about
+
+### Resources Used
+
+- https://www.npmjs.com/package/node-cron
+- https://en.wikipedia.org/wiki/Lagos_traffic
+- https://www.vanguardngr.com/category/metro-crime/ (Lagos road names reference)
+- https://www.openstreetmap.org/#map=11/6.5244/3.3792 (Lagos coordinates)
+- https://www.better-sqlite3.com/api.html#transactionfunction---function
+
+### Tomorrow
+
+Day 81 — Chat API with WebSockets: build a multi-room chat API using the `ws` library with persistent message history in SQLite, user presence tracking, typing indicators, and private direct messages — a more advanced version of Day 71's WebSocket chat.
+
