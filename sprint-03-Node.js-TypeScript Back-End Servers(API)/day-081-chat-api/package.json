@@ -1,0 +1,26 @@
+{
+  "name": "day-081-chat-api",
+  "version": "1.0.0",
+  "description": "Day 81: Advanced Chat API — WebSockets, persistent history, presence, typing indicators, DMs",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "ws": "^8.17.0",
+    "better-sqlite3": "^9.4.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.12",
+    "@types/ws": "^8.5.10",
+    "@types/better-sqlite3": "^7.6.10",
+    "tsx": "^4.10.5",
+    "typescript": "^5.4.5"
+  }
+}
