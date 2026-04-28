@@ -65,3 +65,37 @@ I also built an overview endpoint that aggregates the current state into a singl
 
 Day 81 — Chat API with WebSockets: build a multi-room chat API using the `ws` library with persistent message history in SQLite, user presence tracking, typing indicators, and private direct messages — a more advanced version of Day 71's WebSocket chat.
 
+
+## Day 81 - April 28
+
+**Project:** Advanced Chat API with WebSockets
+**Time Spent:** 4 hours
+
+### What I Built
+
+Today I rebuilt the WebSocket chat from Day 71 into a production-grade API with persistent history, presence, typing indicators, and direct messages. The biggest architectural change was splitting the WebSocket layer into three focused files: `registry.ts` owns the in-memory Map of connected clients and all broadcast logic; `handlers.ts` contains one pure function per message type; and `server.ts` only deals with the WS server setup and heartbeat. This separation means I can reason about each concern independently — registry is about who is connected, handlers are about what messages mean, server is about the transport layer.
+
+The key performance optimisation was `statements.ts`. Every prepared statement is compiled once when the module loads. In Day 71’s version, `db.prepare()` was called inside the message handler, meaning SQLite re-parsed the SQL on every incoming message. At high throughput that adds up. The same principle applies to broadcast: I serialise the JSON payload to a Buffer once before the loop and send the same buffer to every recipient, rather than calling `JSON.stringify` once per client. Both are micro-optimisations that matter at scale but cost nothing at development scale.
+
+The typing indicator required careful timer management. `handleTypingStart` always clears any existing timer before setting a new one — this means rapid `typing_start` events refresh the window rather than stack multiple timers. Without this, a client that sends `typing_start` ten times would fire ten separate “stop typing” broadcasts over the next 8 seconds. The auto-expiry also means a client that disconnects mid-typing never leaves a stuck indicator in the room.
+
+### What I Learned
+
+- Pre-compiling prepared statements at module load time rather than inside handlers is the correct pattern for any hot-path database work — the cost difference is negligible at low volume but significant at high volume
+- `Buffer.from(JSON.stringify(msg))` before a broadcast loop avoids N serialisation calls — the same principle as memoisation, applied to I/O serialisation
+- `wss.handleUpgrade` with `noServer: true` is the correct way to share a single port between Express and WebSocket — Express handles all non-upgrade requests, the upgrade handler intercepts the protocol switch
+- Timer management for typing indicators requires `clearTimeout` before `setTimeout` on every call to the start handler — without this, rapid `typing_start` events accumulate timers
+- A nullable `read_at` column is sufficient for DM read receipts in a 1-to-1 system; a junction table is only needed when one message has multiple readers (group messages)
+- `handleDisconnect` should be idempotent and safe to call multiple times — both the `close` and `error` events can fire on the same socket, so deregistering from the Map first and checking for undefined prevents double-broadcast of the offline presence event
+
+### Resources Used
+
+- https://github.com/websockets/ws#readme
+- https://github.com/websockets/ws/blob/master/doc/ws.md
+- https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers
+- https://www.better-sqlite3.com/api.html#preparestring—statement
+- https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener
+
+### Tomorrow
+
+Day 82 — Weather Backend Service: an Express API that fetches current weather and forecasts for Nigerian cities from the OpenWeatherMap API, caches results in SQLite with a 10-minute TTL, and exposes weather alerts, temperature history, and a multi-city comparison endpoint.
