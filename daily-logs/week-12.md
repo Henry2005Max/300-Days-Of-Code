@@ -99,3 +99,37 @@ The typing indicator required careful timer management. `handleTypingStart` alwa
 ### Tomorrow
 
 Day 82 — Weather Backend Service: an Express API that fetches current weather and forecasts for Nigerian cities from the OpenWeatherMap API, caches results in SQLite with a 10-minute TTL, and exposes weather alerts, temperature history, and a multi-city comparison endpoint.
+
+
+## Day 82 - April 29
+
+**Project:** Weather Backend Service with OpenWeatherMap
+**Time Spent:** 3.5 hours
+
+### What I Built
+
+Today I built a weather backend that wraps the OpenWeatherMap API with a 10-minute SQLite cache, a threshold-based alert engine, and a multi-city comparison endpoint. The cache uses SQLite’s `ON CONFLICT(city) DO UPDATE SET` upsert syntax — one row per city, refreshed in place. Every time a fresh reading arrives, it runs through five alert rules: HIGH_TEMP, EXTREME_HEAT, HIGH_HUMIDITY, STRONG_WIND, and LOW_VISIBILITY. Each rule declares its own threshold, severity, and message-builder function in a rules array, so adding a new alert type is one object, not a new if-else branch.
+
+The multi-city comparison endpoint uses `Promise.allSettled` to fetch all requested cities concurrently. Unlike `Promise.all`, `allSettled` does not reject if one city fails — if Lagos returns data and “NotACity” fails, the comparison still works with the successful results. After fetching, a one-liner reduce per metric (hottest, coolest, most humid, windiest) builds the summary. This pattern will be very reusable for any endpoint that aggregates across multiple external calls.
+
+I also applied the lazy `initStatements()` pattern from the Day 81 fix proactively — `statements.ts` compiles no prepared statements at module load time. `initStatements()` is called in `bootstrap()` on the line immediately after `runMigrations()`. This ordering guarantee means the Day 81 “no such table” crash cannot happen here.
+
+### What I Learned
+
+- SQLite `ON CONFLICT(city) DO UPDATE SET` is the cleanest upsert pattern for a one-row-per-key cache — no SELECT-then-INSERT logic, no race condition, the database handles atomicity
+- `Promise.allSettled` returns `{ status: "fulfilled" | "rejected", value | reason }` for each promise — filtering to `status === "fulfilled"` and mapping to `r.value` extracts successful results without a try/catch per item
+- A rules array pattern for threshold evaluation is far easier to maintain than if/else chains — each rule is self-contained and the evaluation loop is generic
+- `new Date(cachedAt + "Z")` is required when the timestamp comes from SQLite’s `datetime('now')` — SQLite stores UTC but without the “Z” suffix, so JavaScript parses it as local time unless you append it manually
+- OpenWeatherMap returns HTTP 200 for most successful requests, but a 404 means the city wasn’t found and 401 means the key is invalid or not yet activated (new keys take up to 2 hours)
+
+### Resources Used
+
+- https://openweathermap.org/current
+- https://openweathermap.org/forecast5
+- https://www.sqlite.org/lang_upsert.html
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled
+- https://axios-http.com/docs/handling_errors
+
+### Tomorrow
+
+Day 83 — Currency Service: revisit Day 73’s currency scheduler with a more complete implementation — live exchange rates from an API, historical rate storage, cross-rate calculation for any pair, and a rate trend/chart endpoint showing how a currency moved over the past 7 days.
