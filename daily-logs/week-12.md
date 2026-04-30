@@ -133,3 +133,37 @@ I also applied the lazy `initStatements()` pattern from the Day 81 fix proactive
 ### Tomorrow
 
 Day 83 — Currency Service: revisit Day 73’s currency scheduler with a more complete implementation — live exchange rates from an API, historical rate storage, cross-rate calculation for any pair, and a rate trend/chart endpoint showing how a currency moved over the past 7 days.
+
+
+## Day 83 - April 30
+
+**Project:** Currency Service with Historical Rates and Trend Analysis
+**Time Spent:** 3.5 hours
+
+### What I Built
+
+Today I extended Day 73's currency scheduler into a full-featured service with four additions: historical snapshots, cross-rate arithmetic, trend analysis, and threshold alerts. The biggest architectural decision was keeping only USD-based rates in `live_rates` (N rows) and deriving any other pair in-app — converting NGN to GBP means dividing the GBP rate by the NGN rate since both are already expressed relative to USD. This is standard forex arithmetic and avoids storing N² pairs while still supporting any combination.
+
+The snapshot system uses an append-only pattern: every cron tick inserts one row per currency into `rate_snapshots`. Old rows are pruned at the end of each refresh using `datetime('now', '-30 days')` as the cutoff. The trend endpoint reads those rows, sorts them by time, and computes start rate, current rate, high, low, average, absolute change, and percentage change entirely in-app — no aggregate SQL needed. This keeps the query simple and the computation transparent.
+
+Rate alerts check on every refresh by scanning `rate_alerts WHERE active = 1`, comparing each alert's threshold against the freshly fetched rate, and writing `triggered_at` if the condition is met. Alerts are never auto-deleted, so the history of when they fired is preserved. The server also gracefully handles a failed initial rate fetch at startup — it logs a warning and continues, so a temporary API outage does not prevent the server from starting.
+
+### What I Learned
+
+- Cross-rate arithmetic: `rate(A→B) = rateBase_B / rateBase_A` — both rates already exist in the database, so the computation is two lookups and one division with no additional API call
+- `Math.max(...array)` spreads the array as arguments and throws "Maximum call stack size exceeded" for arrays with tens of thousands of elements; `reduce` with `Math.max` is the safe alternative
+- Appending snapshots on every refresh rather than updating is the correct time-series pattern — pruning by date keeps storage bounded without needing soft-deletes or versioning
+- Storing `triggered_at` as a nullable TEXT (ISO datetime) rather than a boolean `triggered` gives you history for free: you can see both whether an alert has ever fired and exactly when it last fired
+- Wrapping the startup rate fetch in a try/catch that logs a warning (instead of crashing) is important for production reliability — a transient API failure at boot should not prevent the server from starting
+
+### Resources Used
+
+- https://www.exchangerate-api.com/docs/standard-requests
+- https://open.er-api.com/v6/latest/USD
+- https://www.investopedia.com/terms/c/crossrate.asp
+- https://www.npmjs.com/package/node-cron
+- https://www.sqlite.org/lang_datefunc.html
+
+### Tomorrow
+
+Day 84 — Quote API: full-text search over a Nigerian and African quotes collection, favourites, view counts, random quote of the day, and tag-based filtering — building on Day 74's FTS5 foundation with richer features.
