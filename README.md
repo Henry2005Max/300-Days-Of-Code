@@ -4,15 +4,15 @@
 
 I'm building **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 84/300 🔥  
+**Current Progress:** Day 85/300 🔥  
 **Current Sprint:** Sprint 3 - Back-End & APIs
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 83/300
-- **Projects Built:** 83
-- **Current Streak:** 83 days 🔥
+- **Days Completed:** 84/300
+- **Projects Built:** 84
+- **Current Streak:** 84 days 🔥
 
 ---
 
@@ -156,7 +156,8 @@ Node/TypeScript Servers
 - ✅ Day 80: Lagos Traffic
 - ✅ Day 81: Chat Api
 - ✅ Day 82: Weather Backend
-- ✅ Day 83: Currency Service 
+- ✅ Day 83: Currency Service
+- ✅ Day 84: Quote Api
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
