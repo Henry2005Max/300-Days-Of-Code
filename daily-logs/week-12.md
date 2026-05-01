@@ -167,3 +167,36 @@ Rate alerts check on every refresh by scanning `rate_alerts WHERE active = 1`, c
 ### Tomorrow
 
 Day 84 — Quote API: full-text search over a Nigerian and African quotes collection, favourites, view counts, random quote of the day, and tag-based filtering — building on Day 74's FTS5 foundation with richer features.
+
+## Day 84 - May 01
+
+**Project:** Quote API with FTS5 Search, Tags, Favourites, and View Counts
+**Time Spent:** 3.5 hours
+
+### What I Built
+
+Today I built a quote API with 30 seeded Nigerian and African quotes, full-text search via SQLite's FTS5 engine, a many-to-many tag system, per-user favourites, and a deterministic quote-of-the-day. The FTS5 setup required three manual sync triggers — AFTER INSERT, AFTER DELETE, and AFTER UPDATE on the `quotes` table — because SQLite does not automatically keep a content FTS table in sync. Each trigger writes to the virtual `quotes_fts` table using the special `'delete'` prefix syntax for removals. This is more verbose than FTS4 but gives better search quality and explicit control.
+
+The quote-of-the-day requires no cron job or extra table. I compute the day-of-year as `floor((now - Jan 1) / 86400000)`, take modulo the total quote count, and use that as an OFFSET into the `quotes` table ordered by id. The result is deterministic — every call on the same day returns the same quote — and resets naturally at midnight. If new quotes are added the mapping shifts slightly, which is acceptable behaviour for a daily quote.
+
+The tag system uses a classic junction table: `quote_tags(quote_id, tag_id)`. Rather than joining tags in every query (which gets complex with FTS5 joins), I enrich each result set in a second pass — one `getTagsFor(id)` call per quote. For a result set of 10–20 quotes this N+1 is not measurable, but I documented the GROUP_CONCAT alternative for when it matters.
+
+### What I Learned
+
+- FTS5 content tables need manual AFTER INSERT/DELETE/UPDATE triggers — the `'delete'` prefix in the INSERT statement is FTS5's special syntax for removing a document from the index, not a regular SQL INSERT
+- FTS5 `rank` is negative and closer to zero means better relevance — `ORDER BY rank ASC` is correct, which feels backwards compared to most ranking systems
+- User input to FTS5 MATCH must be sanitised — `"`, `*`, and `:` are FTS5 syntax characters and will cause an error if passed raw. Wrapping in double quotes and stripping specials is the safe default
+- `ConflictError` (HTTP 409) is semantically correct for duplicate favourites — the request itself is valid, but it conflicts with existing state. 400 is for malformed requests
+- Day-of-year modulo total quotes is a zero-dependency, zero-cron way to implement a stable daily selection — the same pattern could be adapted for "featured item of the week" or "monthly spotlight"
+
+### Resources Used
+
+- https://www.sqlite.org/fts5.html
+- https://www.sqlite.org/fts5.html#full_text_query_syntax
+- https://www.sqlite.org/fts5.html#the_content_and_content_rowid_options
+- https://www.npmjs.com/package/better-sqlite3
+- https://brainyquote.com (reference for quote verification)
+
+### Tomorrow
+
+Day 85 — User Registration with bcrypt: full user lifecycle including registration, email verification tokens, login with JWT, password reset flow, login history, and account lockout after repeated failed attempts.
