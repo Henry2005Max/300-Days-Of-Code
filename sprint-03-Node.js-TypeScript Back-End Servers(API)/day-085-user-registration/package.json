@@ -1,0 +1,28 @@
+{
+  "name": "day-085-user-registration",
+  "version": "1.0.0",
+  "description": "Day 85: User Registration — bcrypt, JWT, email verification, password reset, login history, account lockout",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "better-sqlite3": "^9.4.3",
+    "zod": "^3.23.8",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.12",
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "tsx": "^4.10.5",
+    "typescript": "^5.4.5"
+  }
+}
