@@ -200,3 +200,36 @@ The tag system uses a classic junction table: `quote_tags(quote_id, tag_id)`. Ra
 ### Tomorrow
 
 Day 85 — User Registration with bcrypt: full user lifecycle including registration, email verification tokens, login with JWT, password reset flow, login history, and account lockout after repeated failed attempts.
+
+## Day 85 - May 02
+
+**Project:** User Registration with bcrypt, JWT, and Full Auth Lifecycle
+**Time Spent:** 4 hours
+
+### What I Built
+
+Today I built a production-grade authentication API covering the complete user lifecycle. The standout new feature over Day 64–65 is refresh token rotation: when a client calls POST /auth/refresh, the server validates the refresh token by its SHA-256 hash, revokes it immediately, and issues a brand new refresh token alongside a new access token. This means each refresh token is single-use — if an attacker steals one from a network log or memory dump, using it once also uses it for the legitimate client, and the next refresh attempt from either party fails, alerting the user to revoke all sessions.
+
+The account lockout system uses lazy auto-unlock: there is no cron job running in the background. Instead, when a login attempt arrives for a locked account, the first thing the handler does is check whether `locked_until` has passed and unlock the account in-place if so. This means the unlock happens exactly when it is needed, at zero extra infrastructure cost.
+
+The forgot-password flow is designed to prevent user enumeration: whether or not the email exists in the database, the response body always contains a `reset_token` key. For real emails the token is usable; for unknown emails it is a dummy string. An attacker probing the API cannot tell the difference. The `verify_token` and `reset_token` are returned in the API response rather than emailed, with a `_dev_note` field explaining this — in a production system both would go through a mailer (like Day 77's Nodemailer service).
+
+### What I Learned
+
+- Refresh token rotation (single-use + revoke-on-consume) is the industry-standard approach; the alternative (long-lived non-rotating tokens) means a stolen token is valid until it expires, which for a 7-day token is a long window
+- Storing refresh tokens as SHA-256 hashes means the database itself never contains usable tokens — the raw value only exists in transit and on the client
+- User enumeration via forgot-password is a real attack vector; always return the same response shape regardless of whether the email exists
+- `COLLATE NOCASE` on the username and email columns in SQLite handles case-insensitive uniqueness without needing `LOWER()` in every query
+- Lazy auto-unlock (check-and-unlock at login time rather than via a cron) is simpler and equally correct for a lockout system where the unlock only matters at the moment of login
+
+### Resources Used
+
+- https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+- https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html
+- https://www.npmjs.com/package/bcryptjs
+- https://www.npmjs.com/package/jsonwebtoken
+- https://www.sqlite.org/datatype3.html#type_affinity (COLLATE NOCASE)
+
+### Tomorrow
+
+Day 86 — File Upload with Multer: build an Express API that handles single and multiple file uploads, validates file type and size, stores files to disk with hashed filenames, serves them back via a static route, and keeps a SQLite record of every uploaded file with metadata.
