@@ -160,7 +160,7 @@ Node/TypeScript Servers
 - ✅ Day 84: Quote Api
 - ✅ Day 85: User Registration
 - ✅ Day 86: File Upload
-- Day 87: Advanced Notifications Service
+- ✅ Day 87: Advanced Notifications Service
 
 ### Sprint 4: Data & Automation (Days 91-120)
 JS/TS Scripts & Bots
