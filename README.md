@@ -10,7 +10,7 @@ I'm building **300 projects in 300 days** to master full-stack development!
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 86/300
+- **Days Completed:** 87/300
 - **Projects Built:** 86
 - **Current Streak:** 86 days 🔥
 
