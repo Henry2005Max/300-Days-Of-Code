@@ -65,3 +65,37 @@ User preferences are checked at enqueue time, not at delivery. This means the AP
 ### Tomorrow
 
 Day 88 — Advanced RSS Parser: build on Day 78's RSS foundation with feed discovery (find RSS URLs from a website URL), full-text content fetching, keyword filtering, and a digest endpoint that aggregates the latest unread items across all subscribed feeds.
+
+
+## Day 88 - May 5
+
+**Project:** Advanced RSS Parser with Feed Discovery, Keyword Filters, and Digest
+**Time Spent:** 3.5 hours
+
+### What I Built
+
+Today I extended Day 78's RSS reader with three new features: feed discovery, keyword filters, and a multi-feed digest endpoint. Feed discovery is the most interesting technically — given any website URL, the service fetches the HTML, uses Cheerio to find `<link rel="alternate" type="application/rss+xml">` tags in the `<head>`, and resolves any relative URLs against the site's origin. If no `<link>` tags are found, it probes 10 common paths using `axios.head()` (HEAD requests don't download bodies, keeping the fallback fast). The result is an array of discovered feed URLs the caller can choose to subscribe to.
+
+Keyword filters are stored per-feed and checked against new items on every refresh — `itemMatchesKeyword` does a simple case-insensitive `includes()` on the concatenated title and description. When a new filter is added, it retroactively scans all existing items in that feed to find historical matches. All matches go into a `filter_matches` junction table using `INSERT OR IGNORE`, making the matching logic idempotent and safe to re-run.
+
+The digest endpoint does a LEFT JOIN across all feeds simultaneously — one query, not N queries. It also enriches each row with the `matched_keywords` list by making one `matchesForItem` call per row (N+1, acceptable for the default limit of 50). The `?matched_only=true` variant uses a separate query that inner-joins on `filter_matches` so only flagged items come back. The `?refresh_stale=true` (default) option triggers concurrent feed refreshes before the query runs, using `Promise.allSettled` so one failing feed doesn't block the rest.
+
+### What I Learned
+
+- `<link rel="alternate" type="application/rss+xml">` in the HTML `<head>` is the standard way websites advertise their RSS feed — Cheerio's DOM traversal finds it reliably without regex
+- `axios.head()` for path probing is the right approach — HEAD requests get headers without downloading the response body, making them roughly 10× faster than GET for existence checks
+- Retroactive filter matching (scan existing items on filter creation) requires careful idempotent design — `INSERT OR IGNORE` on the `UNIQUE(item_id, filter_id)` constraint makes the scan safe to re-run
+- The `filter_matches` table as an append-only junction effectively creates a "event log" of when each keyword was found — the original match timestamp is preserved even if you later remove and re-add the same filter
+- A LEFT JOIN with `WHERE read_state IS NULL` across all feeds in one query is more efficient than N separate unread queries — the database can use the `idx_read_subscriber` index for the join and the `idx_items_feed_date` index for ordering
+
+### Resources Used
+
+- https://www.npmjs.com/package/cheerio
+- https://www.rssboard.org/rss-specification (RSS spec, `<link rel="alternate">` reference)
+- https://www.npmjs.com/package/rss-parser
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
+- https://www.sqlite.org/lang_insert.html (INSERT OR IGNORE)
+
+### Tomorrow
+
+Day 89 — Map API with Google Maps JS: build an Express backend that serves a single-page HTML app with an embedded Google Maps JavaScript API map showing geocoded Nigerian addresses, route drawing between points, and a marker cluster for Lagos landmarks.
