@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaijaMap — Nigerian Landmarks Explorer</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green:  #008751;
+            --white:  #ffffff;
+            --dark:   #1a1a2e;
+            --panel:  #f8f9fa;
+            --border: #dee2e6;
+            --shadow: 0 2px 8px rgba(0,0,0,0.12);
+            --radius: 8px;
+        }
+
+        body { font-family: 'Segoe UI', Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; background: var(--dark); }
+
+        /* ── Header ── */
+        header {
+            background: var(--green);
+            color: var(--white);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow);
+        }
+        header h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.3px; }
+        header p  { font-size: 0.8rem; opacity: 0.85; }
+        .flag { font-size: 1.6rem; }
+
+        /* ── Layout ── */
+        .app {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 340px;
+            background: var(--panel);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .sidebar-section {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .sidebar-section h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        /* Search */
+        .search-row { display: flex; gap: 6px; }
+        input[type="text"] {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus { border-color: var(--green); }
+        button {
+            padding: 8px 14px;
+            background: var(--green);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius);
+            font-size: 0.8rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        button:hover   { opacity: 0.85; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Filter chips */
+        .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .chip {
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            background: var(--white);
+            transition: all 0.15s;
+        }
+        .chip.active  { background: var(--green); color: var(--white); border-color: var(--green); }
+        .chip:hover:not(.active) { border-color: var(--green); color: var(--green); }
+
+        /* Route inputs */
+        .route-inputs { display: flex; flex-direction: column; gap: 6px; }
+
+        /* Landmark list */
+        .landmark-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+        .landmark-item {
+            padding: 10px 12px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background 0.15s;
+            margin-bottom: 4px;
+        }
+        .landmark-item:hover    { background: #e9ecef; }
+        .landmark-item.selected { background: #d4edda; border-left: 3px solid var(--green); }
+        .landmark-name   { font-size: 0.875rem; font-weight: 600; color: var(--dark); }
+        .landmark-meta   { font-size: 0.75rem; color: #666; margin-top: 2px; }
+        .landmark-badge  {
+            display: inline-block; font-size: 0.65rem; padding: 1px 6px;
+            border-radius: 10px; margin-left: 6px; font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Category badge colours */
+        .badge-market     { background: #fff3cd; color: #856404; }
+        .badge-culture    { background: #cfe2ff; color: #084298; }
+        .badge-government { background: #f8d7da; color: #842029; }
+        .badge-transport  { background: #d1e7dd; color: #0f5132; }
+        .badge-education  { background: #e2d9f3; color: #432874; }
+        .badge-bridge     { background: #fde8d8; color: #7c4700; }
+
+        /* Info panel */
+        .info-panel {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+            font-size: 0.8rem;
+            min-height: 80px;
+            max-height: 140px;
+            overflow-y: auto;
+        }
+        .info-panel h4 { font-size: 0.875rem; color: var(--green); margin-bottom: 4px; }
+        .info-panel p  { color: #444; line-height: 1.5; }
+
+        /* Status bar */
+        .status {
+            padding: 6px 16px;
+            font-size: 0.72rem;
+            color: #666;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+        .status.loading { color: var(--green); }
+        .status.error   { color: #dc3545; }
+
+        /* Map */
+        #map { flex: 1; }
+
+        /* Route result */
+        .route-result {
+            padding: 10px 12px;
+            background: #d4edda;
+            border-radius: var(--radius);
+            margin-top: 8px;
+            font-size: 0.8rem;
+            display: none;
+        }
+        .route-result.visible { display: block; }
+        .route-result strong  { color: var(--green); }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="flag">🇳🇬</span>
+    <div>
+        <h1>NaijaMap</h1>
+        <p>Nigerian Landmarks Explorer — Day 89 of 300 Days of Code</p>
+    </div>
+</header>
+
+<div class="app">
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+
+        <!-- Search -->
+        <div class="sidebar-section">
+            <h3>Search Address</h3>
+            <div class="search-row">
+                <input id="geocode-input" type="text" placeholder="e.g. Lagos Island, NG" />
+                <button id="geocode-btn">Go</button>
+            </div>
+        </div>
+
+        <!-- Directions -->
+        <div class="sidebar-section">
+            <h3>Get Directions</h3>
+            <div class="route-inputs">
+                <input id="origin-input"      type="text" placeholder="Origin (e.g. Lagos Airport)" />
+                <input id="dest-input"        type="text" placeholder="Destination (e.g. Victoria Island)" />
+                <button id="directions-btn">Get Route</button>
+            </div>
+            <div id="route-result" class="route-result"></div>
+        </div>
+
+        <!-- Category filter -->
+        <div class="sidebar-section">
+            <h3>Filter by Category</h3>
+            <div class="chips" id="category-chips">
+                <span class="chip active" data-cat="">All</span>
+                <span class="chip" data-cat="culture">Culture</span>
+                <span class="chip" data-cat="market">Market</span>
+                <span class="chip" data-cat="government">Government</span>
+                <span class="chip" data-cat="transport">Transport</span>
+                <span class="chip" data-cat="education">Education</span>
+                <span class="chip" data-cat="bridge">Bridge</span>
+            </div>
+        </div>
+
+        <!-- Landmark list -->
+        <div class="landmark-list" id="landmark-list"></div>
+
+        <!-- Selected landmark info -->
+        <div class="info-panel" id="info-panel">
+            <p style="color:#999;">Click a landmark to see details.</p>
+        </div>
+
+        <!-- Status bar -->
+        <div class="status" id="status">Ready — <span id="landmark-count">0</span> landmarks loaded</div>
+    </aside>
+
+    <!-- ── Map ── -->
+    <div id="map"></div>
+</div>
+
+<script>
+    // ── State ────────────────────────────────────────────────────────────────────
+    let map, markers = [], infoWindow, directionsRenderer, geocodeMarker;
+    let landmarks    = [];
+    let selectedId   = null;
+    let activeCategory = "";
+
+    // ── Utilities ─────────────────────────────────────────────────────────────────
+    function setStatus(msg, type = "") {
+        const el = document.getElementById("status");
+        el.textContent = msg;
+        el.className   = "status " + type;
+    }
+
+    function categoryBadgeClass(cat) {
+        return "badge-" + (cat || "culture");
+    }
+
+    function categoryEmoji(cat) {
+        const map = { market: "🛒", culture: "🏛️", government: "🏛", transport: "✈️", education: "🎓", bridge: "🌉" };
+        return map[cat] || "📍";
+    }
+
+    // ── Landmark rendering ────────────────────────────────────────────────────────
+    function renderLandmarkList(items) {
+        const list = document.getElementById("landmark-list");
+        list.innerHTML = "";
+        document.getElementById("landmark-count").textContent = items.length;
+
+        if (!items.length) {
+            list.innerHTML = '<p style="padding:16px;color:#999;font-size:0.8rem;">No landmarks match this filter.</p>';
+            return;
+        }
+
+        for (const lm of items) {
+            const el = document.createElement("div");
+            el.className  = "landmark-item" + (lm.id === selectedId ? " selected" : "");
+            el.dataset.id = lm.id;
+            el.innerHTML  = `
+      <div class="landmark-name">
+        ${categoryEmoji(lm.category)} ${lm.name}
+        <span class="landmark-badge ${categoryBadgeClass(lm.category)}">${lm.category}</span>
+      </div>
+      <div class="landmark-meta">${lm.city}</div>
+    `;
+            el.addEventListener("click", () => selectLandmark(lm.id));
+            list.appendChild(el);
+        }
+    }
+
+    // ── Map markers ───────────────────────────────────────────────────────────────
+    const CATEGORY_COLOURS = {
+        market: "#e67e22", culture: "#3498db", government: "#e74c3c",
+        transport: "#27ae60", education: "#9b59b6", bridge: "#f39c12",
+    };
+
+    function buildMarkers(items) {
+        // Remove existing landmark markers
+        for (const m of markers) m.setMap(null);
+        markers = [];
+
+        for (const lm of items) {
+            const colour = CATEGORY_COLOURS[lm.category] || "#2ecc71";
+
+            const marker = new google.maps.Marker({
+                position: { lat: lm.lat, lng: lm.lng },
+                map,
+                title: lm.name,
+                icon: {
+                    path:          google.maps.SymbolPath.CIRCLE,
+                    scale:         10,
+                    fillColor:     colour,
+                    fillOpacity:   0.9,
+                    strokeColor:   "#ffffff",
+                    strokeWeight:  2,
+                },
+                animation: google.maps.Animation.DROP,
+            });
+
+            marker.addListener("click", () => selectLandmark(lm.id));
+            marker._landmarkId = lm.id;
+            markers.push(marker);
+        }
+    }
+
+    function selectLandmark(id) {
+        selectedId   = id;
+        const lm     = landmarks.find(l => l.id === id);
+        if (!lm) return;
+
+        // Update list highlight
+        document.querySelectorAll(".landmark-item").forEach(el => {
+            el.classList.toggle("selected", parseInt(el.dataset.id) === id);
+        });
+
+        // Pan map to marker
+        map.panTo({ lat: lm.lat, lng: lm.lng });
+        map.setZoom(14);
+
+        // Open info window on the matching marker
+        const marker = markers.find(m => m._landmarkId === id);
+        if (marker) {
+            infoWindow.setContent(`
+      <div style="max-width:240px;">
+        <strong style="color:#008751;">${lm.name}</strong><br>
+        <span style="font-size:0.75rem;color:#666;">${lm.city} · ${lm.category}</span><br>
+        <p style="margin-top:6px;font-size:0.8rem;line-height:1.4;">${lm.description}</p>
+      </div>
+    `);
+            infoWindow.open(map, marker);
+        }
+
+        // Update info panel
+        document.getElementById("info-panel").innerHTML = `
+    <h4>${categoryEmoji(lm.category)} ${lm.name}</h4>
+    <p><strong>${lm.city}</strong> · ${lm.category}</p>
+    <p style="margin-top:6px;">${lm.description}</p>
+  `;
+    }
+
+    // ── Filter by category ────────────────────────────────────────────────────────
+    document.getElementById("category-chips").addEventListener("click", e => {
+        if (!e.target.classList.contains("chip")) return;
+        document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        e.target.classList.add("active");
+        activeCategory = e.target.dataset.cat;
+        const filtered = activeCategory
+            ? landmarks.filter(l => l.category === activeCategory)
+            : landmarks;
+        renderLandmarkList(filtered);
+        buildMarkers(filtered);
+    });
+
+    // ── Geocode address ───────────────────────────────────────────────────────────
+    async function geocodeAddress() {
+        const input = document.getElementById("geocode-input").value.trim();
+        if (!input) return;
+
+        setStatus("Geocoding address...", "loading");
+        document.getElementById("geocode-btn").disabled = true;
+
+        try {
+            const res  = await fetch(`/api/geocode?address=${encodeURIComponent(input)}`);
+            const json = await res.json();
+            if (!json.success) throw new Error(json.error);
+
+            const { lat, lng, formatted_address, from_cache } = json.data;
+
+            if (geocodeMarker) geocodeMarker.setMap(null);
+            geocodeMarker = new google.maps.Marker({
+                position: { lat, lng },
+                map,
+                title: formatted_address,
+                icon: {
+                    path:        google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                    scale:       8,
+                    fillColor:   "#e74c3c",
+                    fillOpacity: 1,
+                    strokeColor: "#ffffff",
+                    strokeWeight: 2,
+                },
+            });
+
+            infoWindow.setContent(`<strong>${formatted_address}</strong><br><small style="color:#666;">${from_cache ? "From cache" : "Fresh geocode"}</small>`);
+            infoWindow.open(map, geocodeMarker);
+            map.panTo({ lat, lng });
+            map.setZoom(13);
+            setStatus(`Geocoded: ${formatted_address}${from_cache ? " (cached)" : ""}`);
+        } catch (err) {
+            setStatus("Geocode failed: " + err.message, "error");
+        } finally {
+            document.getElementById("geocode-btn").disabled = false;
+        }
+    }
+
+    document.getElementById("geocode-btn").addEventListener("click", geocodeAddress);
+    document.getElementById("geocode-input").addEventListener("keydown", e => { if (e.key === "Enter") geocodeAddress(); });
+
+    // ── Get directions ────────────────────────────────────────────────────────────
+    async function fetchDirections() {
+        const origin = document.getElementById("origin-input").value.trim();
+        const dest   = document.getElementById("dest-input").value.trim();
+        if (!origin || !dest) return;
+
+        setStatus("Fetching directions...", "loading");
+        document.getElementById("directions-btn").disabled = true;
+        directionsRenderer.setDirections({ routes: [] });
+
+        try {
+            const res  = await fetch(`/api/directions?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(dest)}`);
+            const json = await res.json();
+            if (!json.success) throw new Error(json.error);
+
+            const { distance_text, duration_text, polyline, from_cache } = json.data;
+
+            // Decode and draw the polyline
+            const path = google.maps.geometry.encoding.decodePath(polyline);
+            directionsRenderer.setMap(null);
+
+            const routePoly = new google.maps.Polyline({
+                path,
+                geodesic:    true,
+                strokeColor: "#008751",
+                strokeOpacity: 0.9,
+                strokeWeight: 5,
+                map,
+            });
+
+            // Fit map to route bounds
+            const bounds = new google.maps.LatLngBounds();
+            path.forEach(p => bounds.extend(p));
+            map.fitBounds(bounds);
+
+            const resultEl = document.getElementById("route-result");
+            resultEl.innerHTML = `🚗 <strong>${distance_text}</strong> · ⏱ <strong>${duration_text}</strong>${from_cache ? ' <small>(cached)</small>' : ''}`;
+            resultEl.classList.add("visible");
+
+            setStatus(`Route: ${distance_text}, ${duration_text}${from_cache ? " (cached)" : ""}`);
+        } catch (err) {
+            setStatus("Directions failed: " + err.message, "error");
+        } finally {
+            document.getElementById("directions-btn").disabled = false;
+        }
+    }
+
+    document.getElementById("directions-btn").addEventListener("click", fetchDirections);
+
+    // ── Google Maps initialisation ────────────────────────────────────────────────
+    async function initMap() {
+        // Centre on Nigeria
+        map = new google.maps.Map(document.getElementById("map"), {
+            center:    { lat: 9.0820, lng: 8.6753 },
+            zoom:      6,
+            mapTypeId: "roadmap",
+            styles: [
+                { featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] },
+            ],
+            mapTypeControl:   false,
+            streetViewControl: false,
+        });
+
+        infoWindow         = new google.maps.InfoWindow();
+        directionsRenderer = new google.maps.DirectionsRenderer({ suppressMarkers: false });
+
+        // Load landmarks from our API
+        setStatus("Loading landmarks...", "loading");
+        try {
+            const res  = await fetch("/api/landmarks");
+            const json = await res.json();
+            landmarks  = json.data || [];
+            renderLandmarkList(landmarks);
+            buildMarkers(landmarks);
+            setStatus(`Ready — ${landmarks.length} landmarks loaded`);
+        } catch (err) {
+            setStatus("Failed to load landmarks: " + err.message, "error");
+        }
+    }
+
+    // Exposed globally for Google Maps callback
+    window.initMap = initMap;
+</script>
+
+<!-- Google Maps JS API — key injected server-side so it never appears in client code -->
+<script src="__MAPS_SCRIPT_URL__" async defer></script>
+
+</body>
+</html>
