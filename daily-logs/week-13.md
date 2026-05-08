@@ -99,3 +99,37 @@ The digest endpoint does a LEFT JOIN across all feeds simultaneously — one que
 ### Tomorrow
 
 Day 89 — Map API with Google Maps JS: build an Express backend that serves a single-page HTML app with an embedded Google Maps JavaScript API map showing geocoded Nigerian addresses, route drawing between points, and a marker cluster for Lagos landmarks.
+
+
+## Day 89 - May 06
+
+**Project:** Google Maps JS Full-Stack App — NaijaMap
+**Time Spent:** 4 hours
+
+### What I Built
+
+Today I built a full-stack Express application that serves an interactive Nigerian landmarks map. The backend provides three REST endpoints — landmarks from SQLite, address geocoding with a 24-hour cache, and Directions API with cached polylines. The frontend is a single HTML file rendered server-side with the Google Maps API key injected at request time via `fs.readFileSync` and `String.replace`. This keeps the key out of version control while still making it available to the browser.
+
+The map shows 20 seeded Nigerian landmarks across Lagos, Abuja, Port Harcourt, Kano, and Ibadan with colour-coded vector markers by category. Clicking a marker opens an info window with description text. The sidebar has category filter chips that filter both the list and the map markers in real time by rebuilding the markers array. Address geocoding drops a red arrow pin at the geocoded location, and the directions feature fetches an encoded polyline from Google's Directions API, decodes it in the browser using `google.maps.geometry.encoding.decodePath()`, and draws it as a green polyline on the map.
+
+### What I Learned
+
+- The Google Maps JavaScript API requires `callback=initMap` in the script URL — the function must be assigned to `window.initMap` before the script tag evaluates, not just defined as a regular function
+- `&libraries=geometry` must be included in the Maps script URL to access `google.maps.geometry.encoding.decodePath()` — the geometry library is optional and not loaded by default
+- Injecting an API key server-side via `fs.readFileSync` + `html.replace("__PLACEHOLDER__", key)` is a clean pattern that keeps secrets out of committed source files while still making them available to the rendered page
+- An encoded polyline is a variable-length ASCII string — storing it as TEXT in SQLite and decoding it in the browser avoids the cost of storing and re-fetching all coordinate pairs
+- `google.maps.LatLngBounds` + `map.fitBounds()` calculates the correct zoom and centre to show a full route automatically — no manual calculations needed
+- `google.maps.SymbolPath.CIRCLE` with `fillColor` creates fully vector markers that scale at any zoom level and require no image files
+
+### Resources Used
+
+- https://developers.google.com/maps/documentation/javascript/overview
+- https://developers.google.com/maps/documentation/javascript/reference/geometry
+- https://developers.google.com/maps/documentation/directions/get-directions
+- https://developers.google.com/maps/documentation/utilities/polylinealgorithm
+- https://console.cloud.google.com (API key and quota management)
+
+### Tomorrow
+
+Day 90 — Sprint 3 Review and Deploy: the final day of Sprint 3. Deploy the Node.js User Registration API to production on Railway, add a comprehensive health endpoint with system and environment metadata, and write the Sprint 3 retrospective.
+
