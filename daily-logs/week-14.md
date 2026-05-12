@@ -31,3 +31,37 @@ The analytics layer fires five parallel queries using `Promise.all` — summary 
 ### Tomorrow
 
 Day 92 — Prisma ORM with PostgreSQL. Schema-first database modeling, type-safe query builder, and migrations via `prisma migrate dev`. Will model a multi-table schema (users, products, orders) and run complex relational queries using Prisma Client.
+
+## Day 92 - May 11
+
+**Project:** Prisma ORM with PostgreSQL
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a schema-first relational database system using Prisma ORM on top of PostgreSQL. Designed a multi-table e-commerce schema covering users, categories, products, orders, and order items — with all foreign key relations, a PostgreSQL enum for order status, and snake_case column mapping while keeping PascalCase in the TypeScript model layer. Ran `prisma migrate dev` to generate and apply the SQL migration automatically, then generated a fully typed Prisma Client from the schema.
+
+Wrote a Nigerian data seeder that populates 15 users across Nigerian cities, 30 products across 6 categories with realistic Naira pricing, and 20 orders with line items. The seeder runs a clean delete cycle before each seed so it is safe to re-run. All order totals are computed from unit price times quantity before insert, keeping the `total_amount` column consistent with the line items.
+
+Built five analytics query functions using Prisma Client — all orders with nested user and item data, top products by revenue using `groupBy` with `_sum`, top customers by spend, category revenue breakdown via nested includes, and a low stock alert query using `lt` filtering. All five run in parallel via `Promise.all` and print to the terminal in aligned Naira-formatted columns.
+
+### What I Learned
+
+- `@map` renames individual fields to snake_case in the database while keeping camelCase in TypeScript
+- `@@map` at the model level renames the entire table — keeps PostgreSQL snake_case and Prisma PascalCase in sync
+- Prisma `groupBy` requires all aggregation fields declared upfront — `_sum`, `_count`, `_avg` are specified in the same call
+- `Decimal` type fields from Prisma Client return as `Decimal` objects, not plain JavaScript numbers — always wrap with `Number()` before arithmetic or formatting
+- `findMany` with nested `include` generates a single JOIN query, not sequential N+1 queries
+- `prisma migrate dev` generates the SQL file in `prisma/migrations/` and applies it in one command
+- Prisma Studio opens a full admin UI at `localhost:5555` with zero configuration — useful for inspecting seed data
+
+### Resources Used
+
+- [Prisma schema reference](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference)
+- [Prisma Client groupBy](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#groupby)
+- [Prisma relations](https://www.prisma.io/docs/concepts/components/prisma-schema/relations)
+- [Prisma migrate dev](https://www.prisma.io/docs/reference/api-reference/command-reference#migrate-dev)
+
+### Tomorrow
+
+Day 93 — Data Visualization with Chart.js in Node.js. Pull aggregate data from PostgreSQL and generate real PNG chart files (bar, line, pie) using `chartjs-node-canvas` — no browser required.
