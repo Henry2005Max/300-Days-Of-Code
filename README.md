@@ -4,15 +4,15 @@
 
 I'm building and shipping **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 93/300 🔥  
+**Current Progress:** Day 94/300 🔥  
 **Current Sprint:** Sprint 4 - Data AUtomation And Engineering
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 92/300
-- **Projects Built:** 92
-- **Current Streak:** 92 days 🔥
+- **Days Completed:** 93/300
+- **Projects Built:** 93
+- **Current Streak:** 93 days 🔥
 
 ---
 
@@ -170,6 +170,7 @@ JS/TS Scripts & Bots
 
 - ✅ Day 91: TypeScript CSV Analyzer with PostgreSQL
 - ✅ Day 92: Prisma Postgres
+- ✅ Day 93: Data Visualization with Chart.js in Node.js
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
