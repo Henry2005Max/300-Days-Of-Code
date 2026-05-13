@@ -99,3 +99,36 @@ The terminal also prints a formatted summary of all queried data alongside the c
 ### Tomorrow
 
 Day 94 — X (Twitter) Bot with `twitter-api-v2`. Automated posting bot that pulls data from an API, formats a tweet, and posts it on a schedule using `node-cron`. Will cover OAuth 2.0 setup, tweet composition, and rate limit handling.
+
+## Day 94 - May 13
+
+**Project:** X Bot Poster with twitter-api-v2
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built an automated X (Twitter) bot that fetches live Nigerian forex rates, formats them into a structured tweet, and posts on a `node-cron` schedule. The bot is split across five clean modules: a forex fetcher with mock fallback, a tweet formatter that enforces the 280-character limit, a lazy Twitter client singleton, a poster that handles both real and dry-run modes, and a scheduler that wraps everything in a WAT-timezone-aware cron job.
+
+The formatter builds a tweet with flag emojis, currency names, NGN rates, a timestamp, and hashtags. If the tweet exceeds 280 characters, hashtags are trimmed automatically before posting. The dry-run mode prints the complete formatted tweet and character count to the terminal without touching the Twitter API — making the entire project testable with zero credentials.
+
+The forex fetcher calls the ExchangeRate API with NGN as base, inverts the rates to get units of foreign currency per Naira, and falls back to realistic hardcoded mock rates if no API key is set. The scheduler uses `node-cron` with `Africa/Lagos` timezone so the 08:00 WAT schedule remains correct regardless of the server's local timezone.
+
+### What I Learned
+
+- `twitter-api-v2` requires OAuth 1.0a with `readWrite` scope for posting — `client.v2.tweet()` alone throws a permissions error, must use `client.readWrite.v2.tweet()`
+- The X API free tier is very restrictive — 1 tweet per 15 minutes and 17 per 24 hours — important to know before scheduling a high-frequency bot
+- `node-cron` accepts a `timezone` string option that handles DST automatically — no need for manual UTC offset calculations
+- Exchange rate APIs return rates relative to a base currency — when the base is NGN, the values need to be inverted (`1 / rate`) to get foreign currency per Naira
+- Separating fetch, format, and post into independent functions makes dry-run mode a one-line `if` check in the poster
+- Lazy client initialization means credentials are validated only when the client is first used — useful for dry-run mode which never needs them
+
+### Resources Used
+
+- [twitter-api-v2 documentation](https://github.com/PLhery/node-twitter-api-v2)
+- [node-cron documentation](https://github.com/node-cron/node-cron)
+- [ExchangeRate-API docs](https://www.exchangerate-api.com/docs/overview)
+- [X API v2 tweet limits](https://developer.twitter.com/en/docs/twitter-api/tweets/manage-tweets/api-reference/post-tweets)
+
+### Tomorrow
+
+Day 95 — Email Sender Automation with Nodemailer. Automated email system that composes and sends templated emails (reports, alerts, digests) using Nodemailer with Gmail SMTP. Will cover HTML email templates, attachments, and scheduled delivery.
