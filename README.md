@@ -171,6 +171,7 @@ JS/TS Scripts & Bots
 - ✅ Day 91: TypeScript CSV Analyzer with PostgreSQL
 - ✅ Day 92: Prisma Postgres
 - ✅ Day 93: Data Visualization with Chart.js in Node.js
+- ✅ Day 94: X Bot Poster with twitter-api
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
