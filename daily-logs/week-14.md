@@ -132,3 +132,37 @@ The forex fetcher calls the ExchangeRate API with NGN as base, inverts the rates
 ### Tomorrow
 
 Day 95 — Email Sender Automation with Nodemailer. Automated email system that composes and sends templated emails (reports, alerts, digests) using Nodemailer with Gmail SMTP. Will cover HTML email templates, attachments, and scheduled delivery.
+
+## Day 95 - May 14
+
+**Project:** Email Sender Automation with Nodemailer
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a full email automation system with three distinct email types — a daily sales report, a low stock alert, and a welcome email — all rendered as production-ready HTML and sent via Nodemailer with Gmail SMTP. Each template is built with a shared base layout that includes a green header, body section, and footer, with all styles inlined since external stylesheets are stripped by most email clients.
+
+The sales report email includes a three-column stat card row (total revenue, orders, avg order value), a top products table, a category revenue breakdown with percentage share, and a top cities table. The stock alert email dynamically renders separate sections for out-of-stock and low-stock products with colour-coded status badges — red for out-of-stock, amber for low, green for sufficient. The welcome email features an account details card and a styled CTA button.
+
+Dry-run mode writes each email as an `.html` file to the `./output/` directory so they can be opened in a browser for a pixel-accurate preview before any credentials are needed. The Nodemailer transporter is lazily initialized on first use and includes an SMTP connection verification step in live mode.
+
+### What I Learned
+
+- HTML emails require fully inline styles — `<style>` blocks and external CSS are stripped by Gmail, Outlook, and Apple Mail
+- Nodemailer's `transporter.verify()` confirms the SMTP connection is valid before attempting to send — saves debugging time with wrong credentials
+- Gmail SMTP requires an App Password when 2FA is enabled — the real account password will be rejected
+- `port: 465` with `secure: true` uses implicit SSL; `port: 587` with `secure: false` uses STARTTLS — Gmail supports both
+- Table-based layouts with explicit `width`, `cellpadding`, and `cellspacing` attributes are still the most reliable approach for email column layouts across all clients
+- Including a plain-text `text` field alongside `html` in the Nodemailer options improves deliverability and passes corporate spam filters
+- Writing HTML to disk in dry-run is a zero-dependency way to preview email output with full browser rendering before going live
+
+### Resources Used
+
+- [Nodemailer documentation](https://nodemailer.com/about/)
+- [Gmail App Passwords guide](https://support.google.com/accounts/answer/185833)
+- [HTML Email best practices — Campaign Monitor](https://www.campaignmonitor.com/css/)
+- [Nodemailer SMTP transport](https://nodemailer.com/smtp/)
+
+### Tomorrow
+
+Day 96 — News Scraper with Cheerio. An ethical web scraper that pulls headlines, summaries, and links from Nigerian news sites, stores them in PostgreSQL, and outputs a formatted digest.
