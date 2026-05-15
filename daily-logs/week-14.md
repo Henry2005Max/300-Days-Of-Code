@@ -166,3 +166,37 @@ Dry-run mode writes each email as an `.html` file to the `./output/` directory s
 ### Tomorrow
 
 Day 96 — News Scraper with Cheerio. An ethical web scraper that pulls headlines, summaries, and links from Nigerian news sites, stores them in PostgreSQL, and outputs a formatted digest.
+
+
+## Day 96 - May 15
+
+**Project:** News Scraper with Cheerio and PostgreSQL
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built an ethical news scraper that targets four Nigerian news sources — Punch, Vanguard, TechCabal, and Nairametrics — using Cheerio for HTML parsing and PostgreSQL for article storage. Each scrape target is defined as a config object with CSS selectors for article containers, titles, summaries, and links, keeping the scraping logic completely generic and reusable across sites.
+
+The scraper checks each site's `robots.txt` before making any requests and skips the entire domain if scraping is disallowed. A configurable delay between sites (default 2 seconds) keeps the request rate polite. Articles are inserted with `ON CONFLICT (url) DO NOTHING` so re-running the scraper never creates duplicates — the summary table shows exactly how many were new vs already stored per source.
+
+The terminal digest groups articles by category (General News, Technology, Business & Finance), printing title, wrapped summary, source, timestamp in WAT, and URL for each article. A `DIGEST_ONLY=true` mode reads everything from the database without touching any external sites — useful for reviewing the last scrape without making new requests.
+
+### What I Learned
+
+- Cheerio's `$` function mirrors the jQuery API exactly — `.find()`, `.eq()`, `.text()`, `.attr()` all work identically to browser jQuery
+- `ON CONFLICT (url) DO NOTHING` is cleaner than a SELECT-before-INSERT check for deduplication — one round trip instead of two
+- `robots.txt` files can have multiple `User-agent` blocks — the parser needs to track which block it is currently inside and only collect `Disallow` rules for the matching agent
+- Native Node.js `fetch` with `AbortSignal.timeout(ms)` handles timeouts cleanly without needing axios or node-fetch
+- Relative `href` values like `/news/story` need base URL prepending — checking `href.startsWith('http')` vs `href.startsWith('/')` covers the two most common cases
+- CSS selectors for article parsing differ substantially per site — isolating them in a `ScrapeTarget` config object makes adding new sources a one-line config change, not a code change
+
+### Resources Used
+
+- [Cheerio documentation](https://cheerio.js.org/)
+- [robots.txt specification](https://www.robotstxt.org/robotstxt.html)
+- [PostgreSQL ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT)
+- [Node.js fetch AbortSignal](https://nodejs.org/api/globals.html#abortsignaltimeoutdelay)
+
+### Tomorrow
+
+Day 97 — Stock Fetcher with Alpha Vantage API. Fetches live stock and forex data, stores time-series price history in PostgreSQL, and outputs a formatted price report with percentage change calculations.
