@@ -200,3 +200,37 @@ The terminal digest groups articles by category (General News, Technology, Busin
 ### Tomorrow
 
 Day 97 — Stock Fetcher with Alpha Vantage API. Fetches live stock and forex data, stores time-series price history in PostgreSQL, and outputs a formatted price report with percentage change calculations.
+
+
+## Day 97 - May 16
+
+**Project:** Stock Fetcher with Alpha Vantage API
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a financial data CLI that fetches live stock quotes and NGN forex rates from the Alpha Vantage API, stores full OHLV time-series in PostgreSQL, and prints a formatted market report with price change calculations. The tool tracks five global tech stocks and three NGN forex pairs most relevant to Nigerian investors — USD/NGN, GBP/NGN, and EUR/NGN.
+
+The database layer uses two tables: `assets` for symbol metadata and `price_history` for time-series OHLV data. The report query uses two CTEs with `DISTINCT ON` to pull the latest and previous price point per symbol in a single query, computing the absolute and percentage change in SQL before returning to TypeScript. `NUMERIC(18, 6)` precision avoids floating-point drift on NGN rates which are in the thousands.
+
+The Alpha Vantage client handles the free tier's quirks — rate limit responses come back as HTTP 200 with an `Information` key in the JSON body rather than a 4xx status, so the client checks the response body before parsing. A 12-second sleep between requests keeps within the 5/minute limit. A mock fallback with realistic prices for all eight assets makes the tool fully runnable with `ALPHA_VANTAGE_API_KEY=demo` and no network dependency.
+
+### What I Learned
+
+- Alpha Vantage signals rate limits via an `Information` key in a 200 OK response body — not a 429 status — must inspect the JSON, not just `res.ok`
+- `DISTINCT ON (symbol) ORDER BY symbol, recorded_at DESC` is PostgreSQL's most efficient way to get the latest row per group — no subquery or window function needed
+- `NUMERIC(18, 6)` in PostgreSQL prevents floating-point rounding on large NGN values; node-postgres still returns it as a string requiring `parseFloat()`
+- Two CTEs (`latest` + `previous`) joined with `LEFT JOIN` handles both symbols with multiple records and symbols with only one record gracefully — the change columns just show zero for the latter
+- Alpha Vantage free tier quota resets at UTC midnight, not on a rolling 24-hour window — relevant when scheduling automated fetches
+- `AbortSignal.timeout(ms)` on native Node.js `fetch` provides clean request timeout without any external library
+
+### Resources Used
+
+- [Alpha Vantage API documentation](https://www.alphavantage.co/documentation/)
+- [PostgreSQL DISTINCT ON](https://www.postgresql.org/docs/current/sql-select.html#SQL-DISTINCT)
+- [PostgreSQL NUMERIC type](https://www.postgresql.org/docs/current/datatype-numeric.html)
+- [Alpha Vantage GLOBAL_QUOTE endpoint](https://www.alphavantage.co/documentation/#latestprice)
+
+### Tomorrow
+
+Day 98 — Sentiment Analyzer with the `compromise` NLP library. Analyzes text input (tweets, news headlines, product reviews) for sentiment, extracts named entities, and produces a structured sentiment report stored in PostgreSQL.
