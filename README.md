@@ -4,15 +4,15 @@
 
 I'm building and shipping **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 98/300 🔥  
+**Current Progress:** Day 99/300 🔥  
 **Current Sprint:** Sprint 4 - Data AUtomation And Engineering
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 97/300
-- **Projects Built:** 97
-- **Current Streak:** 97 days 🔥
+- **Days Completed:** 98/300
+- **Projects Built:** 98
+- **Current Streak:** 98 days 🔥
 
 ---
 
@@ -175,6 +175,7 @@ JS/TS Scripts & Bots
 - ✅ Day 95: Email Automation
 - ✅ Day 96: News Scraper
 - ✅ Day 97: News Scraper
+- ✅ Day 98: Sentiment Analyzer
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
