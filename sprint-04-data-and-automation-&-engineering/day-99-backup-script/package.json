@@ -1,0 +1,24 @@
+{
+  "name": "day-099-backup-script",
+  "version": "1.0.0",
+  "description": "Day 99 - Automated File Backup Script with Node.js fs",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "backup": "tsx src/index.ts backup",
+    "restore": "tsx src/index.ts restore",
+    "list": "tsx src/index.ts list",
+    "clean": "tsx src/index.ts clean"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5"
+  }
+}
