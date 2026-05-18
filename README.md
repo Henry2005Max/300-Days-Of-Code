@@ -10,9 +10,9 @@ I'm building and shipping **300 projects in 300 days** to master full-stack deve
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 98/300
-- **Projects Built:** 98
-- **Current Streak:** 98 days 🔥
+- **Days Completed:** 99/300
+- **Projects Built:** 99
+- **Current Streak:** 99 days 🔥
 
 ---
 
@@ -176,6 +176,7 @@ JS/TS Scripts & Bots
 - ✅ Day 96: News Scraper
 - ✅ Day 97: News Scraper
 - ✅ Day 98: Sentiment Analyzer
+- ✅ Day 99: Backup SCript 
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
