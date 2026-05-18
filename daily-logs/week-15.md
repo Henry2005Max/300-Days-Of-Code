@@ -30,3 +30,36 @@ The terminal output shows a 20-character score bar per text, sentiment badge, en
 ### Tomorrow
 
 Day 99 — Backup Script with Node.js `fs`. An automated file backup tool that copies specified directories to a timestamped backup location, compresses them, tracks backup history in a log file, and supports restore from a specific backup.
+
+## Day 99 - May 18
+
+**Project:** Backup Script with Node.js fs
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a full file backup CLI using only Node.js built-in modules — no external archiving library. The tool backs up any configured set of directories into `.tar.gz` archives using a hand-built TAR serializer and `zlib.gzipSync` for compression. Each backup run gets a timestamped ID, and all run metadata is tracked in a JSON log file covering file count, raw size, compressed size, duration, and status.
+
+The TAR serializer constructs 512-byte header blocks per file — writing filename, octal-encoded file size, modification time, type flag, UStar magic, and a checksum computed as the sum of all header bytes with the checksum field treated as spaces. File data is padded to 512-byte boundaries, and two zero blocks mark the end of the archive. `zlib.gzipSync` compresses the complete buffer in one synchronous call. Extraction reverses the process with `zlib.gunzipSync` and a header parser.
+
+The CLI supports four commands: `backup` runs the full archive pipeline, `list` prints the history log with status badges and compression stats, `restore` extracts any logged backup to a `./backups/restored/<id>/` directory by setting `RESTORE_ID` in `.env`, and `clean` wipes all archive directories and the log. Auto-pruning removes the oldest backup directory when the `MAX_BACKUPS` limit is exceeded after each successful run.
+
+### What I Learned
+
+- TAR format is a sequence of 512-byte header blocks followed by file data padded to 512-byte boundaries — understanding the binary format made it clear why `tar` archives are always multiples of 512 bytes
+- TAR checksums are computed with the checksum field set to ASCII spaces (0x20), not zeros — using zeros gives a wrong checksum that some implementations reject
+- `zlib.gzipSync` and `zlib.gunzipSync` operate on `Buffer` objects synchronously — appropriate for moderate file sizes without needing stream pipelines
+- `fs.readdirSync(dir, { withFileTypes: true })` returns `Dirent` objects with `.isDirectory()` directly — more efficient than calling `fs.statSync` per entry for directory walking
+- `fs.rmSync(path, { recursive: true, force: true })` is the modern Node.js equivalent of `rm -rf` — available since Node.js 14.14
+- A JSON log file is a practical alternative to a database for storing backup metadata in a self-contained CLI tool — no setup required, portable across machines
+
+### Resources Used
+
+- [TAR file format specification](https://www.gnu.org/software/tar/manual/html_node/Standard.html)
+- [Node.js zlib documentation](https://nodejs.org/api/zlib.html)
+- [Node.js fs documentation](https://nodejs.org/api/fs.html)
+- [Node.js Buffer documentation](https://nodejs.org/api/buffer.html)
+
+### Tomorrow
+
+Day 100 — Sprint 4 Review. Optimize and extend the Day 91 CSV Analyzer — async batch processing, query performance improvements with EXPLAIN ANALYZE, additional chart output, and a comprehensive review of what was built across Sprint 4.
