@@ -63,3 +63,36 @@ The CLI supports four commands: `backup` runs the full archive pipeline, `list` 
 ### Tomorrow
 
 Day 100 — Sprint 4 Review. Optimize and extend the Day 91 CSV Analyzer — async batch processing, query performance improvements with EXPLAIN ANALYZE, additional chart output, and a comprehensive review of what was built across Sprint 4.
+
+
+## Day 100 - May 19
+
+**Project:** Sprint 4 Review — CSV Analyzer Enhanced
+**Time Spent:** 3 hours
+
+### What I Built
+
+Extended the Day 91 CSV Analyzer with three new PostgreSQL analytical queries, concurrent batch inserts, two additional indexes, and an `EXPLAIN ANALYZE` inspection mode. The new queries use advanced PostgreSQL features not covered in Day 91: `NTILE(3)` window function for customer segmentation, `PERCENTILE_CONT` ordered-set aggregate for revenue distribution percentiles, and `EXTRACT(DOW FROM date)` for weekday revenue grouping.
+
+The concurrent batch insert replaces Day 91's sequential loop with a windowed `Promise.all` approach — batches are grouped into windows of configurable size (default 4) and each window runs all its batches in parallel before moving to the next. This keeps memory flat while meaningfully reducing total insert time on larger datasets.
+
+The `EXPLAIN ANALYZE` mode runs PostgreSQL's query planner on all four key queries and prints the full execution plan including actual vs estimated rows, index scan usage, and timing. This closes the loop between writing a query and understanding how the database actually executes it — something that matters for Sprint 4's theme of data engineering at production quality.
+
+### What I Learned
+
+- `PERCENTILE_CONT` is an ordered-set aggregate — its syntax is `PERCENTILE_CONT(fraction) WITHIN GROUP (ORDER BY col)`, not a standard window or group-by function
+- `NTILE(n) OVER (ORDER BY expr)` divides rows into n equal buckets dynamically — the bucket boundaries adjust automatically based on the data distribution
+- `Promise.all` on batch inserts works well up to the connection pool limit — beyond that, extra promises queue on the pool rather than failing, so the concurrency is naturally bounded
+- `EXPLAIN ANALYZE` actually executes the query and returns real timing, not estimates — `EXPLAIN` alone (without `ANALYZE`) only shows the planner's cost estimates
+- `EXTRACT(DOW FROM date)` returns an integer 0 (Sunday) through 6 (Saturday) — including the raw number in the query allows correct sorting before formatting the day name
+
+### Resources Used
+
+- [PostgreSQL PERCENTILE_CONT](https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE)
+- [PostgreSQL NTILE window function](https://www.postgresql.org/docs/current/functions-window.html)
+- [PostgreSQL EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/sql-explain.html)
+- [PostgreSQL EXTRACT](https://www.postgresql.org/docs/current/functions-datetime.html)
+
+### Tomorrow
+
+Day 101 — TypeScript Dashboard Mock. A terminal-based data dashboard that pulls metrics from PostgreSQL and renders a live-updating multi-panel ASCII dashboard using Node.js streams and ANSI escape codes.
