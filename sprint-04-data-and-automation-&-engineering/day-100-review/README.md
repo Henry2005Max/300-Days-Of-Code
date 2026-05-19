@@ -1,4 +1,4 @@
-# Day 100: Sprint 4 Review — CSV Analyzer Enhanced
+# Day 100: Sprint 4 Review: CSV Analyzer Enhanced
 
 Day 100 milestone. This project revisits and extends the Day 91 CSV Analyzer with three concrete improvements: concurrent batch inserts, three new PostgreSQL analytical queries (customer segmentation with `NTILE`, revenue percentiles with `PERCENTILE_CONT`, weekday revenue with `EXTRACT(DOW)`), and an `EXPLAIN ANALYZE` mode that prints query execution plans for performance inspection.
 
@@ -7,8 +7,8 @@ Day 100 milestone. This project revisits and extends the Day 91 CSV Analyzer wit
 | Area | Day 91 | Day 100 |
 |------|--------|---------|
 | Batch inserts | Sequential | Concurrent (configurable window, default 4 parallel) |
-| Analytics queries | 5 queries | 8 queries — added segments, percentiles, weekday |
-| Customer analysis | None | NTILE(3) window function — high/mid/low-value segments |
+| Analytics queries | 5 queries | 8 queries, added segments, percentiles, weekday |
+| Customer analysis | None | NTILE(3) window function, high/mid/low-value segments |
 | Revenue distribution | None | PERCENTILE_CONT for P25/P50/P75/P90/P99 |
 | Temporal analysis | Monthly only | Monthly + day-of-week via EXTRACT(DOW) |
 | Query inspection | None | EXPLAIN ANALYZE mode via EXPLAIN=true |
