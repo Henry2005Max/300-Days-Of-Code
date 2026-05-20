@@ -96,3 +96,37 @@ The `EXPLAIN ANALYZE` mode runs PostgreSQL's query planner on all four key queri
 ### Tomorrow
 
 Day 101 — TypeScript Dashboard Mock. A terminal-based data dashboard that pulls metrics from PostgreSQL and renders a live-updating multi-panel ASCII dashboard using Node.js streams and ANSI escape codes.
+
+## Day 101 - May 20
+
+**Project:** TypeScript Terminal Dashboard
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a live-updating terminal dashboard from scratch using only ANSI escape codes — no ncurses, blessed, or any TUI library. The dashboard pulls sales metrics from PostgreSQL every 3 seconds and renders four bordered panels: a summary statistics panel, a top products table with mini bar charts, a category revenue breakdown, and a monthly trend table. A status bar at the bottom shows the live clock, last successful fetch time, and keyboard hint.
+
+The rendering approach uses cursor repositioning rather than screen clearing — writing `\x1b[H` at the start of each frame moves the cursor to row 1 column 1 and the new content overwrites the previous frame in place. This eliminates the flash that full screen clears produce. Each panel is a pure function returning an array of strings, and the dashboard renderer composes them all and writes the full frame to `process.stdout` in one call.
+
+ANSI colour codes are stripped from strings before padding calculations using a regex replace — otherwise, the invisible escape sequences inflate the apparent string length and break column alignment. The cursor is hidden at startup and restored on `Ctrl+C` via `SIGINT`/`SIGTERM` handlers. Errors are displayed inline and the dashboard retries on the next interval tick without crashing.
+
+### What I Learned
+
+- `\x1b[H` repositions the cursor without clearing — overwriting from home is flicker-free, unlike `\x1b[2J` which visibly blanks the screen between frames
+- ANSI escape codes inflate `str.length` — must strip with `/\x1b\[[0-9;]*m/g` before measuring for column padding
+- `process.stdout.write()` is the right primitive for TUI rendering — `console.log` appends a newline and is harder to compose
+- `\x1b[?25l` and `\x1b[?25h` control cursor visibility — always restore on exit or the terminal is permanently broken for the user
+- `setInterval` keeps the event loop alive naturally — no extra mechanism needed
+- Pure functions returning `string[]` per panel make the rendering logic composable and independently testable
+- Box-drawing Unicode characters are standard single codepoints and safe to use in Node.js string output
+
+### Resources Used
+
+- [ANSI escape code reference](https://en.wikipedia.org/wiki/ANSI_escape_code)
+- [Node.js process.stdout](https://nodejs.org/api/process.html#processstdout)
+- [Unicode box-drawing characters](https://en.wikipedia.org/wiki/Box-drawing_character)
+- [node-postgres pool documentation](https://node-postgres.com/apis/pool)
+
+### Tomorrow
+
+Day 102 — Cron Examples with node-cron. A multi-job cron scheduler that runs different tasks on different schedules — database cleanup, report generation, health checks, and log rotation — with job history tracking and a status display.
