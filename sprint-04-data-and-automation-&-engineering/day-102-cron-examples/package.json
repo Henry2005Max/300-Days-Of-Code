@@ -1,0 +1,26 @@
+{
+  "name": "day-102-cron-examples",
+  "version": "1.0.0",
+  "description": "Day 102 - Multi-job Cron Scheduler with node-cron and job history",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "run:scheduler": "tsx src/index.ts",
+    "history": "HISTORY_ONLY=true tsx src/index.ts"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "better-sqlite3": "^9.6.0",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5"
+  }
+}
