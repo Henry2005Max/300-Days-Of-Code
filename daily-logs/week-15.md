@@ -130,3 +130,38 @@ ANSI colour codes are stripped from strings before padding calculations using a 
 ### Tomorrow
 
 Day 102 — Cron Examples with node-cron. A multi-job cron scheduler that runs different tasks on different schedules — database cleanup, report generation, health checks, and log rotation — with job history tracking and a status display.
+
+
+## Day 102 - May 21
+
+**Project:** Cron Examples with node-cron
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a multi-job cron scheduler with five tasks running on independent schedules — heartbeat every 15s, health check every 30s, report snapshot every minute, stale cleanup every 2 minutes, and log rotation every 3 minutes. Every run is recorded in a SQLite database using `better-sqlite3`, capturing status, duration in milliseconds, output message, and timestamps. A live status table redraws every 5 seconds in the terminal showing each job's current badge, last run time, total run count, consecutive success streak, average duration, and last output message.
+
+The SQLite store uses the lazy-init pattern established in Sprint 3 — all `db.prepare()` statements are built inside `buildStatements()` called once after the database is opened, never at module load time. WAL journal mode is enabled so the status table's read queries don't block the job history writes that fire concurrently. The five job handlers each do real work: the heartbeat reads `process.memoryUsage()`, the snapshot writes JSON to disk with automatic 5-file pruning, the health check verifies directory and file existence, the cleanup scans for old rotated logs, and the rotation renames the log file when it exceeds 50KB.
+
+The status table uses relative timestamps (`5s ago`, `2m ago`) computed from a simple `Date.now()` diff, ANSI colour badges per status, and a streak counter that counts consecutive successes by walking the most recent 20 runs from SQLite. The `HISTORY_ONLY=true` mode reads and prints the last 30 runs from SQLite then exits, which is useful for reviewing what happened after the scheduler has been stopped.
+
+### What I Learned
+
+- `node-cron` uses a six-field expression with seconds as the first field — `*/15 * * * * *` fires every 15 seconds; the standard five-field format doesn't support sub-minute precision
+- `better-sqlite3` is synchronous — `.run()` and `.get()` return directly without `await`, making it ideal for write-after-run job tracking inside async handlers
+- `db.pragma('journal_mode = WAL')` enables SQLite's Write-Ahead Log — reads and writes can happen concurrently without blocking each other, which matters when the 5-second table redraw reads while a job is writing
+- The `buildStatements()` lazy-init pattern from Sprint 3 applies identically to `better-sqlite3` — prepare all statements once after `new Database()`, never at module load
+- Storing timestamps as ISO 8601 strings in SQLite makes the raw DB output human-readable and still sortable lexicographically without any conversion
+- `setInterval` for UI refresh and `node-cron` for job scheduling share the event loop cleanly — no conflicts
+- Consecutive streak counting just needs a linear scan of recent runs stopping at the first non-success — no SQL needed beyond `ORDER BY started_at DESC LIMIT 20`
+
+### Resources Used
+
+- [node-cron documentation](https://github.com/node-cron/node-cron)
+- [better-sqlite3 documentation](https://github.com/WiseLibs/better-sqlite3)
+- [SQLite WAL mode](https://www.sqlite.org/wal.html)
+- [cron expression reference](https://crontab.guru/)
+
+### Tomorrow
+
+Day 103 — GitHub Action for CI. A GitHub Actions workflow that runs TypeScript type-checking, linting, and tests on push and pull request. Covers workflow YAML, job steps, matrix builds, and caching `node_modules`.
