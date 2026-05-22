@@ -165,3 +165,34 @@ The status table uses relative timestamps (`5s ago`, `2m ago`) computed from a s
 ### Tomorrow
 
 Day 103 — GitHub Action for CI. A GitHub Actions workflow that runs TypeScript type-checking, linting, and tests on push and pull request. Covers workflow YAML, job steps, matrix builds, and caching `node_modules`.
+
+## Day 103 - May 22
+
+**Project:** GitHub Actions CI Pipeline
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a production-grade GitHub Actions CI workflow with five jobs running in a dependency chain: type-checking and linting in parallel, a matrix test job across Node.js 18 and 20 that runs after both pass, a build job that runs after tests, and a summary job that always runs and posts a Markdown results table to the workflow summary page. Wrote 39 unit tests across three source files — currency utilities, validation helpers, and data transforms — with an 80% coverage threshold enforced in Jest config.
+
+The workflow uses `concurrency` with `cancel-in-progress: true` to save CI minutes when rapid pushes happen on the same branch. `actions/setup-node@v4` with `cache: 'npm'` handles dependency caching automatically without a manual `actions/cache` step. `npm ci` is used instead of `npm install` for reproducible installs. Coverage reports and build artifacts are uploaded with `actions/upload-artifact@v4` with explicit retention periods. A Dependabot config keeps both Actions versions and npm dependencies updated weekly.
+
+The source code under test is a set of Nigerian-context utility functions: `formatNaira` for Naira formatting, `convertUsdToNgn` for exchange rate conversion with validation, a Zod-backed `validateOrder` function, Nigerian phone number validation, generic `groupBy`/`sumBy`/`sortByDesc` transforms, and `paginate` and `chunkArray` utilities. Every function has at least one happy path and one error path test.
+
+### What I Learned
+
+- `actions/setup-node@v4` with `cache: 'npm'` caches `~/.npm` automatically — no separate `actions/cache` configuration needed
+- `npm ci` is the correct CI command — it installs exactly from `package-lock.json` and fails if the lockfile is out of sync with `package.json`
+- `concurrency.cancel-in-progress: true` cancels the previous run on the same branch/PR when a new push arrives — saves CI minutes on rapid commits
+- `needs: [jobA, jobB]` in a job definition waits for multiple upstream jobs — the graph is declarative
+- `if: always()` on the summary job ensures it runs even when upstream jobs fail — critical for reporting what broke
+- `$GITHUB_STEP_SUMMARY` accepts Markdown written via `echo "..." >> $GITHUB_STEP_SUMMARY` — GitHub renders it on the run's Summary tab
+- `fail-fast: false` in a matrix strategy runs all variants even when one fails — shows whether a failure is Node-version-specific
+- Jest's `coverageThreshold` in `package.json` fails the test command if coverage drops below defined percentages — enforces coverage as a CI gate
+
+### Resources Used
+
+- [GitHub Actions documentation](https://docs.github.com/en/actions)
+- [actions/setup-node](https://github.com/actions/setup-node)
+- [GitHub Actions concurrency](https://docs.github.com/en/actions/using-jobs/using-concurrency)
+- [Jest coverage thresholds](https://jestjs.io/docs/configuration#coveragethreshold-object)
