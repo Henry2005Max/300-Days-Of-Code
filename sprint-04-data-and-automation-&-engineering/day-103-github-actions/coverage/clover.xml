@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1779481142997" clover="3.2.0">
+  <project timestamp="1779481142997" name="All files">
+    <metrics statements="54" coveredstatements="51" conditionals="13" coveredconditionals="13" methods="16" coveredmethods="16" elements="83" coveredelements="80" complexity="0" loc="54" ncloc="54" packages="1" files="4" classes="4"/>
+    <file name="currency.ts" path="/Users/ehinderohenry/Desktop/day-103-github-action-ci/src/currency.ts">
+      <metrics statements="17" coveredstatements="17" conditionals="9" coveredconditionals="9" methods="4" coveredmethods="4"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="5" type="cond" truecount="3" falsecount="0"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="7" count="4" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="16" count="3" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="5" type="cond" truecount="3" falsecount="0"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="23" count="3" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="4" type="stmt"/>
+      <line num="28" count="4" type="stmt"/>
+      <line num="29" count="4" type="cond" truecount="1" falsecount="0"/>
+      <line num="30" count="3" type="stmt"/>
+    </file>
+    <file name="index.ts" path="/Users/ehinderohenry/Desktop/day-103-github-action-ci/src/index.ts">
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="0" type="stmt"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+    </file>
+    <file name="transforms.ts" path="/Users/ehinderohenry/Desktop/day-103-github-action-ci/src/transforms.ts">
+      <metrics statements="24" coveredstatements="24" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="5" type="stmt"/>
+      <line num="7" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="8" count="5" type="stmt"/>
+      <line num="9" count="5" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="5" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="12" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="28" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="29" count="4" type="cond" truecount="1" falsecount="0"/>
+      <line num="31" count="3" type="stmt"/>
+      <line num="32" count="3" type="stmt"/>
+      <line num="33" count="3" type="stmt"/>
+      <line num="34" count="3" type="stmt"/>
+      <line num="36" count="3" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="40" count="4" type="cond" truecount="1" falsecount="0"/>
+      <line num="41" count="3" type="stmt"/>
+      <line num="42" count="3" type="stmt"/>
+      <line num="43" count="6" type="stmt"/>
+      <line num="45" count="3" type="stmt"/>
+    </file>
+    <file name="validation.ts" path="/Users/ehinderohenry/Desktop/day-103-github-action-ci/src/validation.ts">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="6" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="5" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="5" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="4" type="stmt"/>
+    </file>
+  </project>
+</coverage>
