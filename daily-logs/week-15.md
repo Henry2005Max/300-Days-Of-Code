@@ -196,3 +196,37 @@ The source code under test is a set of Nigerian-context utility functions: `form
 - [actions/setup-node](https://github.com/actions/setup-node)
 - [GitHub Actions concurrency](https://docs.github.com/en/actions/using-jobs/using-concurrency)
 - [Jest coverage thresholds](https://jestjs.io/docs/configuration#coveragethreshold-object)
+
+
+## Day 104 - May 23
+
+**Project:** Log Parser and Analyzer CLI
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a log analysis CLI that reads structured log files line-by-line using `readline`, auto-detects JSON vs Apache Combined Log Format, parses every line into a typed `LogEntry`, applies level and time range filters, then runs a full aggregate analysis — per-endpoint stats, response time percentiles, hourly traffic buckets, status code distribution, and the five slowest individual requests. Also built a sample log generator that produces 18,000 realistic JSON log entries across a 6-hour window using weighted random endpoint selection.
+
+The parser handles two formats in a single file detection step — if the first line starts with `{` it's JSON structured logging, otherwise it tries the Apache Combined Log Format regex. Both parsers normalise to the same `LogEntry` interface so the analyzer is completely format-agnostic. Endpoints have query strings stripped before grouping so `/api/products?page=1` and `/api/products?page=2` aggregate together correctly.
+
+Percentiles are computed by sorting the response time array and indexing at `Math.ceil((p/100) * length) - 1` — no external stats library needed. Hourly buckets are built by slicing the ISO timestamp to 13 characters (`2025-01-10T08`) and using it as a Map key, then sorting lexicographically. The terminal report uses inline `█░` bar charts for level counts and hourly traffic, and a full endpoint table with P50/P95/P99 columns.
+
+### What I Learned
+
+- `readline.createInterface` with `for await (const line of rl)` is the cleanest Node.js pattern for line-by-line file streaming — the file never fully loads into memory, important for large logs
+- Percentile from sorted array: `sorted[Math.ceil((p/100) * n) - 1]` — the `-1` accounts for zero-indexing; works correctly for any array size
+- Apache Combined Log Format date (`10/Jan/2025:08:30:00 +0100`) requires a regex rewrite before `new Date()` accepts it — the month abbreviation order and colon separator are non-standard
+- Stripping query strings with `.split('?')[0]` before using an endpoint as a Map key is a simple deduplication that makes the endpoint report meaningful
+- Weighted random picking — track accumulated weight and subtract per item — produces realistic traffic distributions matching real-world patterns where a few endpoints get most traffic
+- Auto-detecting log format from the first line is reliable enough in practice — mixed-format files are rare in real deployments
+
+### Resources Used
+
+- [Node.js readline documentation](https://nodejs.org/api/readline.html)
+- [Apache Combined Log Format](https://httpd.apache.org/docs/2.4/logs.html#combined)
+- [Percentile calculation methods](https://en.wikipedia.org/wiki/Percentile)
+- [Node.js stream performance](https://nodejs.org/api/stream.html)
+
+### Tomorrow
+
+Day 105 — Budget Tracker CLI. A personal budget tracking tool with SQLite that logs income and expenses by category, computes monthly summaries, tracks running balances, and exports reports to CSV.
