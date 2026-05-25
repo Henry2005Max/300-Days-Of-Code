@@ -183,7 +183,7 @@ JS/TS Scripts & Bots
 - ✅ Day 103: Github Actions
 - ✅ Day 104: Log Parser
 - ✅ Day 105: Budget Tracker
-- Day 106: Recipe Api
+- ✅ Day 106: Recipe Api
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
