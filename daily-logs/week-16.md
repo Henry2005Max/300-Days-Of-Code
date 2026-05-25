@@ -26,3 +26,32 @@ CLI argument parsing is done manually from `process.argv` — flags like `--mont
 - [SQLite window functions](https://www.sqlite.org/windowfunctions.html)
 - [SQLite strftime](https://www.sqlite.org/lang_datefunc.html)
 - [RFC 4180 CSV format](https://www.rfc-editor.org/rfc/rfc4180)
+
+## Day 106 - May 25
+
+**Project:** Recipe REST API
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a full REST API for recipes using Express 4 and SQLite via `better-sqlite3`. Three tables — `recipes`, `ingredients`, and `steps` — with foreign keys and `ON DELETE CASCADE` so deleting a recipe atomically removes its related rows. Create and update operations use `better-sqlite3` transactions so the multi-table write is atomic. The list endpoint supports five query parameters: free-text search across name, description, and category; category filter; difficulty filter; ingredient search via a subquery; and pagination with page/pageSize.
+
+Zod validates both request bodies and query strings. `z.coerce.number()` on pagination fields handles query string values arriving as strings without manual `parseInt`. The `UpdateRecipeSchema` is a partial of `CreateRecipeSchema`, meaning all fields are optional for PATCH — the route handler merges incoming fields with the existing record before updating, so a PATCH with only `{ "difficulty": "hard" }` updates just that one field. The centralized error handler catches `ZodError` instances and returns structured 400 responses with per-field messages.
+
+Seeded the database with 6 authentic Nigerian recipes — Jollof Rice, Egusi Soup, Suya, Pounded Yam, Moi Moi, and Chin Chin — each with full ingredient lists including quantities and units, and step-by-step instructions. The `/api/recipes/:id` endpoint returns the full recipe object including all ingredients and steps in a single response.
+
+### What I Learned
+
+- `foreign_keys = ON` pragma must be set after every new `better-sqlite3` connection — it defaults to off and does not persist, so it belongs in the database initialization function
+- `ON DELETE CASCADE` only works when foreign keys are enabled — without the pragma, cascade deletions silently do nothing instead of erroring, which can be confusing
+- `router.get('/categories', ...)` must be registered before `router.get('/:id', ...)` in Express — route matching is first-match and `/categories` would otherwise match the `:id` parameter pattern
+- `z.coerce.number()` in Zod converts string query parameters to numbers automatically — cleaner than calling `parseInt` in every route handler
+- Returning HTTP 204 with `res.status(204).send()` for DELETE is correct — `res.json({})` sends a body which is technically invalid for 204 responses
+- `better-sqlite3` transactions are synchronous functions — wrap multi-statement writes in `db.transaction(() => { ... })()` and the whole block rolls back on any error
+
+### Resources Used
+
+- [Express routing documentation](https://expressjs.com/en/guide/routing.html)
+- [better-sqlite3 transactions](https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md#transactionfunction---function)
+- [Zod coerce](https://zod.dev/?id=coercion-for-primitives)
+- [HTTP 204 No Content](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
