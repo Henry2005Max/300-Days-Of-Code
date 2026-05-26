@@ -55,3 +55,32 @@ Seeded the database with 6 authentic Nigerian recipes — Jollof Rice, Egusi Sou
 - [better-sqlite3 transactions](https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md#transactionfunction---function)
 - [Zod coerce](https://zod.dev/?id=coercion-for-primitives)
 - [HTTP 204 No Content](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
+
+## Day 107 - May 26
+
+**Project:** Weather Alert System
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a scheduled weather monitoring daemon that fetches current conditions for 6 Nigerian cities, evaluates each reading against configurable thresholds, stores every reading and triggered alert in SQLite, and prints a colour-coded terminal report. The system runs continuously on a cron schedule with `node-cron`, fires once immediately on startup, and supports a `REPORT_ONLY` mode that reads from the database and exits without fetching.
+
+The alert evaluator checks five conditions per reading — heat, cold, humidity, wind, and rainfall — and classifies each triggered alert into three severity levels based on how far over threshold the value is: `info` for 0–5% over, `warning` for 5–15% over, `critical` for 15%+ over. This percentage-based approach scales cleanly across the different units (degrees, percent, km/h, mm) without needing separate threshold multipliers per type.
+
+The mock data system assigns realistic baseline readings per city — Kano gets hot and dry values, Port Harcourt gets humid and rainy, Lagos gets moderate coastal conditions — then adds per-cycle random jitter of ±1 unit so repeated mock runs produce slightly different readings rather than identical values. The SQLite store uses the `MAX(fetched_at)` subquery join pattern for latest-per-city queries since SQLite doesn't support PostgreSQL's `DISTINCT ON`.
+
+### What I Learned
+
+- OpenWeatherMap returns wind speed in m/s — multiply by 3.6 to convert to km/h; rainfall is in mm and only present when it's raining so always default with `?.['1h'] ?? 0`
+- Percentage-based severity (`value / threshold >= 1.15`) scales across different measurement units without needing per-type multipliers
+- SQLite's `MAX(fetched_at)` subquery join is the equivalent of PostgreSQL's `DISTINCT ON (city_name) ORDER BY fetched_at DESC` — different syntax, same result
+- Adding ±jitter to mock data makes demo output feel realistic — constant identical values look obviously fake when the cron fires multiple times
+- Running the first monitoring cycle synchronously before starting the cron scheduler eliminates the awkward "nothing happens for X minutes" on first startup
+- `data.rain?.['1h']` uses both optional chaining (field may not exist) and bracket notation (key is `'1h'`, not a valid identifier) — both are needed
+
+### Resources Used
+
+- [OpenWeatherMap Current Weather API](https://openweathermap.org/current)
+- [node-cron documentation](https://github.com/node-cron/node-cron)
+- [SQLite latest row per group pattern](https://www.sqlite.org/lang_select.html)
+- [OpenWeatherMap condition codes](https://openweathermap.org/weather-conditions)
