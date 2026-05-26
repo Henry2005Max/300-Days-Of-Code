@@ -1,0 +1,26 @@
+{
+  "name": "day-107-weather-alert",
+  "version": "1.0.0",
+  "description": "Day 107 - Weather Alert System with OpenWeatherMap and SQLite",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "run:monitor": "tsx src/index.ts",
+    "report": "REPORT_ONLY=true tsx src/index.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/node-cron": "^3.0.11",
+    "@types/node": "^20.14.0",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5"
+  }
+}
