@@ -1,0 +1,25 @@
+{
+  "name": "day-108-file-organizer",
+  "version": "1.0.0",
+  "description": "Day 108 - File Organizer CLI with dry-run and history logging",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "organize": "tsx src/index.ts organize",
+    "preview": "tsx src/index.ts preview",
+    "history": "tsx src/index.ts history",
+    "undo": "tsx src/index.ts undo",
+    "seed": "tsx src/scanner/seed.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5"
+  }
+}
