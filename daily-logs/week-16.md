@@ -84,3 +84,31 @@ The mock data system assigns realistic baseline readings per city — Kano gets 
 - [node-cron documentation](https://github.com/node-cron/node-cron)
 - [SQLite latest row per group pattern](https://www.sqlite.org/lang_select.html)
 - [OpenWeatherMap condition codes](https://openweathermap.org/weather-conditions)
+
+## Day 108 - May 27
+
+**Project:** File Organizer CLI
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a file organiser CLI with four commands — `preview`, `organize`, `history`, `undo` — that scans a directory, maps every file to a category by extension, and moves or copies it into a typed subfolder. The preview command groups all planned moves by category and prints them without touching any files. The organize command executes the moves, saves a full run record to a JSON history file, and prints a summary. The undo command reads the last move run from history and reverses every operation.
+
+The extension-to-category mapping is built once at startup into a `Map<string, string>` for O(1) lookups — no per-file iteration through the rules array. Conflict resolution handles three modes: `skip` leaves existing destination files untouched, `overwrite` replaces them, and `rename` auto-appends `_1`, `_2`... by checking each candidate path against the real filesystem in a loop. The move operation uses `fs.renameSync` with a fallback to `copyFileSync + unlinkSync` for cross-filesystem moves (EXDEV error).
+
+The JSON history caps at 50 runs with `unshift` for newest-first ordering. The seed script creates 28 sample files spanning all 10 categories — images, videos, audio, documents, code, archives, data, fonts, executables, and miscellaneous — so the tool is immediately testable after cloning.
+
+### What I Learned
+
+- `fs.renameSync` throws `EXDEV` when crossing filesystem boundaries (e.g., different drive or mount point) — the correct fallback is `copyFileSync` followed by `unlinkSync`, not retrying `renameSync`
+- `fs.readdirSync(dir, { withFileTypes: true })` returns `Dirent` objects with `.isFile()` directly — avoids a `statSync` call per entry just to check file vs directory
+- A flat `Map<ext, folder>` built from the category rules at startup is O(1) per lookup vs O(rules) per file — the difference is negligible at 28 files but matters at tens of thousands
+- Auto-renaming conflict resolution must check each candidate path against the live filesystem in the loop — a concurrent process could create the same filename between iterations
+- `path.extname(name)` includes the leading dot (`.jpg`) and is case-sensitive on Linux — always `.toLowerCase()` before map lookup to handle `.JPG` and `.jpg` identically
+
+### Resources Used
+
+- [Node.js fs documentation](https://nodejs.org/api/fs.html)
+- [EXDEV error — cross-device rename](https://man7.org/linux/man-pages/man2/rename.2.html)
+- [Node.js path.extname](https://nodejs.org/api/path.html#pathextnamepath)
+- [fs.Dirent withFileTypes](https://nodejs.org/api/fs.html#fsreaddirsyncsyncpath-options)
