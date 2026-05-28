@@ -112,3 +112,33 @@ The JSON history caps at 50 runs with `unshift` for newest-first ordering. The s
 - [EXDEV error — cross-device rename](https://man7.org/linux/man-pages/man2/rename.2.html)
 - [Node.js path.extname](https://nodejs.org/api/path.html#pathextnamepath)
 - [fs.Dirent withFileTypes](https://nodejs.org/api/fs.html#fsreaddirsyncsyncpath-options)
+
+
+## Day 109 - May 28
+
+**Project:** API Rate Limiter Middleware
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a full rate limiting middleware system with three algorithms — sliding window, fixed window, and token bucket — all backed by SQLite via `better-sqlite3`. The middleware is a factory function that accepts a `RateLimitConfig` and returns an Express middleware, making it composable per route with independent configs. State persists across server restarts since it lives in SQLite rather than in-memory Maps.
+
+The sliding window inserts one row per request with a timestamp, counts rows in the rolling `[now - windowMs, now]` range, and uses probabilistic cleanup (1% chance per request) to prune expired entries without a full-table scan on every call. The fixed window uses a single UPSERT with a `CASE WHEN window_start = @windowStart` expression to atomically increment or reset the counter in one SQL statement. The token bucket computes elapsed time since last refill, adds `elapsed * refillRate` tokens (capped at maxRequests), deducts one, and stores the result — no separate refill job needed.
+
+Every request is logged to a `request_logs` table and accessible via `/api/stats`. The load test script fires controlled bursts at each endpoint and prints a results table showing how many requests were allowed vs blocked per algorithm. The `Retry-After` and full `X-RateLimit-*` header suite is set on every response.
+
+### What I Learned
+
+- Fixed window is vulnerable to the boundary burst problem — a client timing requests at window boundaries can make `2 × maxRequests` in a short period; sliding window eliminates this
+- Token bucket refill is stateless — compute `elapsed * rate` on each request rather than running a background job; the math produces identical results
+- `Math.floor(now / windowMs) * windowMs` snaps any timestamp to the nearest fixed window boundary — no need to store the boundary separately
+- SQLite `CASE WHEN` inside an `ON CONFLICT DO UPDATE SET` block handles conditional upsert logic atomically — increment if same window, reset to 1 if new window
+- Probabilistic cleanup (checking `Math.random() < 0.01`) keeps sliding window tables bounded without a per-request `DELETE` or a background cleanup job
+- `X-Forwarded-For` is a comma-separated string when chained through multiple proxies — always `.split(',')[0].trim()` to get the original client IP
+
+### Resources Used
+
+- [Rate limiting algorithms explained](https://www.figma.com/blog/an-alternative-approach-to-rate-limiting/)
+- [Token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket)
+- [Sliding vs fixed window comparison](https://blog.cloudflare.com/counting-things-a-lot-of-different-things/)
+- [HTTP Retry-After header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
