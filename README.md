@@ -4,15 +4,15 @@
 
 I'm building and shipping **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 109/300 🔥  
+**Current Progress:** Day 110/300 🔥  
 **Current Sprint:** Sprint 4 - Data AUtomation And Engineering
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 108/300
-- **Projects Built:** 108
-- **Current Streak:** 108 days 🔥
+- **Days Completed:** 109/300
+- **Projects Built:** 109
+- **Current Streak:** 109 days 🔥
 
 ---
 
@@ -185,7 +185,8 @@ JS/TS Scripts & Bots
 - ✅ Day 105: Budget Tracker
 - ✅ Day 106: Recipe Api
 - ✅ Day 107: Weather Alert
-- ✅ Day 108: File Organizer 
+- ✅ Day 108: File Organizer
+- ✅ Day 109: Api Limiter
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
