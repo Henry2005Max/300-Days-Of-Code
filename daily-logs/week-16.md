@@ -142,3 +142,34 @@ Every request is logged to a `request_logs` table and accessible via `/api/stats
 - [Token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket)
 - [Sliding vs fixed window comparison](https://blog.cloudflare.com/counting-things-a-lot-of-different-things/)
 - [HTTP Retry-After header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
+
+
+## Day 110 - May 29
+
+**Project:** Data Pipeline with Node.js Streams
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a multi-stage ETL pipeline using Node.js native Transform streams. The pipeline reads a 50,000-row CSV, validates every row through a Zod schema (dropping ~3% that are intentionally dirty), enriches each valid row with five computed fields, accumulates category/monthly/city aggregation stats in Maps as rows pass through, then writes the cleaned and enriched data to a new CSV and a JSON summary report. All five stages are wired together with `stream/promises.pipeline` which handles backpressure automatically.
+
+Each stage is a class extending `Transform` with `objectMode: true`. The ValidateStage uses Zod's `safeParse` to validate and coerce each row — on failure it either drops the row (SKIP_INVALID=true) or propagates an error that terminates the pipeline. The EnrichStage adds month, quarter, revenue band, discount percentage, and day-of-week without any I/O. The AggregateStage accumulates four Maps (category revenue, orders, quantity, and product revenue) plus monthly totals and city revenue while passing every row downstream — when `pipeline()` resolves the Maps are complete and ready for the summary.
+
+The generator creates 50,000 rows with realistic Nigerian sales data across 22 products, 12 cities, and 6 categories, distributed across the full 2024 calendar year. About 3% of rows have intentionally invalid values (zero unit price, negative total) to test the validation stage.
+
+### What I Learned
+
+- `stream/promises.pipeline(...stages)` propagates errors from any stage back to the awaiting caller — no need to add `.on('error')` handlers to individual streams
+- `objectMode: true` on Transform streams passes JavaScript objects between stages instead of Buffers — required for row-by-row CSV processing
+- In-stream aggregation (accumulating Maps inside a passthrough Transform) eliminates the need for a second pass over the data — the stats are complete when `pipeline()` resolves
+- `csv-parse` with `{ columns: true }` maps the CSV header row to object keys automatically, making the output compatible with objectMode Transform streams
+- `csv-stringify` with `{ columns: [...] }` controls which fields are written and their order — essential when the enriched row has more fields than the original
+- Using `\r` (carriage return without newline) in `process.stdout.write` gives live progress feedback without creating 50,000 log lines
+- Backpressure from `pipeline()` means the generator only keeps a few rows in memory at any time — heap usage stays flat even at 200,000 rows
+
+### Resources Used
+
+- [Node.js stream/promises.pipeline](https://nodejs.org/api/stream.html#streampipelinesource-transforms-destination-options)
+- [csv-parse streaming API](https://csv.js.org/parse/api/stream/)
+- [csv-stringify streaming API](https://csv.js.org/stringify/api/stream/)
+- [Node.js Transform streams](https://nodejs.org/api/stream.html#class-streamtransform)
