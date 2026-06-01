@@ -26,3 +26,32 @@ The `visLen` and `visPad` helpers from the ANSI module strip escape codes before
 - [ANSI escape code reference](https://en.wikipedia.org/wiki/ANSI_escape_code)
 - [Terminal sparkline techniques](https://github.com/holman/spark)
 - Day 101 source code — extended and improved
+
+## Day 112 - May 31
+
+**Project:** Advanced Cron Scheduler with dependencies, retries, and webhooks
+**Time Spent:** 3 hours
+
+### What I Built
+
+Extended the Day 102 cron scheduler with three production features. First, job dependencies — each job can declare a `dependsOn` array of job IDs; before each run, the scheduler queries SQLite for the last successful run of each dependency and skips the current job if any dependency hasn't succeeded within the last 5 minutes. Second, exponential backoff retry — when a job fails, it schedules a `setTimeout` retry with delay `BACKOFF_BASE * 2^(attempt-1)`, capped at 30 seconds, up to `maxRetries` attempts. Third, webhook notifications — after every success or final failure, the scheduler POSTs a JSON payload to a configurable `WEBHOOK_URL` using native `fetch`.
+
+Added an overlap prevention `Set<string>` that tracks currently-running job IDs — if the same job fires before its previous run completes, it's skipped rather than allowed to stack. Jobs can also declare a `timeout` in milliseconds; `Promise.race` between the handler and a rejecting timeout promise kills runaway jobs cleanly. All five new job types have realistic behaviour: the api-sync job has a 10% simulated failure rate specifically to demonstrate the retry chain, and report-generator depends on api-sync to show the dependency skip in action.
+
+The SQLite schema gained two columns: `attempt` (which retry number this run is) and `triggered_by` (whether it was triggered by the cron schedule, a retry, or a dependency check). The history printer shows both fields, making it easy to trace a full retry chain through the log.
+
+### What I Learned
+
+- `setTimeout` inside a catch block for retry scheduling is cleaner than a retry queue — the closure captures the job definition and current attempt count correctly without any additional state
+- `Promise.race([handler(), timeoutPromise])` where `timeoutPromise` is `new Promise<never>` that only rejects means the type of the race resolves to the handler's return type — no union type needed
+- A `Set<string>` of currently-running job IDs is sufficient for overlap prevention in a single-process scheduler — no mutex or semaphore needed
+- Dependency freshness by timestamp age (`Date.now() - lastSuccess.started_at > threshold`) handles the case where the upstream job has never run, the case where it ran too long ago, and the case where it's up-to-date — all in one check
+- Storing `triggered_by` in the run log separates cron-triggered runs from retries and dependency skips in the history view — much cleaner than inferring from the attempt number
+- `BACKOFF_BASE * 2^(attempt-1)` with `Math.min(..., 30_000)` cap ensures the backoff never exceeds 30 seconds regardless of how many retries are configured
+
+### Resources Used
+
+- [Exponential backoff algorithm](https://en.wikipedia.org/wiki/Exponential_backoff)
+- [Promise.race MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
+- [node-cron documentation](https://github.com/node-cron/node-cron)
+- Day 102 source code — extended
