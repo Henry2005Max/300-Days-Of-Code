@@ -55,3 +55,36 @@ The SQLite schema gained two columns: `attempt` (which retry number this run is)
 - [Promise.race MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
 - [node-cron documentation](https://github.com/node-cron/node-cron)
 - Day 102 source code — extended
+
+## Day 113 - June 04
+
+**Project:** GitHub Actions CI for React Native / Expo
+**Time Spent:** 3 hours
+
+### What I Built
+
+Built a production-grade GitHub Actions CI pipeline specifically for a React Native / Expo project. The pipeline has six jobs: TypeScript type-check, ESLint with both `@typescript-eslint` and `eslint-plugin-react-native` rules, a Jest test matrix across Node 18 and 20, an Expo Doctor health check, an EAS Build trigger on `main` pushes, and an always-running summary job. Wrote 35 unit tests across three files — currency utilities, validation helpers, and a `useCounter` custom hook tested with `renderHook` and `act` from `@testing-library/react-native`.
+
+The biggest difference from Day 103's generic TypeScript CI is the React Native-specific test setup. The `jest-expo` preset handles the complex `transformIgnorePatterns` list that makes Jest work with React Native's mix of CommonJS and ESM modules. Without the right patterns, imports from `expo`, `react-native`, and related packages fail during transformation. The `useCounter` hook tests use `renderHook` to mount the hook in isolation and `act` to wrap state-changing calls before assertions — the same pattern used in real React Native projects.
+
+The Expo Doctor job runs `npx expo-doctor` with `continue-on-error: true`, making it advisory-only — it reports version mismatches and config issues without ever blocking the pipeline. The EAS Build job only triggers on `push` to `main` (skipped on PRs) and requires an `EXPO_TOKEN` secret, so it cleanly separates integration checks from deployment triggers.
+
+### What I Learned
+
+- `jest-expo` preset bundles the `transformIgnorePatterns` configuration needed for React Native — without it, Jest fails on any import from `expo`, `react-native`, or related packages
+- `renderHook(() => useHook())` from `@testing-library/react-native` renders a hook in isolation without a full component; `act(() => result.current.someAction())` flushes React state updates synchronously before assertions
+- `expo-doctor` is a CLI diagnostic tool that checks for dependency version mismatches and common configuration mistakes — ideal as an advisory CI step with `continue-on-error: true`
+- EAS Build with `--non-interactive` suppresses prompts that would hang in a CI environment where stdin is not a TTY
+- Dependabot should ignore major version bumps for `expo` and `react-native` — they require coordinated upgrades across the whole dependency tree, not automated PRs
+- `github.event_name == 'push'` in the `if` condition on the EAS Build job prevents it from triggering on pull request events even when the PR targets main
+
+### Resources Used
+
+- [jest-expo documentation](https://docs.expo.dev/develop/unit-testing/)
+- [@testing-library/react-native renderHook](https://callstack.github.io/react-native-testing-library/docs/api#renderhook)
+- [EAS Build GitHub Actions](https://docs.expo.dev/eas/github-actions/)
+- [expo-doctor CLI](https://github.com/expo/expo/tree/main/packages/expo-doctor)
+
+### Tomorrow
+
+Day 114 — Log Parser v2. Extends Day 104 with structured JSON output, per-IP analysis, error pattern detection, and a configurable alert threshold system.
