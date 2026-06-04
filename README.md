@@ -1,6 +1,6 @@
 # Hi, I'm Henry! 👋 
 
-##  300 Days of Code Challenge
+##  300 Days of Code Challenge 
 
 I'm building and shipping **300 projects in 300 days** to master full-stack development!
 
