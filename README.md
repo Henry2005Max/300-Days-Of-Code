@@ -4,15 +4,15 @@
 
 I'm building and shipping **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 113/300 🔥  
+**Current Progress:** Day 114/300 🔥  
 **Current Sprint:** Sprint 4 - Data AUtomation And Engineering
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 112/300
-- **Projects Built:** 112
-- **Current Streak:** 112 days 🔥
+- **Days Completed:** 113/300
+- **Projects Built:** 113
+- **Current Streak:** 113 days 🔥
 
 ---
 
@@ -190,6 +190,7 @@ JS/TS Scripts & Bots
 - ✅ Day 110: Data Pipeline with node.js streams
 - ✅ Day 111: TypeScript dashboard Mock 2
 - ✅ Day 112: Advanced Job Scheduler
+- ✅ Day 113: Github Actions CI for React Native 
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
