@@ -41,7 +41,7 @@ export function listRecurring(userId: number): RecurringTransaction[] {
 /**
  * Returns all active recurring transactions whose next_due_date has
  * arrived (is on or before asOfDate), and which haven't passed their
- * end_date yet.
+ * end_date yet
  */
 export function getDueRecurring(asOfDate: string): RecurringTransaction[] {
   const db = getDb();
