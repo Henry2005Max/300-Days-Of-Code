@@ -104,3 +104,62 @@ still works, just without caching.
 Day 117 - Full-text search with PostgreSQL tsvector: building search
 across a larger dataset using PostgreSQL's built-in text search (tsvector
 columns, ts_rank, and GIN indexes) instead of LIKE queries.
+
+
+## Day 117 - June 13
+
+**Project:** Full-Text Search with PostgreSQL tsvector
+**Time Spent:** 4 hours
+
+### What I Built
+
+Today I built a full-text search API over a Nigerian tech and business
+article corpus using PostgreSQL's native FTS system — no external search
+engine needed. The articles table has a `search_vector` tsvector column
+that is automatically populated by a `BEFORE INSERT OR UPDATE` trigger,
+so the index is always in sync without any application code. The trigger
+combines title (weight A), body (weight B), and author plus tags (weight
+C) using `setweight()`, so a title match ranks higher than a body match.
+A GIN index on `search_vector` makes `@@` queries fast even at scale.
+
+The search engine supports three query modes depending on the input:
+`plainto_tsquery` for plain words (AND all terms together), `phraseto_tsquery`
+for quoted strings (words must appear in the same order), and
+`websearch_to_tsquery` when the query contains `&`, `|`, or `-` operators.
+Results are scored with `ts_rank_cd` (cover density ranking, which rewards
+term proximity) and include a `ts_headline` excerpt generated entirely by
+PostgreSQL with matched terms wrapped in `<b>` tags. Filters for category
+and author can be stacked alongside the FTS clause in the same query.
+
+I also added autocomplete suggestions via `ts_stat` (which returns per-lexeme
+document frequency counts across the whole corpus) and three debug endpoints:
+one that shows the raw stored tsvector for any article, one that shows how
+PostgreSQL parses an input into tsquery, and one that lists the most common
+lexemes corpus-wide. The seed data is 15 articles written by Nigerian authors
+on topics like Lagos fintech, React Native for low-end Android devices, agent
+banking in the north, Paystack vs Flutterwave, and PostgreSQL internals.
+
+### What I Learned
+
+- How `tsvector` and `tsquery` work — lexemes, stemming, the `@@` operator
+- Using `setweight()` to combine multiple fields with different relevance priorities
+- `BEFORE INSERT OR UPDATE` triggers for auto-maintaining a derived column
+- GIN vs GIST indexes for FTS: GIN is faster for lookups, GIST builds faster
+- `ts_rank_cd` (cover density) vs `ts_rank` — proximity-aware ranking
+- `ts_headline` for generating highlighted snippets with configurable options
+- `ts_stat` for lexeme frequency analysis and autocomplete
+- `plainto_tsquery` vs `phraseto_tsquery` vs `websearch_to_tsquery` differences
+
+### Resources Used
+
+- [PostgreSQL Full Text Search documentation](https://www.postgresql.org/docs/current/textsearch.html)
+- [ts_rank and ts_rank_cd](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-RANKING)
+- [ts_headline options](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-HEADLINE)
+- [GIN vs GiST indexes](https://www.postgresql.org/docs/current/textsearch-indexes.html)
+
+### Tomorrow
+
+Day 118 — Data export pipeline: generating CSV, Excel, and PDF reports
+from a PostgreSQL dataset, using csv-stringify, exceljs, and puppeteer
+in a single Express API.
+
