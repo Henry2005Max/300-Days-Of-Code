@@ -163,3 +163,61 @@ Day 118 — Data export pipeline: generating CSV, Excel, and PDF reports
 from a PostgreSQL dataset, using csv-stringify, exceljs, and puppeteer
 in a single Express API.
 
+
+## Day 118 - June 13
+
+**Project:** Data Export Pipeline (CSV + Excel + PDF)
+**Time Spent:** 4.5 hours
+
+### What I Built
+
+Today I built a sales reporting API that generates three export formats
+from the same PostgreSQL dataset. The architecture is a clean pipeline:
+one `fetchSalesReport()` function runs four queries (raw rows, totals,
+by-region with top product, by-category), returns a typed `SalesReport`
+object, and each of the three exporters transforms it into its own format.
+Filters (`from`, `to`, `region`, `category`) are applied in the SQL
+`WHERE` clause so they work identically across all three formats.
+
+The CSV exporter uses csv-stringify in synchronous mode to build a
+multi-section file — a summary block at the top (totals, regional
+breakdown, category breakdown) followed by all transaction rows. The Excel
+exporter uses ExcelJS to produce a three-sheet workbook with styled green
+headers, alternating row fills, frozen first rows, auto-fitted column
+widths, and `₦#,##0.00` number formats on all monetary columns. The PDF
+exporter uses PDFKit to generate a branded A4 report with a dark green
+cover header, three KPI cards, and manually drawn tables — PDFKit has no
+built-in table widget, so I drew each table with `doc.rect().fill()` for
+cell backgrounds and `doc.text()` with explicit coordinates. Page breaks
+are handled by checking `doc.y` before each row and calling `doc.addPage()`
+when less than one row height remains. Footer page numbers are added
+post-render by iterating `doc.switchToPage(i)`.
+
+The dataset is 200 seeded rows: 10 Nigerian sales reps across 5 regions,
+selling from a catalog of 17 products in 5 categories, over 6 months of
+2025.
+
+### What I Learned
+
+- Separating data fetching from format rendering so filter logic lives in one SQL `WHERE` clause
+- PostgreSQL `GENERATED ALWAYS AS (units * unit_price) STORED` computed columns — no trigger needed
+- csv-stringify synchronous API for multi-section CSVs with mixed header and data rows
+- ExcelJS: workbooks, worksheets, cell fills/fonts/number formats, frozen rows, auto column widths
+- PDFKit's streaming model: collecting `data` events into chunks and resolving a Promise on `end`
+- Drawing tables manually in PDFKit using `rect().fill()` and positioned `text()` calls
+- Using `doc.switchToPage(i)` after `doc.end()` to retrofit headers/footers onto all pages
+- Setting `Content-Type` and `Content-Disposition: attachment` headers for browser file downloads
+
+### Resources Used
+
+- [ExcelJS documentation](https://github.com/exceljs/exceljs)
+- [PDFKit documentation](https://pdfkit.org/docs/getting_started.html)
+- [csv-stringify documentation](https://csv.js.org/stringify/api/)
+- [PostgreSQL generated columns](https://www.postgresql.org/docs/current/ddl-generated-columns.html)
+
+### Tomorrow
+
+Day 119 — Time-series data with PostgreSQL window functions: storing
+sensor/metric readings and running complex analytics (moving averages,
+lag comparisons, percentile bands) entirely in SQL window functions.
+
