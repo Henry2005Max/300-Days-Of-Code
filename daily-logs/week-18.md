@@ -106,7 +106,7 @@ across a larger dataset using PostgreSQL's built-in text search (tsvector
 columns, ts_rank, and GIN indexes) instead of LIKE queries.
 
 
-## Day 117 - June 13
+## Day 117 - June 14
 
 **Project:** Full-Text Search with PostgreSQL tsvector
 **Time Spent:** 4 hours
@@ -164,7 +164,7 @@ from a PostgreSQL dataset, using csv-stringify, exceljs, and puppeteer
 in a single Express API.
 
 
-## Day 118 - June 13
+## Day 118 - June 15
 
 **Project:** Data Export Pipeline (CSV + Excel + PDF)
 **Time Spent:** 4.5 hours
@@ -220,4 +220,60 @@ selling from a catalog of 17 products in 5 categories, over 6 months of
 Day 119 — Time-series data with PostgreSQL window functions: storing
 sensor/metric readings and running complex analytics (moving averages,
 lag comparisons, percentile bands) entirely in SQL window functions.
+
+
+## Day 119 - June 18
+
+**Project:** Time-Series Data with PostgreSQL Window Functions
+**Time Spent:** 4.5 hours
+
+### What I Built
+
+Today I built a time-series analytics API over IoT sensor data from 10
+Nigerian city sensors, running six different window-function analyses
+entirely in PostgreSQL. The dataset is ~43,000 hourly readings generated
+by a sinusoidal seeder (daily temperature peaks, AQI spikes, power load
+patterns) across Lagos, Abuja, Kano, Port Harcourt, and Enugu, with
+deliberate 4-hour outages planted in two sensors to exercise gap detection.
+
+The six analytics modules each demonstrate a distinct window-function pattern:
+moving averages (`AVG() OVER ROWS`), running totals (`SUM() OVER UNBOUNDED
+PRECEDING`), period-over-period comparison (monthly CTE + `LAG()` + `RANK()`),
+percentile bands (`PERCENT_RANK()` + `NTILE(4)`), daily OHLC (`FIRST_VALUE` /
+`LAST_VALUE` with explicit `UNBOUNDED FOLLOWING` frame), and gap detection
+(`LEAD()` to find intervals between consecutive readings). All six are
+parameterised by the same filter set (sensorId, city, metricType, from, to,
+limit) and the WHERE clause is pushed to the innermost query so window
+functions run only over the filtered rows.
+
+I also used a BRIN index on `recorded_at` instead of a B-tree — BRIN stores
+only the min/max per block range, which is orders of magnitude smaller than
+B-tree on a large append-only time-series table. The OHLC module taught me
+that `LAST_VALUE` requires an explicit `ROWS BETWEEN UNBOUNDED PRECEDING AND
+UNBOUNDED FOLLOWING` frame, because the default frame stops at the current row,
+making `LAST_VALUE` behave identically to the current value.
+
+### What I Learned
+
+- `ROWS` vs `RANGE` frame semantics — ROWS counts physical rows, RANGE uses value equality
+- `LAST_VALUE` requires an explicit unbounded following frame to work correctly
+- Chaining window functions through CTEs for multi-step analytics (monthly agg → LAG)
+- `NULLIF(denominator, 0)` as clean division-by-zero protection
+- `PERCENT_RANK()` (continuous 0–1) vs `NTILE(n)` (discrete buckets)
+- BRIN index mechanics — block-range min/max metadata, ideal for chronological inserts
+- `LEAD()` for O(n) gap detection without a self-join
+- Keeping window partitions correctly scoped (`PARTITION BY sensor_id`) so analytics don't bleed across sensors
+
+### Resources Used
+
+- [PostgreSQL Window Functions documentation](https://www.postgresql.org/docs/current/functions-window.html)
+- [PostgreSQL Window Function Tutorial](https://www.postgresql.org/docs/current/tutorial-window.html)
+- [BRIN Index documentation](https://www.postgresql.org/docs/current/brin-intro.html)
+- [FIRST_VALUE / LAST_VALUE frame clause](https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS)
+
+### Tomorrow
+
+Day 120 — Sprint 4 Capstone & Review: a combined project that brings
+together the key Sprint 4 themes (PostgreSQL, Redis, SQLite, data export,
+FTS, window functions) into one cohesive CLI + API dashboard.
 
