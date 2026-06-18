@@ -196,7 +196,7 @@ JS/TS Scripts & Bots
 - ✅ Day 116: Redis Cache Api
 - ✅ Day 117: Full-Text Search with PostgreSQL tsvector
 - ✅ Day 118: Data Export
-- Day 119: Timeseries
+- Day 119: Timeseries with postgreSQL window function
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
