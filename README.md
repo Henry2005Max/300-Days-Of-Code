@@ -4,15 +4,15 @@
 
 I'm building and shipping **300 projects in 300 days** to master full-stack development!
 
-**Current Progress:** Day 120/300 🔥  
+**Current Progress:** Day 121/300 🔥  
 **Current Sprint:** Sprint 4 - Data AUtomation And Engineering
 
 ---
 
 ###  Challenge Stats
-- **Days Completed:** 119/300
-- **Projects Built:** 119
-- **Current Streak:** 119 days 🔥
+- **Days Completed:** 120/300
+- **Projects Built:** 120
+- **Current Streak:** 120 days 🔥
 
 ---
 
@@ -197,6 +197,7 @@ JS/TS Scripts & Bots
 - ✅ Day 117: Full-Text Search with PostgreSQL tsvector
 - ✅ Day 118: Data Export
 - ✅ Day 119: Timeseries with postgreSQL window function
+- ✅ Day 120: Sprint 4 Capstone
 
 
 ### Sprint 5: Mobile Apps (Days 121-150)
