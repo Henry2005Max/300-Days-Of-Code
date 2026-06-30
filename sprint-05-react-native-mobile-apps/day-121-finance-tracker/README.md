@@ -10,15 +10,14 @@ device; no backend required.
 
 ## Features
 
-- 💰 Track income and expense transactions with category, amount, note, and date
-- 🏠 Dashboard tab with monthly summary card (income / expenses / balance)
-- 📋 Transactions tab with all/income/expense filter chips and pull-to-refresh
-- 📊 Analytics tab: savings rate, category expense bar chart, 6-month history
-- ➕ Add Transaction modal with type toggle, category chip grid, and amount input
-- 🗑️ Swipe-to-delete (long-press delete with confirmation alert)
-- 💾 Local SQLite storage via expo-sqlite async API
-- 🎨 Consistent design tokens (colors, spacing, typography, radius)
-- 🇳🇬 Naira (₦) currency formatting throughout
+-  Track income and expense transactions with category, amount, note, and date
+- Transactions tab with all/income/expense filter chips and pull-to-refresh
+-  Analytics tab: savings rate, category expense bar chart, 6-month history
+-  Add Transaction modal with type toggle, category chip grid, and amount input
+-  Swipe-to-delete (long-press delete with confirmation alert)
+-  Local SQLite storage via expo-sqlite async API
+-  Consistent design tokens (colors, spacing, typography, radius)
+-  Naira (₦) currency formatting throughout
 
 ## Technologies Used
 
