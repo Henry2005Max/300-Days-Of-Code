@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import {
   View, Text, ScrollView, StyleSheet,
   TouchableOpacity, ActivityIndicator, RefreshControl,
