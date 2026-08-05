@@ -1,6 +1,6 @@
 # Day 121: Finance Tracker Mobile App
 
-## Description
+## Description. 
 
 A personal finance tracker mobile app built with React Native (Expo SDK 56)
 and Expo Router. Tracks income and expense transactions stored locally in
