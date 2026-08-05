@@ -141,7 +141,7 @@ npx expo start
 - `useSafeAreaInsets()` for padding content below notches and above
   home indicators without hard-coding pixel values.
 - `KeyboardAvoidingView` with `behavior="padding"` on iOS and
-  `keyboardShouldPersistTaps="handled"` on ScrollView to stop the
+  `keyboardShouldPersistTaps="handled"` on ScrollView to stop the 
   keyboard from hiding the form.
 - Custom hooks (`useTransactions`) as the right abstraction boundary
   in React Native: screens become thin shells over hooks; the hook owns
