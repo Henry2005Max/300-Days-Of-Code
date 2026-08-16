@@ -34,7 +34,7 @@ export default function DashboardScreen() {
     >
       <SummaryCard summary={summary} />
 
-      {/* Quick add FAB-style button */}
+      {/* Quick add FAB-style button */} 
       <TouchableOpacity
         style={styles.addBtn}
         onPress={() => router.push('/(modals)/add-transaction')}
