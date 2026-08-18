@@ -1,4 +1,4 @@
-# Day 121: Finance Tracker Mobile App
+# Day 121 : Finance Tracker Mobile App
 
 ## Description. 
 
