@@ -29,7 +29,7 @@ device; no backend required.
 - **react-native-safe-area-context** — notch/home indicator padding
 - **react-native-screens** — native navigation optimization
 
-## Folder Structure
+## Folder Structure 
 
 ```
 day-121-finance-tracker/
