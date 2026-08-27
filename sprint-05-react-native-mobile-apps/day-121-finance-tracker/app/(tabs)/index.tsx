@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   section: {
     marginTop: Spacing.lg,
-    paddingHorizontal: Spacing.md,
+    paddingHorizontal: Spacing.md, 
   },
   sectionHeader: {
     flexDirection: 'row',
