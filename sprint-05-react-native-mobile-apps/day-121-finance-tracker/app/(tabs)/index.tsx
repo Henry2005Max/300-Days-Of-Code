@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   addBtnText: {
     color: Colors.white,
-    fontSize: FontSize.md,
+    fontSize: FontSize.md,  
     fontWeight: '700',
   },
   section: {
